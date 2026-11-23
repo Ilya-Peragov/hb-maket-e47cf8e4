@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Главная</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/b6d61f6a852f2b892c29e893498e480d">
+<link rel="stylesheet" href="/_blob/4f56f85d2f4e02ca0912dfd3df6a2a83">
+<link rel="stylesheet" href="/_blob/7a7f2f76526be09a23ffdde0d5e074ef">
+<link rel="stylesheet" href="/_blob/05b5ccb176e10f4ea8947c672867c86e">
+<link rel="stylesheet" href="/_blob/f723dc6d14062e5908ec707b33239ccf">
+<link rel="stylesheet" href="/_blob/7a5609f0b5595feedf4e981df638ec2c">
+<link rel="stylesheet" href="/_blob/6e83a7c838f5045c8d7a133dec189fc9">
+<link rel="stylesheet" href="/_blob/692513e374d3f5f56ee20080c25bfe57">
+<link rel="stylesheet" href="/_blob/4885ad303115e6d1a8f040d3c04bb007">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+<style>body{margin:0}
+
+/* gd: Главная и Деньги, макет v2. Только токены кита. */
+.hb.kab--agent .gd-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-chip { gap: 6px; padding-inline: 14px; text-decoration: none; }
+.hb.kab--agent .gd-chip b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-chip.is-hot { background: color-mix(in srgb, var(--hb-err) 9%, var(--hb-paper)); border-color: color-mix(in srgb, var(--hb-err) 35%, var(--hb-line)); color: var(--hb-err); }
+.hb.kab--agent .gd-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-sec { display: grid; gap: 12px; min-width: 0; }
+.hb.kab--agent .gd-lrow .lrow__m { display: flex; align-items: center; gap: 12px; justify-items: initial; font-size: var(--bb-small); }
+.hb.kab--agent .gd-lrow .lrow__m > span { white-space: nowrap; }
+.hb.kab--agent .gd-lrow .lrow__b > span, .hb.kab--agent .gd-lrow .lrow__b > b { white-space: normal; overflow: visible; text-overflow: clip; }
+.hb.kab--agent .gd-sum { font: 600 var(--bb-text)/var(--bb-row-l) var(--font-ui); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--hb-ink); }
+.hb.kab--agent .gd-mini { display: grid; gap: 2px; min-width: 0; }
+.hb.kab--agent .gd-mini b { font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .gd-mini span { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-tabs .tabs__list { flex-wrap: nowrap; overflow-x: auto; }
+@media (max-width: 899px) { .hb.kab--agent .gd-tabs .tabs__list button { padding-inline: 10px; flex: 1 0 auto; justify-content: center; } .hb.kab--agent .gd-tabs .gd-cnt { display: none; } }
+.hb.kab--agent .gd-cnt { display: inline-block; margin-left: 6px; padding: 0 8px; border-radius: var(--hb-r-pill); background: var(--hb-sunken); color: var(--hb-ink-2); font-size: var(--bb-cap); line-height: 20px; font-weight: 600; }
+.hb.kab--agent .gd-path { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-path--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.hb.kab--agent .gd-step { position: relative; display: grid; gap: 2px; align-content: start; width: 100%; min-height: 116px; padding: 14px 14px 12px; border: 1px solid var(--hb-line); border-top: 4px solid var(--hb-control); border-radius: var(--hb-r-m); background: var(--hb-paper); font: inherit; text-align: left; color: var(--hb-ink); cursor: pointer; }
+.hb.kab--agent .gd-step:hover { background: var(--hb-sunken); }
+.hb.kab--agent .gd-step[aria-pressed="true"] { border-color: var(--hb-accent); background: var(--hb-sel-bg); box-shadow: inset 0 0 0 1px var(--hb-accent); }
+.hb.kab--agent .gd-step__n { font: 600 28px/32px var(--font-ui); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-step__t { font-weight: 600; }
+.hb.kab--agent .gd-step__a { color: var(--hb-accent-text); font-weight: 600; font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-step__a.is-muted { color: var(--hb-ink-2); font-weight: 400; }
+.hb.kab--agent .gd-step__s { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-step.is-hot { border-top-color: var(--hb-err); }
+.hb.kab--agent .gd-step.is-ok { border-top-color: var(--hb-ok); }
+.hb.kab--agent .gd-here { position: absolute; top: 8px; right: 10px; padding: 0 8px; border-radius: var(--hb-r-pill); background: var(--hb-err); color: var(--hb-on-accent); font-size: var(--bb-cap); line-height: 20px; font-weight: 600; }
+.hb.kab--agent .gd-cols { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.hb.kab--agent .gd-cols__m { flex: 999 1 560px; min-width: 0; display: grid; gap: 24px; }
+.hb.kab--agent .gd-cols__s { flex: 1 1 300px; min-width: 0; display: grid; gap: 16px; }
+.hb.kab--agent .gd-feed { display: grid; grid-template-columns: minmax(0, 640px) 300px; justify-content: center; gap: 24px; align-items: start; }
+.hb.kab--agent .gd-feed__m { display: grid; gap: 20px; min-width: 0; }
+.hb.kab--agent .gd-feed__s { display: grid; gap: 16px; min-width: 0; }
+.hb.kab--agent .gd-day { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-day__h { display: flex; align-items: center; gap: 10px; margin: 0; font: 600 var(--bb-text)/var(--bb-row-l) var(--font-display); color: var(--hb-ink); }
+.hb.kab--agent .gd-day__h::after { content: ""; flex: 1; height: 1px; background: var(--hb-line); }
+.hb.kab--agent .gd-ev { display: grid; gap: 10px; padding: 16px; border: 1px solid var(--hb-line); border-left: 5px solid var(--hb-control); border-radius: var(--hb-r-m); background: var(--hb-paper); }
+.hb.kab--agent .gd-ev.is-hot { border-left-color: var(--hb-err); }
+.hb.kab--agent .gd-ev.is-warn { border-left-color: var(--hb-warn); }
+.hb.kab--agent .gd-ev.is-ok { border-left-color: var(--hb-ok); }
+.hb.kab--agent .gd-ev.is-big { padding: 20px; box-shadow: var(--hb-e1); }
+.hb.kab--agent .gd-ev__h { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.hb.kab--agent .gd-ev__who { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.hb.kab--agent .gd-ev__who b { display: block; font-weight: 600; color: var(--hb-ink); font-size: var(--bb-text); line-height: var(--bb-row-l); }
+.hb.kab--agent .gd-ev__who span:not(.avatar) { display: block; color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-ev__t { color: var(--hb-ink-2); white-space: nowrap; font-size: var(--bb-small); }
+.hb.kab--agent .gd-ev__big { font: 600 36px/44px var(--font-ui); font-variant-numeric: tabular-nums; color: var(--hb-ink); }
+.hb.kab--agent .gd-ev__a { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.hb.kab--agent .gd-ev__facts { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-ev__facts b { color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .gd-pay3 { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .gd-pay3 li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--hb-line); }
+.hb.kab--agent .gd-pay3 li span { color: var(--hb-ink-2); }
+.hb.kab--agent .gd-pay3 li b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hb.kab--agent .gd-det { display: grid; gap: 4px; margin: 0; padding: 4px 0 0; }
+.hb.kab--agent .gd-det > div { display: flex; justify-content: space-between; gap: 12px; }
+.hb.kab--agent .gd-det dt { color: var(--hb-ink-2); }
+.hb.kab--agent .gd-det dd { margin: 0; font-weight: 600; text-align: right; }
+.hb.kab--agent .gd-pin-w { display: contents; }
+.hb.kab--agent .gd-note-s { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-note-s .ic { width: 18px; height: 18px; flex: none; color: var(--hb-ok); }
+@media (max-width: 899px) {
+  .hb.kab--agent .gd-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hb.kab--agent .gd-chip { justify-content: center; width: 100%; }
+  .hb.kab--agent .gd-lrow { grid-template-columns: auto minmax(0, 1fr); }
+  .hb.kab--agent .gd-lrow .lrow__m { grid-column: 1 / -1; justify-content: space-between; }
+  .hb.kab--agent .gd-lrow .lrow__m .btn { flex: 1 1 auto; max-width: 180px; }
+  .hb.kab--agent .gd-path { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .hb.kab--agent .gd-path--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hb.kab--agent .gd-step { min-height: 96px; padding: 10px 10px 8px; }
+  .hb.kab--agent .gd-step__n { font-size: 24px; line-height: 28px; }
+  .hb.kab--agent .gd-here { top: 6px; right: 6px; }
+  .hb.kab--agent .gd-feed { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-bottom: 80px; }
+  .hb.kab--agent .gd-feed--first .gd-feed__s { order: -1; }
+  .hb.kab--agent .gd-pin { position: fixed; left: 16px; right: 72px; bottom: 76px; z-index: 20; width: auto; justify-content: center; box-shadow: var(--hb-e3); }
+  .hb.kab--agent .gd-ev.is-big { padding: 16px; }
+  .hb.kab--agent .gd-ev__big { font-size: 32px; line-height: 40px; }
+  .hb.kab--agent .gd-ev__a .btn:not(.gd-pin) { flex: 1 1 auto; }
+  .hb.kab--agent .pv-now__facts { gap: 4px 16px; padding: 8px 12px; }
+}
+
+.hb.kab--agent .gd-focus { display: grid; gap: 20px; width: 100%; max-width: 640px; margin: 0 auto; }
+.hb.kab--agent .gd-focus-in { display: grid; gap: 20px; }
+.hb.kab--agent .gd-fbar { display: grid; gap: 8px; }
+.hb.kab--agent .gd-fbar p { margin: 0; color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-fbar b { color: var(--hb-ink); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-fcard { display: grid; gap: 24px; padding: 32px; border: 1px solid var(--hb-line); border-top: 6px solid var(--hb-err); border-radius: var(--hb-r-l, var(--hb-r-xl)); background: var(--hb-paper); box-shadow: var(--hb-e2); }
+.hb.kab--agent .gd-fcard.is-calm { border-top-color: var(--hb-accent); }
+.hb.kab--agent .gd-fcard__who { display: flex; align-items: center; gap: 14px; }
+.hb.kab--agent .gd-fcard__who .avatar { width: 56px; height: 56px; }
+.hb.kab--agent .gd-fcard__who b { display: block; font: 600 24px/32px var(--font-display); color: var(--hb-ink); }
+.hb.kab--agent .gd-fcard__who span:not(.avatar) { color: var(--hb-ink-2); }
+.hb.kab--agent div.gd-fcard__big { font: 600 64px/72px var(--font-ui); font-variant-numeric: tabular-nums; color: var(--hb-err); margin: 0; }
+.hb.kab--agent div.gd-fcard__big.is-calm { color: var(--hb-ink); }
+.hb.kab--agent .gd-fcard__facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 14px 16px; border-radius: var(--hb-r-m); background: var(--hb-sunken); }
+.hb.kab--agent .gd-fcard__facts dt { color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .gd-fcard__facts dd { margin: 2px 0 0; font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .gd-fcard__a { display: grid; gap: 8px; justify-items: stretch; }
+.hb.kab--agent .gd-fcard__a .btn { justify-content: center; }
+.hb.kab--agent .gd-fnext { display: grid; gap: 8px; }
+.hb.kab--agent .gd-fnext h2 { margin: 0; font: 600 var(--bb-text)/var(--bb-row-l) var(--font-display); }
+.hb.kab--agent .gd-fnext ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-fnext li { display: grid; padding: 8px 12px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-fnext li b { color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .gd-fnext li span { color: var(--hb-ink-2); }
+.hb.kab--agent .gd-tl { display: grid; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-tl__r { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 0 12px; padding-bottom: 12px; }
+.hb.kab--agent .gd-tl__t { padding-top: 16px; text-align: right; color: var(--hb-ink-2); font-size: var(--bb-small); font-variant-numeric: tabular-nums; font-weight: 600; }
+.hb.kab--agent .gd-tl__c { position: relative; min-width: 0; padding-left: 18px; border-left: 2px solid var(--hb-line); }
+.hb.kab--agent .gd-tl__c::before { content: ""; position: absolute; left: -7px; top: 20px; width: 12px; height: 12px; border-radius: 50%; background: var(--hb-paper); border: 2px solid var(--hb-control); }
+.hb.kab--agent .gd-tl__r.is-hot .gd-tl__c::before { border-color: var(--hb-err); background: var(--hb-err); }
+.hb.kab--agent .gd-tl__r.is-free .gd-tl__c { padding-block: 14px; color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .gd-now { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; padding: 0; list-style: none; color: var(--hb-err); font-weight: 600; font-size: var(--bb-small); }
+.hb.kab--agent .gd-now span { width: 64px; text-align: right; font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-now::after { content: ""; flex: 1; height: 2px; background: var(--hb-err); }
+.hb.kab--agent .gd-late { display: grid; gap: 10px; padding: 14px; border: 1px solid color-mix(in srgb, var(--hb-err) 35%, var(--hb-line)); border-radius: var(--hb-r-m); background: color-mix(in srgb, var(--hb-err) 5%, var(--hb-paper)); }
+.hb.kab--agent .gd-late h2 { margin: 0; font: 600 var(--bb-text)/var(--bb-row-l) var(--font-display); color: var(--hb-err); }
+.hb.kab--agent .gd-wk { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-wkall { margin-top: 8px; }
+.hb.kab--agent .gd-wk li { display: grid; gap: 8px; padding: 10px 0; border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .gd-wk li.is-today { background: var(--hb-sel-bg); margin-inline: 0; padding-inline: 8px; border-radius: var(--hb-r-s, 8px); }
+.hb.kab--agent .gd-wk b { color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .gd-wk .gd-wk__e { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.hb.kab--agent .gd-wk .gd-wk__e span { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-top { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; }
+.hb.kab--agent .gd-top .panel { align-content: start; }
+.hb.kab--agent div.gd-top__big { font: 600 48px/56px var(--font-ui); font-variant-numeric: tabular-nums; margin: 0; color: var(--hb-ink); }
+.hb.kab--agent div.gd-top__big.is-soft { color: var(--hb-ink-2); }
+.hb.kab--agent .gd-earns { display: grid; margin: 0; padding: 0; list-style: none; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); overflow: hidden; }
+.hb.kab--agent .gd-earn { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px 16px; padding: 14px 16px; border-bottom: 1px solid var(--hb-line); }
+.hb.kab--agent .gd-earns > li:last-child { border-bottom: 0; }
+.hb.kab--agent .gd-earn__b b { display: block; color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .gd-earn__b span { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-earn__a { display: flex; align-items: center; gap: 12px; }
+.hb.kab--agent .gd-earn__a .ic { width: 20px; height: 20px; color: var(--hb-ink-2); flex: none; }
+.hb.kab--agent .gd-earn__sum { min-width: 120px; font: 600 24px/32px var(--font-ui); font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; color: var(--hb-ink); }
+.hb.kab--agent .gd-earn.is-top .gd-earn__sum { color: var(--hb-accent-text); }
+@media (max-width: 899px) {
+  .hb.kab--agent .gd-focus { min-height: calc(100svh - 230px); align-content: start; gap: 14px; }
+  .hb.kab--agent .gd-fcard { padding: 20px; gap: 18px; }
+  .hb.kab--agent div.gd-fcard__big { font-size: 52px; line-height: 60px; }
+  .hb.kab--agent .gd-fcard__facts { grid-template-columns: 1fr; gap: 8px; }
+  .hb.kab--agent .gd-fcard__facts div { display: flex; justify-content: space-between; gap: 12px; }
+  .hb.kab--agent .gd-fcard__facts dd { margin: 0; }
+  .hb.kab--agent .gd-tl__r { grid-template-columns: 44px minmax(0, 1fr); gap: 0 8px; }
+  .hb.kab--agent .gd-tl__c { padding-left: 14px; }
+  .hb.kab--agent .gd-now span { width: 44px; }
+  .hb.kab--agent .gd-late { padding: 10px; gap: 6px; }
+  .hb.kab--agent .gd-late .avatar, .hb.kab--agent .gd-late .lrow__b span { display: none; }
+  .hb.kab--agent .gd-late .gd-lrow { grid-template-columns: minmax(0, 1fr) auto; gap: 0 8px; padding-block: 6px; }
+  .hb.kab--agent .gd-late .lrow__m { display: contents; }
+  .hb.kab--agent .gd-late .lrow__m > span { grid-column: 1; grid-row: 2; }
+  .hb.kab--agent .gd-late .gd-lrow .btn { grid-column: 2; grid-row: 1 / 3; max-width: none; }
+  .hb.kab--agent .gd-top { grid-template-columns: minmax(0, 1fr); }
+  .hb.kab--agent div.gd-top__big { font-size: 44px; line-height: 52px; }
+  .hb.kab--agent .gd-earn { grid-template-columns: auto minmax(0, 1fr); }
+  .hb.kab--agent .gd-earn__a { grid-column: 1 / -1; justify-content: space-between; flex-direction: row-reverse; }
+  .hb.kab--agent .gd-earn__a .btn { white-space: nowrap; }
+  .hb.kab--agent .gd-earn__sum { font-size: 24px; line-height: 36px; text-align: left; min-width: 0; }
+  .hb.kab--agent .gd-earn__a .btn { flex: 0 1 auto; }
+}
+
+.hb.kab--agent .gd-pult { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.hb.kab--agent .gd-w { grid-template-columns: minmax(0, 1fr); display: grid; align-content: start; gap: 8px; min-width: 0; padding: 14px 16px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); }
+.hb.kab--agent .gd-w--2 { grid-column: span 2; }
+.hb.kab--agent .gd-w.is-hot { border-top: 4px solid var(--hb-err); }
+.hb.kab--agent .gd-w__h { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; }
+.hb.kab--agent .gd-w__n { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.hb.kab--agent .gd-w__n b { font: 600 34px/40px var(--font-ui); font-variant-numeric: tabular-nums; color: var(--hb-ink); white-space: nowrap; }
+.hb.kab--agent .gd-w--money .gd-w__n b { font-size: 26px; line-height: 40px; }
+.hb.kab--agent .gd-w__way details { width: 100%; }
+.hb.kab--agent .gd-w__way summary { display: flex; justify-content: space-between; gap: 8px; min-height: 44px; align-items: center; cursor: pointer; list-style: none; }
+.hb.kab--agent .gd-w__way summary::-webkit-details-marker { display: none; }
+.hb.kab--agent .gd-w__way p { margin: 0 0 8px; color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-w__n span { color: var(--hb-ink-2); font-weight: 600; }
+.hb.kab--agent .gd-w.is-hot .gd-w__n b { color: var(--hb-err); }
+.hb.kab--agent .gd-w__l { flex: none; text-decoration: none; display: inline-flex; align-items: center; gap: 2px; min-height: 44px; padding-inline: 4px; color: var(--hb-accent-text); font-weight: 600; font-size: var(--bb-small); }
+.hb.kab--agent .gd-w__l .ic { width: 18px; height: 18px; }
+.hb.kab--agent .gd-w__r { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-w__r li { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 30px; border-top: 1px solid var(--hb-line); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-w__r li.is-act { min-height: 56px; }
+.hb.kab--agent .gd-w__r b { color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .gd-w__r span { color: var(--hb-ink-2); text-align: right; }
+.hb.kab--agent .gd-w__r .pv-late { color: var(--hb-err); }
+.hb.kab--agent .gd-w__r .btn { flex: none; }
+.hb.kab--agent .gd-w__r .btn span { color: inherit; text-align: inherit; }
+.hb.kab--agent .gd-fun li { display: grid; grid-template-columns: 78px minmax(0, 1fr) 28px; gap: 8px; align-items: center; min-height: 24px; border-top: 0; }
+.hb.kab--agent .gd-fun i { display: block; height: 8px; border-radius: 4px; background: var(--hb-accent); }
+.hb.kab--agent .gd-fun b { text-align: right; font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-fgrid { display: grid; grid-template-columns: minmax(0, 640px) 260px; gap: 24px; justify-content: center; align-items: start; }
+.hb.kab--agent .gd-dg { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-dg a { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 56px; padding: 8px 14px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); text-decoration: none; color: var(--hb-ink-2); }
+.hb.kab--agent .gd-dg a:hover { background: var(--hb-sunken); }
+.hb.kab--agent .gd-dg b { font: 600 22px/28px var(--font-ui); font-variant-numeric: tabular-nums; color: var(--hb-ink); white-space: nowrap; }
+.hb.kab--agent .gd-dg a.is-hot b { color: var(--hb-err); }
+.hb.kab--agent .gd-dg span { font-weight: 600; font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-dg small { display: block; font-weight: 400; color: var(--hb-ink-2); }
+@media (max-width: 899px) {
+  .hb.kab--agent .gd-pult { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .hb.kab--agent .gd-w--2 { grid-column: auto; }
+  .hb.kab--agent .gd-fgrid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .hb.kab--agent .gd-dg { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .hb.kab--agent .gd-dg a { padding: 6px 10px; }
+  .hb.kab--agent .gd-dg b { font-size: 18px; line-height: 24px; }
+}
+</style>
+<style id="hb-partner-fix">
+/* Финальные правки проверки: меню без многоточий, доска без разрыва слов, вкладки на телефоне видны целиком. Только под .hb.kab--agent. */
+.hb.kab--agent .kab__me { gap: 8px; padding-inline: 8px; }
+.hb.kab--agent .kab__me b, .hb.kab--agent .kab__me small { white-space: normal; overflow: visible; text-overflow: clip; }
+.hb.kab--agent .knav a { gap: 10px; padding-inline: 8px; height: auto; padding-block: 8px; }
+.hb.kab--agent .knav a > span:not(.badge) { white-space: normal; overflow: visible; text-overflow: clip; }
+@media (max-width: 767px) {
+  html .hb.kab--agent .tabs__list { flex-wrap: wrap; overflow: visible; row-gap: 0; column-gap: 0; }
+  html .hb.kab--agent .tabs__list::after { display: none; }
+  html .hb.kab--agent .tabs__list > :is(button, a) { padding-inline: 6px; gap: 4px; font-size: 14px; flex: 1 1 45%; justify-content: center; }
+}
+</style>
+<style id="hb-1911-razdely">
+/* 19.11: иконки действий, строки и карточки, которые открываются, подсказки «i». Только токены кита. */
+.hb.kab--agent [data-tip] { position: relative; }
+.hb.kab--agent [data-tip]::after { content: attr(data-tip); display: none; position: absolute; z-index: 40; top: calc(100% + 6px); left: 0; width: max-content; max-width: min(240px, calc(100vw - 48px)); padding: 8px 12px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-s); background: var(--hb-paper); box-shadow: var(--hb-e2); font: 400 var(--hb-fs-cap)/18px var(--font-ui); font-weight: 400; text-align: start; white-space: normal; color: var(--hb-ink-2); pointer-events: none; transform: translateX(var(--tdx, 0px)); }
+.hb.kab--agent [data-tip]:hover::after, .hb.kab--agent [data-tip]:focus::after { display: block; }
+.hb.kab--agent [data-tip].x-w::after { top: 50%; left: auto; right: calc(100% + 6px); transform: translate(var(--tdx, 0px), -50%); }
+.hb.kab--agent .btn.btn--icon.x-w { flex: none; width: var(--hb-h-m); min-width: var(--hb-h-m); padding: 0; }
+.hb.kab--agent .lrow__m .btn.x-w { margin-inline-start: auto; }
+.hb.kab--agent .x-i { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-inline-start: 4px; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--hb-ink-3); vertical-align: middle; cursor: help; }
+.hb.kab--agent .x-i .ic { width: 16px; height: 16px; }
+.hb.kab--agent .x-i:hover, .hb.kab--agent .x-i:focus-visible { color: var(--hb-accent-text); }
+.hb.kab--agent .x-op { position: relative; }
+.hb.kab--agent .x-op:hover { background: var(--hb-sunken); }
+.hb.kab--agent .x-op__t { padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: start; text-decoration: none; cursor: pointer; }
+.hb.kab--agent .x-op__t::after { content: ""; position: absolute; inset: 0; z-index: 0; }
+.hb.kab--agent .x-op:has(.x-op__t:focus-visible) { outline: var(--hb-ring); outline-offset: -2px; }
+.hb.kab--agent .x-op .btn { position: relative; z-index: 1; }
+.hb.kab--agent .x-chev { flex: none; width: 20px; height: 20px; color: var(--hb-ink-3); }
+.hb.kab--agent .x-op:hover .x-chev { color: var(--hb-ink); }
+.hb.kab--agent .x-lnk { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
+.hb.kab--agent .x-lnk:hover { color: var(--hb-accent-text); }
+.hb.kab--agent .x-lnk .x-chev { width: 16px; height: 16px; }
+.hb.kab--agent .lrow__m .x-chev { margin-inline-start: -4px; }
+.hb.kab--agent .rz-cc__h .x-chev { margin-inline-start: auto; }
+.hb.kab--agent a.sa-who { padding: 4px 8px; margin: -4px -8px; border-radius: var(--hb-r-m); }
+.hb.kab--agent a.sa-who:has(.x-chev) { grid-template-columns: 44px minmax(0, 1fr) auto; }
+.hb.kab--agent a.sa-who:hover { background: var(--hb-sunken); }
+.hb.kab--agent .hl-card { position: relative; }
+.hb.kab--agent .hl-card .x-chev { position: absolute; right: 12px; bottom: 14px; }
+.hb.kab--agent .hl-card:hover { background: var(--hb-sunken); }
+/* + главная, деньги, сеть, команда */
+.hb.kab--agent .x-op__t--s::after { display: none; }
+.hb.kab--agent .x-op details, .hb.kab--agent .x-op summary { position: relative; z-index: 1; }
+.hb.kab--agent .x-push { margin-inline-start: auto; }
+.hb.kab--agent .x-tr { display: flex; align-items: center; gap: 6px; }
+.hb.kab--agent .x-op__t.gd-w__n { display: flex; }
+.hb.kab--agent .x-lbl { display: inline-flex; align-items: center; white-space: nowrap; }
+.hb.kab--agent .x-ev__b { display: block; }
+.hb.kab--agent .gd-wk__e.x-op .x-op__t { flex: 1 1 auto; min-width: 0; }
+@media (max-width: 899px) {
+  .hb.kab--agent .pv-card__a { display: flex; align-items: center; gap: 8px; }
+  .hb.kab--agent .gd-late .lrow__m .x-chev { display: none; }
+}
+</style>
+<style id="hb-1911-ksenia1">
+/* Размеры как в кабинете агента: цифры 24/32, QR 156, без гигантских чисел и блоков на весь экран. Токены --hb-*. */
+.hb.kab--agent .pv-big b,
+.hb.kab--agent .gd-w__n b,
+.hb.kab--agent .gd-w--money .gd-w__n b,
+.hb.kab--agent .gd-ev__big,
+.hb.kab--agent .gd-mo__sum,
+.hb.kab--agent .gd-bal__n,
+.hb.kab--agent div.gd-top__big,
+.hb.kab--agent .rz-step b { font: 600 24px/32px var(--font-ui); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .rz-step { padding: 14px 8px; }
+.hb.kab--agent .rz-arrow { font-size: 18px; }
+.hb.kab--agent .gd-bal { padding: 18px 16px; }
+.hb.kab--agent .gd-fcard { padding: 22px; gap: 16px; border-top-width: 3px; box-shadow: none; }
+.hb.kab--agent .gd-fcard__who .avatar { width: 44px; height: 44px; }
+.hb.kab--agent .gd-fcard__who b { font: 600 18px/24px var(--font-display); }
+.hb.kab--agent div.gd-fcard__big { font: 600 14px/20px var(--font-ui); margin: 0; color: var(--hb-ink); }
+.hb.kab--agent div.gd-fcard__big .pv-timer { justify-self: start; }
+.hb.kab--agent .rz-qrbig { padding: 18px; gap: 12px; }
+@media (max-width: 899px) { .hb.kab--agent .rz-step { grid-auto-flow: column; justify-content: space-between; align-items: center; padding: 10px 14px; text-align: left; } .hb.kab--agent .rz-arrow { height: 20px; } }
+.hb.kab--agent .rz-qrbig > svg { width: min(156px, 100%); padding: 8px; }
+</style>
+<style id="hb-svod-main">
+/* Свод 19.11: блок «Ждут ответа» компактными строками. Токены --hb-*. */
+.hb.kab--agent .gd-wait { display: grid; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-wait__r { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 10px 8px; margin-inline: 0; border-top: 1px solid var(--hb-line); border-radius: var(--hb-r-s, 8px); }
+.hb.kab--agent .gd-wait__r:first-child { border-top: 0; }
+.hb.kab--agent .gd-wait__b { display: grid; gap: 2px; min-width: 0; }
+.hb.kab--agent .gd-wait__b b { font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .gd-wait__b span, .hb.kab--agent .gd-wait__t { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-wait__r .avatar { width: 36px; height: 36px; flex: none; }
+.hb.kab--agent .gd-wait__t { white-space: nowrap; }
+</style>
+<style>
+/* size-pass 21.11.2026 v2: единая шкала размеров кабинета агента. Десктоп: кнопка в карточке, строке, ленте, подсказке 32 (кегль 14, отступ 12, иконка 16); главная кнопка шапки и кнопки модального окна 40 (кегль 15); выпадающий список: триггер 32, пункт 36, кегль 14, стрелка 16. 48 нет нигде. Причина прежней разницы «Подробнее»/«Скрыть»: вариант .btn--t кита держит min-height: --hb-h-touch, и это значение было 40; теперь на десктопе --hb-h-touch = 32, а высота и кегль кнопок заданы одним правилом для всех вариантов. Не менять раскладку, только размеры. */
+.hb.kab--agent { --hb-h-xs: 24px; --hb-h-s: 32px; --hb-h-m: 40px; --hb-h-l: 40px; --hb-h-touch: 32px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-tabs a { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-pl.k2-pl.k2-pl { min-height: 24px; font-size: 13px; line-height: 18px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.x-i, .k3-info) { width: 28px; height: 28px; margin-block: -4px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-cc > div, .k2-sec) { grid-template-columns: minmax(0, 1fr); }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .fbtn, .sa-cb, .ocard__pick):not(.btn--icon, .btn--link) { min-height: 32px; padding-inline: 12px; font-size: 14px; line-height: 20px; gap: 6px; border-width: 1px; width: auto; height: auto; min-width: 0; flex: 0 0 auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .fbtn, .sa-cb, .ocard__pick) .ic { width: 16px; height: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-ib.k2-ib--s, .fmeta__reset) { min-width: 32px; min-height: 32px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn--icon, .btn--round) { width: 32px; height: 32px; min-width: 32px; min-height: 32px; padding: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot) .btn:not(.btn--icon, .btn--link) { min-height: 40px; padding-inline: 16px; font-size: 15px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__acts :is(.help-q, .btn--icon), .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__head .btn--icon { width: 40px; height: 40px; min-width: 40px; min-height: 40px; padding: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sputnik { width: 40px; height: 40px; min-width: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.select, .cs__btn) { position: relative; display: flex; align-items: center; min-height: 32px; padding: 0 32px 0 12px; font-size: 14px; line-height: 20px; text-align: left; background-image: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__val { font-size: inherit; line-height: inherit; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__btn::after { content: ""; position: absolute; right: 10px; top: 50%; width: 16px; height: 16px; margin: -8px 0 0; border: 0; transform: none; background: var(--hb-ink-2); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat; pointer-events: none; transition: transform var(--hb-dur-1, .15s); }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.cs.is-open > .cs__btn, .cs__btn[aria-expanded="true"])::after { transform: rotate(180deg); }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__pop:not(.k2-cal) { width: max-content; min-width: 100%; max-width: min(360px, calc(100vw - 32px)); padding: 6px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__opt { display: flex; align-items: center; min-height: 36px; padding: 6px 40px 6px 12px; font-size: 14px; line-height: 20px; white-space: nowrap; text-align: left; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 36px; font-size: 14px; line-height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.fdd__pop, .fbar .fdd__pop) :is(.check, .radio) { font-size: 14px; line-height: 20px; }
+@media (min-width: 900px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .fmeta__sort .fdd__pop { width: max-content; min-width: 100%; max-width: min(360px, calc(100vw - 32px)); }
+  .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .fmeta__sort .fdd__pop .radio { white-space: nowrap; }
+}
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent { --hb-h-xs: 32px; --hb-h-s: 40px; --hb-h-m: 40px; --hb-h-l: 40px; --hb-h-touch: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .fbtn, .sa-cb, .ocard__pick):not(.btn--icon, .btn--link), .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.select, .cs__btn) { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .fbtn, .sa-cb, .ocard__pick):not(.btn--icon, .btn--link) { font-size: 15px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn--icon, .btn--round, .k2-ib.k2-ib--s, .fmeta__reset, .help-q, .k3t__x, .top__lang, .tb-btn, .sputnik) { width: 40px; height: 40px; min-width: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .fmeta__reset { width: auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.x-i, .k3-info) { width: 40px; height: 40px; margin-block: -10px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pill, .gd-chip, .qchip, .seg > button, .k3m__tg) { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__opt, .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kk-dd .cs__pop { left: auto; right: 0; }
+</style>
+<style id="hb-ovl-center">
+/* 21.11 вечер: все окна строго по центру видимой области, на телефоне лист снизу */
+.hb.hb.kab--agent .pv-ovl, .hb.hb.kab--agent .k3-ovl { position: fixed !important; inset: 0 !important; z-index: 1000 !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 16px !important; box-sizing: border-box; overflow-y: auto; width: auto !important; max-width: none !important; margin: 0 !important; }
+.hb.hb.kab--agent .pv-ovl > .pv-modal, .hb.hb.kab--agent .k3-ovl > .k3-win { margin: 0 !important; }
+.hb.hb.kab--agent .pv-ovl > .pv-modal { max-height: calc(100dvh - 32px); overflow-y: auto; }
+.hb.hb.kab--agent .k3-ovl--r { justify-content: flex-end !important; align-items: stretch !important; padding: 0 !important; }
+.hb.hb.kab--agent .k3-ovl--r > .k3-drw { margin: 0 !important; height: 100dvh !important; max-height: none !important; }
+@media (max-width: 640px) {
+  .hb.hb.kab--agent :is(.pv-ovl, .k3-ovl, .k3-ovl--r) { align-items: flex-end !important; justify-content: center !important; padding: 0 !important; }
+  .hb.hb.kab--agent :is(.pv-ovl > .pv-modal, .k3-ovl > .k3-win, .k3-ovl--r > .k3-drw) { width: 100% !important; max-width: 100% !important; border-radius: var(--hb-r-xl, 16px) var(--hb-r-xl, 16px) 0 0 !important; border-bottom: 0 !important; }
+  .hb.hb.kab--agent .pv-ovl > .pv-modal { max-height: 90dvh; }
+  .hb.hb.kab--agent .k3-ovl > .k3-win { max-height: 90dvh !important; }
+  .hb.hb.kab--agent .k3-ovl--r > .k3-drw { height: auto !important; max-height: 90dvh !important; min-height: 60dvh; }
+}
+/* окно уведомлений: по ширине экрана, текст переносится */
+.hb.hb.kab--agent .pv-pop--bell-side { position: fixed; z-index: 200; left: 12px; top: 60px; width: min(340px, calc(100vw - 24px)); max-width: none; }
+.hb.hb.kab--agent .pv-pop--bell-top { width: min(340px, calc(100vw - 16px)); max-width: none; }
+.hb.hb.kab--agent .pv-pop__h { flex-wrap: wrap; }
+.hb.hb.kab--agent .kab__side { z-index: 60; }
+.hb.hb.kab--agent .pv-pop li a b, .hb.hb.kab--agent .pv-pop li a span { overflow-wrap: anywhere; white-space: normal; min-width: 0; }
+</style>
+<style id="hb-modal-layout">
+/* 21.11 вечер: единая раскладка окна. Отступы 24 (телефон 20), шапка в одну строку, подвал справа */
+.hb.hb.kab--agent .pv-modal .modal__in { display: grid; gap: 16px; padding: 24px; }
+.hb.hb.kab--agent .k3-win { padding: 24px; gap: 16px; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 32px; padding: 0; margin: 0; border: 0; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__head h2 { margin: 0; font-size: 20px; line-height: 26px; font-weight: 600; letter-spacing: 0; min-width: 0; overflow-wrap: anywhere; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__head .btn--icon { flex: none; margin: 0; width: 32px !important; height: 32px !important; min-width: 32px !important; min-height: 32px !important; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body { display: grid; align-content: start; gap: 16px; padding: 0; min-width: 0; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body > p { margin: 0; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body .field { display: grid; gap: 8px; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body :is(.field__l, .field label) { margin: 0; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body textarea { min-height: 96px; max-height: 120px; resize: vertical; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body .pill { min-height: 32px !important; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; padding: 0 !important; margin: 8px 0 0 !important; border: 0 !important; box-shadow: none; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot:has(> .btn--acc:first-child) { flex-direction: row-reverse; justify-content: flex-start; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot .btn { min-height: 40px; }
+@media (max-width: 640px) {
+  .hb.hb.kab--agent .pv-modal .modal__in, .hb.hb.kab--agent .k3-win { padding: 20px; }
+  .hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__head .btn--icon { width: 40px !important; height: 40px !important; min-width: 40px !important; min-height: 40px !important; margin-right: -8px; }
+  .hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body .pill { min-height: 40px !important; }
+  .hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot .btn { flex: 1 1 auto; }
+}
+</style>
+<style id="hb-cal-events">
+.hb.kab--agent .gd-wk__e--g{color:var(--hb-ink-2)}
+.hb.kab--agent .gd-wk__e--g .gd-wk__t{flex:1 1 auto;min-width:0;color:var(--hb-ink-2);font-size:var(--bb-small);line-height:var(--bb-small-l)}
+.hb.kab--agent .gd-wk__e--g .gd-wk__t b{color:var(--hb-ink-2);font-weight:600}
+.hb.kab--agent .gd-wk .gd-g{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--hb-sunken);color:var(--hb-ink-2);font-size:13px;line-height:20px;font-weight:600;flex:none}
+.hb.kab--agent .pv-h .pv-t{display:flex;align-items:center;gap:8px;min-width:0;flex-wrap:wrap}
+.hb.kab--agent .cnt-pill{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--hb-sunken);color:var(--hb-ink-2);font-size:13px;line-height:20px;font-weight:600;flex:none}
+.hb.kab--agent .cnt-pill::before,.hb.kab--agent .cnt-pill::after{display:none!important;content:none!important}
+</style>
+<style id="fl-1121">
+/* 21.11: «Первая сделка» спокойнее: один список без рамок, тонкая линия между маркерами 24, текущий шаг раскрыт. Только токены кита. */
+.hb.kab--agent .fl { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .fl__i { position: relative; display: grid; grid-template-columns: 24px minmax(0, 1fr); column-gap: 12px; align-items: start; }
+.hb.kab--agent .fl__i:not(:last-child)::before { content: ""; position: absolute; left: 11.5px; top: 32px; bottom: -4px; width: 1px; background: var(--hb-control, var(--hb-line)); }
+.hb.kab--agent .fl__n { position: relative; z-index: 1; display: grid; place-items: center; box-sizing: border-box; width: 24px; height: 24px; margin-top: 4px; border: 1px solid var(--hb-line); border-radius: 50%; background: var(--hb-paper); color: var(--hb-ink-3); font: 600 12px/1 var(--font-ui); }
+.hb.kab--agent .fl__i.is-cur .fl__n { border: 1.5px solid var(--hb-accent); color: var(--hb-accent-text); }
+.hb.kab--agent .fl__i.is-done .fl__n { border-color: transparent; background: var(--hb-tint); color: var(--hb-accent-text); }
+.hb.kab--agent .fl__n .ic { width: 14px; height: 14px; stroke-width: 1.5; }
+.hb.kab--agent .fl__h { display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 8px; align-items: center; width: 100%; min-height: 32px; padding: 4px 8px; box-sizing: border-box; border: 0; border-radius: var(--hb-r-s, 8px); background: none; font: inherit; color: var(--hb-ink); text-align: left; cursor: pointer; }
+.hb.kab--agent .fl__h:hover { background: var(--hb-sunken); }
+.hb.kab--agent .fl__t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; min-width: 0; }
+.hb.kab--agent .fl__t b { font-weight: 600; }
+.hb.kab--agent .fl__t small { color: var(--hb-ink-3); font-size: var(--hb-fs-cap); line-height: 18px; overflow-wrap: anywhere; }
+.hb.kab--agent .fl__h > .ic { width: 16px; height: 16px; color: var(--hb-ink-2); transition: transform .15s; }
+.hb.kab--agent .fl__h[aria-expanded="true"] > .ic { transform: rotate(180deg); }
+.hb.kab--agent .fl__b { grid-column: 2; display: grid; gap: 8px; padding: 0 8px 12px; }
+.hb.kab--agent .fl__b p { margin: 0; }
+.hb.kab--agent .fl__b .sp-acts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.hb.kab--agent .fl__b .sp-acts .btn[aria-pressed="true"] { border-color: var(--hb-ok); color: var(--hb-ok); }
+.hb.kab--agent .fl__i:last-child .fl__b { padding-bottom: 0; }
+</style>
+<style id="hb-fix-sys-2211">/* Свод 22.11, системные правки по аудиту: один блок на все живые экраны. Источник правды для <style id="hb-fix-sys-2211">. .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent (18 повторов .hb) и .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent (22 повтора .hb, для правил, что должны перебивать групповые блоки и gk) подставляются при сборке. */
+
+/* 1. Шапка -> первый блок 16 (телефон 12); лид вплотную, ink-2 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp { row-gap: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp > .phead { margin-bottom: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__main > h1 + :is(p, .lead) { margin-top: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__main > :is(p, .lead) { color: var(--hb-ink-2); }
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp { row-gap: 12px; } }
+
+/* 2. Заголовок блока 18/24 Geologica 600; под ним 8-12 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-t, .sp-tit, .k2-h, .gd-late > h2, .netlink__ttl) { font: 600 18px/24px var(--font-display); letter-spacing: 0; color: var(--hb-ink); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .pv-pop__h > b { font: 600 18px/24px var(--font-display); letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .netlink__ttl + * { margin-top: 6px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp-tit :is(h2, h3) { margin: 0; font: inherit; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3).sp-tit { font: 600 18px/24px var(--font-display) !important; }
+
+/* 3. Карточка: r16 (вложенное 14), padding 22 (телефон 18), рамка 1px line, без тени */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero, .hl-card, .ocard, .pcard, .k2-next, .k2-contact, .notice, .kk-li, .k2-lr, .dpath__m, .thread__d) { box-shadow: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero, .hl-card, .ocard) { border-radius: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero) { padding: 22px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.rz-tbl, .lrows, .k2-lrs, .kk-th, .pf-acc) { border-radius: 14px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.sstrip, .sstrip--lg) { border-radius: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-contact, .kk-li, .notice, .k2-next) { border-radius: 14px; }
+/* карточка в карточке: внутри секции без своей рамки, фон sunken */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-sec, .pv-side, .gd-late) :is(.k2-contact, .kk-li) { border-color: transparent; background: var(--hb-sunken); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-sec .notice { border-color: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .plist > .pcard { border: 0; border-radius: 0; background: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .plist > .pcard + .pcard { border-top: 1px solid var(--hb-line); }
+@media (max-width: 767px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero) { padding: 18px; }
+}
+
+/* 4. Кнопки: 32 -> r10, 40 -> r12; 48 нет; телефон 40 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn { border-radius: 10px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts, .kab__head) .btn:not(.btn--s, .btn--icon) { border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn--acc.btn--l { border-radius: 10px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn--round, .mcomp .btn, .copy--code .btn, .agm__f .btn) { border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts) .btn--acc.btn--l { border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next .btn--l { min-height: 32px; height: 32px; }
+@media (max-width: 767px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .btn--s, .btn--acc.btn--l) { border-radius: 12px; min-height: 40px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(button.btn--link, .k2-lnk, .rowopen, .pcard__t, .pt-stretch, .fl__h, .kk-hl__r, .x-lnk, .crumbs__b) { min-height: 40px; display: inline-flex; align-items: center; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .fl__h { display: grid; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .switch { min-height: 40px; }
+}
+
+/* 5. Поля и триггеры 40 на десктопе; метка -> поле 6; между полями 16 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-flt__s .input, .input--t, .cs__btn, .kk-dd .cs__btn, .fbar .cs__btn) { height: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-flt, .fbar) :is(.btn, .btn--s, .btn--quiet):not(.btn--icon) { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.field, .modal__body .field, .pv-modal .modal__body .field) { gap: 6px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .sp-card, .field) .fbtn { height: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp-two { row-gap: 16px; }
+@media (min-width: 768px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.linkhero, .netlink) .copy--code .input { font-size: 16px; line-height: 24px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.sp-card .sp-two, .sp-card form, .sp-card .stack) { row-gap: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp-card .field + .field { margin-top: 0; }
+
+/* 6. Окна: не выше экрана, тело прокручивается, шапка и подвал на месте; ширина 440-560 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) { max-height: calc(100dvh - 48px) !important; overflow: hidden !important; display: flex; flex-direction: column; box-sizing: border-box; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) > .modal__in { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) :is(.modal__head, .modal__foot) { flex: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot { margin-top: 0 !important; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal { max-height: calc(100dvh - 48px) !important; overflow-y: auto !important; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal .modal__head { position: sticky; top: 0; z-index: 3; background: var(--hb-paper); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal .pt-acts { position: sticky; bottom: 0; z-index: 3; background: var(--hb-paper); padding-block: 12px 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal.pt-wiz { width: min(560px, 100%); max-width: 560px; }
+
+/* 7. Значки в кнопках: 16 в кнопках 32, 20 в кнопках 40 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn svg { width: 16px; height: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts) .btn svg { width: 20px; height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts) .btn--icon svg { width: 20px; height: 20px; }
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn:not(.btn--link) svg { width: 20px; height: 20px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sputnik svg { width: 24px; height: 24px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-ib, .x-chev, .k3-chev, .k3-info) svg, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-ib--s) .ic { width: 16px; height: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .search :is(.ic, svg) { width: 20px; height: 20px; }
+
+/* 8. Бейджи 12 мягкие без капса; th 13/18 600 ink-3 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.badge, .cnt-pill, .dlg__tag, .dlg__u, .ocard__tag) { font-size: 12px; line-height: 16px; text-transform: none; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent th { font: 600 13px/18px var(--font-ui); color: var(--hb-ink-3); text-transform: none; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next__l { text-transform: none; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sstrip small { font: 400 12px/16px var(--font-ui); color: var(--hb-ink-3); }
+
+/* 9. Спутник: кнопка в экране */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sputnik { max-width: calc(100vw - 20px); }
+
+/* 10. Меню аккаунта и пункты бокового меню одной высоты 36 (телефон: касание 40) */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 36px; height: 36px; padding-inline: 12px; gap: 10px; font-size: 14px; line-height: 20px; white-space: nowrap; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) > span:not(.badge) { overflow: hidden; text-overflow: ellipsis; }
+@media (min-width: 900px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .knav a { min-height: 36px; padding-block: 0; } }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 40px; height: 40px; } }
+
+/* 11. Число KPI 24/28, при узкой ячейке уменьшается и не вылезает; шапка -> блок 16 (телефон 12) */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sstrip--lg b { font-size: clamp(14px, 14.5cqi, 24px); line-height: 28px; white-space: nowrap; }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sstrip--lg b { line-height: 24px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent main.kab__main { row-gap: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__acts:empty { display: none; }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent main.kab__main { row-gap: 12px; } }
+
+/* 12. Заголовок-ссылка цветом заголовка; подсказки в карточке без рамки и фона, только полоса слева */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3) > .x-op__t, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3) > .x-op__t:hover, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3) > .x-op__t:visited { color: var(--hb-ink); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-sec .notice { border-top: 0; border-right: 0; border-bottom: 0; border-left-width: 3px; border-radius: 0; box-shadow: none; background: transparent; padding: 4px 0 4px 14px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-sec .k2-next, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next { border-top: 0; border-right: 0; border-bottom: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next .k2-next__l { text-transform: none; letter-spacing: 0; }
+
+/* 13. Шрифт по высоте: кнопки 32 = 14 (база), кнопки 40 = 15, триггеры и поля 40 = 16. Причина прежних 14 у кнопок и триггеров 40: базовое правило размеров (size-pass) задаёт 14 всем .btn/.fbtn/.select/.cs__btn и 15 только внутри .phead__acts и .modal__foot, поэтому кнопки 40 в формах и фильтрах оставались на 14 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.linkhero .copy--code .btn, .cal-dd .fbtn, .hp-fdd .fbtn, .pv-modal .fbtn, .sp-card .fbtn, .field .fbtn, .fbar .btn, .k2-flt .btn, .contact .btn):not(.btn--icon, .btn--link) { font-size: 15px; line-height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .contact .btn:not(.btn--icon, .btn--link) { min-height: 40px; padding-inline: 16px; border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.select, .cs__btn) { font-size: 16px; line-height: 24px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__val.is-ph { color: var(--hb-ink-3); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .field__l:has(.x-i) { display: flex; align-items: center; height: 18px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .field__hint { margin-top: -2px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(input[type=checkbox], input[type=radio]) { -webkit-appearance: none; appearance: none; }
+
+/* 14. Значки: пункты меню и поповеров 20, на телефоне в кнопках-фильтрах и подсказках 20 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .pt-menu button .ic { width: 20px; height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sa-pop :is(button, a) svg { width: 20px; height: 20px; }
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.fbtn, .k3-info, .x-i, .ocard__pick) svg { width: 20px; height: 20px; } }
+
+/* 15. На телефоне главная колонка во всю ширину, в детальных видах не схлопывается */
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__main { flex: 1 1 auto; width: 100%; min-width: 0; margin-inline: 0; box-sizing: border-box; } }
+
+/* 16. Тосты: фиксированно снизу по центру на всех экранах, на телефоне над нижней навигацией */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-toast, .pt-toast, .pv-nav-toast) { position: fixed; top: auto !important; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 500; max-width: calc(100vw - 32px); }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-toast, .pt-toast, .pv-nav-toast) { bottom: 88px; } }
+
+/* 17. Меню и листы на телефоне (E1): лист снизу на всю ширину, на нижней панели (61), углы 16 сверху, затемнение страницы без перехвата касаний. Одинаково для «Ещё» (роли и меню аккаунта), меню карточки материалов и поповера «О ценах и курсе» */
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-pop--more, .pmenu__l.pt-menu, .k3-fx) { position: fixed; left: 0; right: 0; top: auto; bottom: 61px; width: auto; max-width: none; margin: 0; box-sizing: border-box; max-height: calc(100dvh - 109px); overflow-y: auto; border-width: 1px 0 0; border-radius: 16px 16px 0 0; box-shadow: 0 0 0 100vmax rgb(18 21 23 / .32); z-index: 90; } }
+
+/* 18. Подпись группы в меню аккаунта («Роль»): обычный регистр, без разрядки (B7) */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sheet-list > li.sheet-list__t { font: 600 13px/18px var(--font-ui); letter-spacing: 0; text-transform: none; }
+</style>
+<style id="hb-fix-gk-2211">
+/* Свод 22.11, Главная: G1 перекомпоновка, карточка в карточке, значки K1/K3. */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .x-chev { width: 16px; height: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-late .lrows { border: 0; border-radius: 0; background: transparent; padding: 0; box-shadow: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-late .lrows > li { border: 0; background: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-late .lrows > li + li { border-top: 1px solid var(--hb-line); }
+@media (max-width: 899px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-cols { display: flex; flex-direction: column; flex-wrap: nowrap; gap: 20px; align-items: stretch; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-cols__m, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-cols__s { display: contents; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-cols [aria-labelledby="h-day"] { order: 1; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-cols [aria-labelledby="h-late"] { order: 2; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-cols [aria-labelledby="h-wait"] { order: 3; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-cols [aria-labelledby="h-wk"] { order: 4; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-cols [aria-labelledby="h-mn"] { order: 5; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-cols [aria-labelledby="h-sp"] { order: 6; }
+}
+
+</style>
+<style id="hb-fix-grp-2211">
+/* C1: кнопки в карточках доски на десктопе 32 */
+@media (min-width: 900px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-board .btn { min-height: 32px; } }
+/* I2: Подробнее и Скрыть на телефоне делят строку под заголовком */
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .pv-h:has(> .pv-h__acts) { flex-wrap: wrap; } .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .pv-h__acts { width: 100%; } .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .pv-h__acts > .btn { flex: 1 1 0; min-width: 0; } }
+</style>
+</helmet>
+<div class="hb kab--agent">
+<div class="kab kab--cv kab--agent" id="kab">
+<dc-import name="Nav" part="side" current="glavnaya" suffix="-m" hint-size="256px,900px"></dc-import>
+<dc-import name="Nav" part="top" current="glavnaya" suffix="-m" hint-size="100%,56px"></dc-import>
+<main class="kab__main">
+<section class="phead phead--kab" aria-labelledby="pg-h"><div class="wrap"><div class="phead__row"><div class="phead__main"><h1 id="pg-h">Главная</h1></div><div class="phead__acts"></div></div></div></section>
+<div class="stack stack--l"><sc-if value="{{showFirst}}" hint-placeholder-val="{{ true }}"><section class="pv-side" aria-labelledby="h-fd"><div class="pv-h"><div class="pv-t"><h2 class="h4" id="h-fd">Первая сделка</h2><span class="badge badge--txt cnt-pill" title="Шагов пройдено из шести">{{fdDone}} из 6</span></div><div class="pv-h__acts" style="display:flex;align-items:center;gap:8px"><a class="btn btn--t btn--s" href="pomoshch-m.dc.html"><span>Подробнее</span></a><button type="button" class="btn btn--t btn--s" onClick="{{hideFirst}}"><span>Скрыть</span></button></div></div><ol class="fl"><sc-for list="{{fdSteps}}" as="p"><li class="fl__i {{p.cls}}"><span class="fl__n" aria-hidden="true"><sc-if value="{{p.isDone}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg></sc-if><sc-if value="{{p.notDone}}">{{p.n}}</sc-if></span><button type="button" class="fl__h" aria-expanded="{{p.open}}" onClick="{{p.tg}}"><span class="fl__t"><b>{{p.t}}</b></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><sc-if value="{{p.open}}"><div class="fl__b"><p>{{p.text}}</p><div class="sp-acts"><a class="btn btn--t btn--s" href="{{p.href}}"><span>Открыть</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><button type="button" class="btn btn--s {{p.btnCls}}" aria-pressed="{{p.isDone}}" onClick="{{p.mark}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span>{{p.markT}}</span></button></div></div></sc-if></li></sc-for></ol></section></sc-if><div class="gd-cols"><div class="gd-cols__m"><section class="gd-sec" aria-labelledby="h-day"><div class="pv-h"><h2 class="h4" id="h-day">Сегодня, вт 17 ноя</h2><a class="btn btn--t btn--s" href="klienty-m.dc.html"><span>Все клиенты</span></a></div><p class="gd-now" role="separator" aria-label="Сейчас"><span>09:40</span>Сейчас</p><ol class="gd-tl"><li class="gd-tl__r is-hot"><span class="gd-tl__t">09:43</span><div class="gd-tl__c"><sc-if value="{{hasNew}}" hint-placeholder-val="{{ true }}"><div class="gd-ev x-op is-hot"><div class="gd-ev__h"><div class="gd-ev__who"><span class="avatar" aria-hidden="true">ОГ</span><div><b><a class="x-op__t" href="klienty-kartochka-m.dc.html">Ольга Громова</a></b><span>Истекает · Апартаменты в Батуми</span></div></div><span class="pv-timer is-hot"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>{{t1s}}</span></span></div><div class="gd-ev__a"><sc-if value="{{isNew}}" hint-placeholder-val="{{ true }}"><a class="btn btn--acc btn--l" id="pg-main" href="klienty-kartochka-m.dc.html" onClick="{{take}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg><span>Взять</span></a><button type="button" class="btn btn--quiet btn--t" onClick="{{askReject}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Отклонить</span></button></sc-if><sc-if value="{{taken}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn--acc btn--l " id="pg-main2" onClick="{{a_call_olga}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span>Позвонить</span></button><a class="btn btn--t" href="https://wa.me/995555000000" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg><span>WhatsApp</span></a></sc-if><svg class="ic x-chev x-push" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div></div></sc-if><sc-if value="{{lost1}}" hint-placeholder-val="{{ false }}"><div class="notice" role="status"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg><p class="notice__t">{{lostT1}}</p><p>{{lostP1}}</p><div class="notice__act"><a class="btn btn--quiet btn--s" href="klienty-m.dc.html"><span>Потерянные</span></a></div></div></sc-if></div></li><li class="gd-tl__r is-hot"><span class="gd-tl__t">09:51</span><div class="gd-tl__c"><sc-if value="{{hasNew2}}" hint-placeholder-val="{{ true }}"><div class="gd-ev x-op is-hot"><div class="gd-ev__h"><div class="gd-ev__who"><span class="avatar" aria-hidden="true">ДО</span><div><b><a class="x-op__t" href="klienty-kartochka-m.dc.html">Дмитрий Орлов</a></b><span>Истекает · Квартира у моря</span></div></div><span class="pv-timer"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>{{t2s}}</span></span></div><div class="gd-ev__a"><sc-if value="{{isNewD}}" hint-placeholder-val="{{ true }}"><a class="btn btn--acc btn--l" href="klienty-kartochka-m.dc.html" onClick="{{takeD}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg><span>Взять</span></a></sc-if><sc-if value="{{takenD}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn--t" onClick="{{a_call_dm}}">Позвонить</button></sc-if><svg class="ic x-chev x-push" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div></div></sc-if><sc-if value="{{lost2}}" hint-placeholder-val="{{ false }}"><div class="notice" role="status"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg><p class="notice__t">{{lostT2}}</p><p>{{lostP2}}</p><div class="notice__act"><a class="btn btn--quiet btn--s" href="klienty-m.dc.html"><span>Потерянные</span></a></div></div></sc-if></div></li><li class="gd-tl__r"><span class="gd-tl__t">10:00</span><div class="gd-tl__c"><div class="gd-ev x-op is-warn"><div class="gd-ev__h"><div class="gd-ev__who"><span class="avatar" aria-hidden="true">РА</span><div><b><a class="x-op__t" href="klienty-kartochka-m.dc.html#rus">Рустам Алиев</a></b><span>С паузы · Квартира в Анталье</span></div></div></div><div class="gd-ev__a"><sc-if value="{{rusPause}}" hint-placeholder-val="{{ true }}"><button type="button" class="btn btn--acc btn--l" onClick="{{rusBack}}"><span>Вернуть в работу</span></button></sc-if><sc-if value="{{rusBackOn}}" hint-placeholder-val="{{ false }}"><span class="badge badge--txt badge--ok">В работе</span></sc-if></div></div></div></li><li class="gd-tl__r is-free"><span class="gd-tl__t">11:00</span><div class="gd-tl__c">Свободно до 15:00</div></li><li class="gd-tl__r "><span class="gd-tl__t">15:00</span><div class="gd-tl__c"><div class="gd-ev x-op is-warn"><div class="gd-ev__h"><div class="gd-ev__who"><span class="avatar" aria-hidden="true">АБ</span><div><b><a class="x-op__t" href="klienty-kartochka-m.dc.html">Анна Белова</a></b><span>Показ · Студия в Тбилиси</span></div></div></div><div class="gd-ev__a"><a class="btn btn--t btn--icon x-w x-push" aria-label="Открыть" data-tip="Открыть" href="klienty-kartochka-m.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></div></div></div></li></ol></section><section class="gd-late" aria-labelledby="h-late"><h2 id="h-late">Не успели</h2><ul class="lrows lrows--lg"><li><div class="lrow gd-lrow x-op"><span class="avatar" aria-hidden="true">НФ</span><div class="lrow__b"><b><a class="x-op__t" href="klienty-kartochka-m.dc.html">Нина Фёдорова</a></b><span>Квартира в Батуми</span></div><div class="lrow__m"><span class="pv-late">Просрочено 2 дн</span><button type="button" class="btn btn--t" onClick="{{a_v_nina}}">Позвонить</button><svg class="ic x-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div></div></li><li><div class="lrow gd-lrow x-op"><span class="avatar" aria-hidden="true">ТК</span><div class="lrow__b"><b><a class="x-op__t" href="klienty-kartochka-m.dc.html">Тимур Касымов</a></b><span>Вилла в Алании</span></div><div class="lrow__m"><span class="pv-late">Просрочено 5 ч</span><button type="button" class="btn btn--t" onClick="{{a_v_timur}}">Позвонить</button><svg class="ic x-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div></div></li></ul></section><section class="pv-side x-op" aria-labelledby="h-mn"><div class="pv-h"><h2 class="h4" id="h-mn"><a class="x-op__t" href="dengi-m.dc.html">Деньги</a></h2><a class="btn btn--t btn--icon x-w" href="dengi-m.dc.html" aria-label="Открыть" data-tip="Открыть"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></div><div class="pv-big"><b>USD&nbsp;4&nbsp;990</b><span>можно</span></div><dl class="pv-kv"><div><dt>Ждёт</dt><dd>USD&nbsp;1&nbsp;435</dd></div><div><dt>Выплачено</dt><dd>USD&nbsp;1&nbsp;688</dd></div></dl></section></div><div class="gd-cols__s"><section class="pv-side" aria-labelledby="h-wait"><div class="pv-h"><h2 class="h4" id="h-wait"><a class="x-op__t x-op__t--s" href="soobshcheniya-m.dc.html">Ждут ответа</a></h2><span class="badge badge--txt cnt-pill" aria-label="Непрочитанных: 3">3</span></div><ul class="gd-wait"><li class="gd-wait__r x-op"><span class="avatar avatar--s" aria-hidden="true">МС</span><div class="gd-wait__b"><b><a class="x-op__t" href="soobshcheniya-m.dc.html">Марат Сулейманов</a></b><span>Передал Вам Дмитрия Орлова</span></div><span class="gd-wait__t">09:31</span></li><li class="gd-wait__r x-op"><span class="avatar avatar--s" aria-hidden="true">ГМ</span><div class="gd-wait__b"><b><a class="x-op__t" href="soobshcheniya-m.dc.html">Георгий Мелия</a></b><span>Голосовое, 0:24</span></div><span class="gd-wait__t">08:12</span></li><li class="gd-wait__r x-op"><span class="avatar avatar--s" aria-hidden="true">НФ</span><div class="gd-wait__b"><b><a class="x-op__t" href="soobshcheniya-m.dc.html">Нина Фёдорова</a></b><span>Файл: Одобрение.pdf</span></div><span class="gd-wait__t">Вчера</span></li></ul></section><section class="pv-side" aria-labelledby="h-wk"><div class="pv-h"><h2 class="h4" id="h-wk">Ближайшие дела</h2></div><div class="gd-chips"><button type="button" class="pill gd-chip" aria-pressed="{{wkL}}" onClick="{{setList}}"><span>Список</span></button><button type="button" class="pill gd-chip" aria-pressed="{{wkW}}" onClick="{{setWeek}}"><span>Неделя</span></button></div><sc-if value="{{isList}}" hint-placeholder-val="{{ true }}"><ul class="gd-wk"><sc-for list="{{lst}}" as="e"><li><b>{{e.when}}</b><sc-if value="{{e.g}}"><div class="gd-wk__e gd-wk__e--g"><span class="gd-wk__t"><b>{{e.kind}}:</b> {{e.txt}}</span><span class="gd-g" title="Событие из Google Календаря">Google</span></div></sc-if><sc-if value="{{e.c}}"><div class="gd-wk__e x-op"><a class="x-op__t" href="klienty-kartochka-m.dc.html"><span><b>{{e.kind}}:</b> {{e.txt}}</span></a><a class="btn btn--t btn--icon x-w" aria-label="Открыть" data-tip="Открыть" href="klienty-kartochka-m.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></div></sc-if></li></sc-for></ul><sc-if value="{{wkMore}}" hint-placeholder-val="{{ true }}"><button type="button" class="btn btn--quiet btn--s gd-wkall" onClick="{{toggleWkAll}}"><span>{{wkAllT}}</span></button></sc-if></sc-if><sc-if value="{{isWeek}}" hint-placeholder-val="{{ false }}"><ul class="gd-wk"><sc-for list="{{days}}" as="d"><li class="{{d.cls}}"><b>{{d.t}}</b><sc-if value="{{d.empty}}"><span class="gd-wk__e"><span>Пусто</span></span></sc-if><sc-for list="{{d.ev}}" as="e"><sc-if value="{{e.g}}"><div class="gd-wk__e gd-wk__e--g"><span class="gd-wk__t"><b>{{e.kind}}:</b> {{e.txt}}</span><span class="gd-g" title="Событие из Google Календаря">Google</span></div></sc-if><sc-if value="{{e.c}}"><div class="gd-wk__e x-op"><a class="x-op__t" href="klienty-kartochka-m.dc.html"><span><b>{{e.kind}}:</b> {{e.txt}}</span></a><a class="btn btn--t btn--icon x-w" aria-label="Открыть" data-tip="Открыть" href="klienty-kartochka-m.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></div></sc-if></sc-for></li></sc-for></ul></sc-if></section><section class="pv-side" aria-labelledby="h-sp"><div class="pv-h"><h2 class="h4" id="h-sp">Ответ за 30 дней</h2></div><div class="pv-big"><b>9&nbsp;мин</b><span>в среднем</span></div><div class="pv-bar" role="img" aria-label="9 минут при норме 15"><i style="width:60%"></i></div></section></div></div></div><sc-if value="{{showReject}}" hint-placeholder-val="{{ false }}"><div class="pv-ovl" style="{{ovlStyle}}" onClick="{{closeOvl}}"><div class="pv-modal" role="dialog" aria-modal="true" aria-labelledby="rj-t" onClick="{{stop}}"><div class="modal__in"><div class="modal__head"><h2 id="rj-t">Отклонить?</h2><button type="button" class="btn btn--icon btn--quiet btn--round" aria-label="Закрыть" onClick="{{closeOvl}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="modal__body"><p>Заявка уйдёт другому партнёру. Вернуть её нельзя.</p></div><div class="modal__foot"><button type="button" class="btn btn--danger" onClick="{{doReject}}">Отклонить</button><button type="button" class="btn btn--acc" onClick="{{closeOvl}}">Оставить</button></div></div></div></div></sc-if>
+</main>
+
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{ false }}"><div class="pv-toast" role="status" style="{{toastStyle}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>{{toast}}</span></div></sc-if>
+<dc-import name="Nav" part="bar" current="glavnaya" suffix="-m" hint-size="100%,64px"></dc-import>
+<dc-import name="Nav" part="fab" current="glavnaya" suffix="-m" hint-size="1px,1px"></dc-import>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":3173}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    // Esc: закрывает верхнее окно или поповер (общий обработчик)
+    try { if (!window.__hbEsc) { window.__hbEsc = 1; document.addEventListener("keydown", function (e) { try { if (e.key !== "Escape" || e.defaultPrevented) return; var v = function (x) { var r = x.getBoundingClientRect(); return r.width > 0 && r.height > 0 }, q = function (s) { return Array.prototype.filter.call(document.querySelectorAll(s), v) }; var o = q(".pv-ovl,.k3-ovl,.kl-ovl,.kl-scrim,.k3-scrim,.sa-scrim").pop() || q("[class*=away]").pop() || q('[aria-expanded="true"][aria-haspopup]').pop() || q('[aria-expanded="true"]').filter(function (x) { return !x.closest("main") }).pop(); if (o) { o.click(); e.preventDefault(); return } var d = q("details.kab__acc[open]").pop(); if (d) { d.removeAttribute("open"); e.preventDefault() } } catch (x) {} }) } } catch (x) {}
+    try { if (!window.__hbTipFit) { window.__hbTipFit = 1; const fit = (e) => { try { const t = e.target && e.target.closest && e.target.closest("[data-tip]"); if (!t) return; const vw = document.documentElement.clientWidth, r = t.getBoundingClientRect(), c = document.createElement("canvas").getContext("2d"); c.font = "400 13px " + getComputedStyle(t).fontFamily; const w = Math.min(240, vw - 48, c.measureText(t.getAttribute("data-tip")).width + 26), l = t.classList.contains("x-w") ? r.left - 6 - w : t.classList.contains("k2-ib--r") ? r.right - w : r.left; let d = 0; if (l + w > vw - 8) d = vw - 8 - l - w; if (l + d < 8) d = 8 - l; t.style.setProperty("--tdx", d + "px"); } catch (x) {} }; document.addEventListener("mouseover", fit, true); document.addEventListener("focusin", fit, true); } } catch (x) {}
+    this.state = Object.assign({ toast: "", toastY: 120, ovlTop: 96 }, { help: false, st1: "new", st2: "new", t1: 185, t2: 702, rejWho: 0, showReject: false, asked: false, wk: "list", showFirst: true, rus: "pause" });
+  }
+  yOf(e) { try { const k = document.querySelector(".kab"); return Math.max(8, Math.round(e.currentTarget.getBoundingClientRect().top - k.getBoundingClientRect().top) + e.currentTarget.offsetHeight + 8); } catch (x) { return 120; } }
+  say(msg, e) { this.setState({ toast: msg, toastY: this.yOf(e) }); clearTimeout(this._tt); this._tt = setTimeout(() => this.setState({ toast: "" }), 3800); }
+  ovl(e) { try { const k = document.querySelector(".kab"); return Math.max(16, Math.round(e.currentTarget.getBoundingClientRect().top - k.getBoundingClientRect().top) - 80); } catch (x) { return 96; } }
+  toggleHelp() { this.setState({ help: !this.state.help }); }
+  componentDidMount() { this._iv = setInterval(() => this.tick(), 1000); }
+  componentWillUnmount() { clearInterval(this._iv); clearTimeout(this._tt); }
+  tick() {
+    const S = this.state, o = {};
+    [1, 2].forEach((n) => { if (S["st" + n] === "new") { const v = S["t" + n] - 1; o["t" + n] = v; if (v <= 0) { o["st" + n] = "late"; o["t" + n] = 0; } } });
+    if (!Object.keys(o).length) return;
+    this.setState(o);
+    const n = o.st1 ? "HB-10436" : o.st2 ? "HB-10431" : "";
+    if (n) this.say("Время вышло. " + n + " ушла в Потерянные", null);
+  }
+  take(e) { this.say("Заявка принята. Открываем карточку", e); this.setState({ st1: "took" }); }
+  takeD(e) { this.say("Заявка принята. Открываем карточку", e); this.setState({ st2: "took" }); }
+  askReject(e) { this.setState({ showReject: true, rejWho: 1, ovlTop: this.ovl(e) }); }
+  askReject2(e) { this.setState({ showReject: true, rejWho: 2, ovlTop: this.ovl(e) }); }
+  rusBack(e) { this.say("Рустам Алиев снова в работе. Пауза закончилась", e); this.setState({ rus: "back" }); }
+  closeOvl() { this.setState({ showReject: false }); }
+  doReject(e) { const n = this.state.rejWho; this.setState({ showReject: false, ["st" + n]: "ref" }); this.say((n === 2 ? "HB-10431" : "HB-10436") + " в Потерянные: отказ", e); }
+  hideFirst(e) { this.setState({ showFirst: false }); this.say("Блок скрыт. Вернуть: раздел Помощь", e); }
+  ask(e) { this.setState({ asked: true }); this.say("Запрос отправлен. Выплата в ближайшей партии", e); }
+  renderVals() {
+    const S = this.state;
+    return Object.assign({ toast: S.toast, hasToast: !!S.toast, toastStyle: "top:" + S.toastY + "px", ovlStyle: "", }, (() => {
+    const A = {"call_dm": "Звонок: Дмитрий Орлов", "v_nina": "Звонок: +995 599 41 22 18", "v_timur": "Звонок: +90 532 118 40 77", "call_olga": "Звонок: +995 5•• ••• 207"};
+    const mm = (t) => String(Math.floor(t / 60)).padStart(2, "0") + ":" + String(t % 60).padStart(2, "0");
+    const K = "klienty-kartochka-m.dc.html";
+    const ev = [
+      { d: 0, w: "Вт 17, 10:00", kind: "С паузы", txt: "Рустам Алиев: вернуть в работу" },
+      { d: 0, w: "Вт 17, 15:00", kind: "Показ", txt: "Анна, Студия в Тбилиси" },
+      { d: 1, w: "Ср 18, 11:00", kind: "Созвон", txt: "Тимур Касымов" },
+      { d: 2, w: "Чт 19, 12:00", kind: "Напоминание", txt: "Георгий: дождаться оплаты брони" },
+      { d: 2, w: "Чт 19, 15:00", kind: "Напоминание", txt: "Павел: проверить оплату" },
+      { d: 3, w: "Пт 20, 10:00", kind: "Бронь", txt: "Георгий: бронь истекает" },
+      { d: 3, w: "Пт 20, 14:00", kind: "Договор", txt: "Ирина Соколова" },
+      { d: 0, w: "Вт 17, 18:30", kind: "Календарь", txt: "Занято (личное)", g: 1 },
+      { d: 1, w: "Ср 18, 13:00", kind: "Календарь", txt: "Занято (личное)", g: 1 },
+      { d: 2, w: "Чт 19, 10:00", kind: "Календарь", txt: "Встреча с застройщиком", g: 1 },
+      { d: 2, w: "Чт 19, 16:30", kind: "Календарь", txt: "Занято (личное)", g: 1 }].sort((a, b) => a.d - b.d || a.w.split(", ")[1].localeCompare(b.w.split(", ")[1]));
+    const dn = ["Вт 17 ноя · сегодня", "Ср 18", "Чт 19", "Пт 20", "Сб 21", "Вс 22", "Пн 23"];
+    const days = dn.map((t, i) => { const e = ev.filter((x) => x.d === i).map((x) => ({ kind: x.kind, txt: x.w.split(", ")[1] + " " + x.txt, g: !!x.g, c: !x.g })); return { t, cls: i === 0 ? "is-today" : "", empty: !e.length && i > 0, ev: e }; });
+    const done = (S.st1 === "took" || S.st2 === "took") ? 1 : 0;
+    const steps = ["Взять заявку", "Связаться", "Отчёт", "Подборка", "Бронь", "Сделка"];
+    const hrefs = ["klienty-m.dc.html", K, K, "materialy-m.dc.html", K, K];
+    const fdTx = ["Нажмите «Взять» за 15 минут, пока идёт таймер.", "После «Взять» телефон открыт: позвоните или напишите клиенту.", "Запишите действие: что случилось и о чём договорились, и срок.", "Отправьте клиенту подборку проектов и запишите отзыв.", "Клиент выбрал объект: оформите бронь и срок депозита.", "Сделка закрыта: Ваша доля появится в «Деньги»."];
+    const fdMk = S.fdMk || [];
+    const fdIs = (i) => i < done || fdMk.includes(i);
+    const fdNx = steps.findIndex((t, i) => !fdIs(i));
+    const fdCur = S.fdCur === undefined ? fdNx : S.fdCur;
+    const fdSteps = steps.map((t, i) => ({ n: String(i + 1), t, text: fdTx[i], href: hrefs[i], isDone: fdIs(i), notDone: !fdIs(i), open: fdCur === i, cls: fdIs(i) ? "is-done" : (i === fdNx ? "is-cur" : ""), btnCls: fdIs(i) ? "btn--quiet" : "", markT: fdIs(i) ? "Пройдено" : "Отметить",
+      tg: () => this.setState({ fdCur: fdCur === i ? -1 : i }), mark: () => this.setState({ fdMk: fdIs(i) ? fdMk.filter((x) => x !== i) : fdMk.concat([i]), fdCur: undefined }) }));
+    const lostT = (st, id) => id + (st === "ref" ? " · Отказ" : " · Время вышло");
+    const lostP = (st) => st === "ref" ? "Заявка ушла в Потерянные." : "Заявка ушла в Потерянные: не принята за 15 мин.";
+    const o = { help: S.help, toggleHelp: () => this.toggleHelp(),
+      t1s: mm(S.t1), t2s: mm(S.t2),
+      isNew: S.st1 === "new", taken: S.st1 === "took", hasNew: S.st1 === "new" || S.st1 === "took",
+      lost1: S.st1 === "late" || S.st1 === "ref", lostT1: lostT(S.st1, "HB-10436"), lostP1: lostP(S.st1),
+      hasNew2: S.st2 === "new" || S.st2 === "took", lost2: S.st2 === "late" || S.st2 === "ref", lostT2: lostT(S.st2, "HB-10431"), lostP2: lostP(S.st2),
+      isNewD: S.st2 === "new", takenD: S.st2 === "took", nowCls: S.st1 === "took" ? "is-done" : "",
+      take: (e) => this.take(e), takeD: (e) => this.takeD(e), askReject: (e) => this.askReject(e), askReject2: (e) => this.askReject2(e), rusPause: S.rus === "pause", rusBackOn: S.rus === "back", rusBack: (e) => this.rusBack(e), showReject: S.showReject, closeOvl: () => this.closeOvl(),
+      stop: (e) => e.stopPropagation(), doReject: (e) => this.doReject(e), ovlStyle: "padding-top:" + S.ovlTop + "px",
+      canPay: !S.asked, asked: S.asked, ask: (e) => this.ask(e),
+      isList: S.wk === "list", isWeek: S.wk === "week", wkL: S.wk === "list" ? "true" : "false", wkW: S.wk === "week" ? "true" : "false",
+      setList: () => this.setState({ wk: "list" }), setWeek: () => this.setState({ wk: "week" }),
+      lst: ev.slice(0, S.wkAll ? ev.length : 5).map((x) => ({ when: x.w, kind: x.kind, txt: x.txt, g: !!x.g, c: !x.g })), wkMore: ev.length > 5, wkAllT: S.wkAll ? "Свернуть" : "Показать все (" + ev.length + ")", toggleWkAll: () => this.setState({ wkAll: !S.wkAll }), days,
+      showFirst: S.showFirst, hideFirst: (e) => this.hideFirst(e), fdDone: steps.filter((t, k) => fdIs(k)).length, fdSteps };
+    for (const k in A) { o["a_" + k] = (e) => this.say(A[k], e); }
+    return o;
+  })());
+  }
+}
+</script>
+</body>
+</html>

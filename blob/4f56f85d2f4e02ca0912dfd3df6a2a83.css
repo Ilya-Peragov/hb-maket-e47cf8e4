@@ -1,0 +1,250 @@
+/* _kit-v.css - ВСЕ добавки варианта В в одном файле. Подключается только страницами *-v.html.
+   ОГРАНИЧЕНИЕ: каждое правило начинается с `.hb.kab--agent`. Корневой класс `kab--agent` стоит на обёртке `.hb`
+   только у страниц кабинета агента (*-v.html). Кабинеты брокера, застройщика, админка и базовые классы кита не затронуты.
+   Шкала текста: БРЕНДБУК (раздел 3.2 и таблица размеров сайта из Figma), токены --bb-*. Токенов --b-* (шкала Б) в В нет.
+   Из блоков Б взяты только строка клиента (clist/crow), этап полосой (strack), строка начисления (arow), сводка суммы (reqsum),
+   строка «пока нельзя» (nomain). Лестница денег Б (mlad) НЕ взята; на Деньгах свой компактный ряд из четырёх шагов (msteps).
+   Новое в В: help-q (кнопка «?»), linkbar (личная ссылка), qr (пример QR), consent (согласие одной строкой), agrp (группа списка), msteps.
+   Цвета, отступы и радиусы - токены кита. */
+.hb.kab--agent {
+  /* шкала --bb-* теперь ссылки на токены dev (hb.css), значения те же, на телефоне dev сам уменьшает заголовки */
+  --bb-h1: var(--hb-fs-h2);   --bb-h1-l: var(--hb-lh-h2);    /* заголовок страницы, Geologica 600 */
+  --bb-h3: var(--hb-fs-h3);   --bb-h3-l: var(--hb-lh-h3);    /* H3: заголовок окна и шторки, имя клиента в шапке карточки */
+  --bb-card: var(--hb-fs-card); --bb-card-l: var(--hb-lh-card);  /* заголовок блока */
+  --bb-lead: var(--hb-fs-lead); --bb-lead-l: var(--hb-lh-lead);  /* лид */
+  --bb-text: var(--hb-fs-text); --bb-text-l: var(--hb-lh-text);  /* основной текст */
+  --bb-row-l: var(--hb-lh-row);                    /* тот же кегль, плотнее: строки */
+  --bb-small: var(--hb-fs-small); --bb-small-l: var(--hb-lh-small); /* подписи, пояснения */
+  --bb-cap: var(--hb-fs-cap);  --bb-cap-l: var(--hb-lh-cap);   /* даты, источник данных, мелкое */
+  --bb-min: var(--hb-fs-min);  --bb-min-l: var(--hb-lh-min);   /* тег, надзаголовок; минимум */
+  --bb-num: var(--hb-fs-num-s);  --bb-num-l: var(--hb-lh-num);   /* обычные цифры */
+  --bb-big: var(--hb-fs-num-m);  --bb-big-l: var(--hb-lh-big);   /* крупная сумма */
+  --bb-btn: var(--hb-fs-ui);  --bb-btn-l: var(--hb-lh-btn);   /* кнопка обычная */
+  --bb-btn-lg: var(--hb-fs-text);                   /* кнопка главная btn--l */
+  --bb-btn-s: var(--hb-fs-small); --bb-btn-s-l: var(--hb-lh-btn-s); /* кнопка малая btn--s */
+}
+
+/* ===== РОЛИ ТЕКСТА: один размер на роль для всех трёх страниц, значения только из брендбука ===== */
+/* заголовок страницы и подзаголовок */
+/* заголовок блока: страница, панель, строка-секция, группа списка (Geologica 600, 16/20) */
+.hb.hb.kab--agent :is(h2, h3, .h4) { font-size: 18px; line-height: 24px; font-weight: 600; } /* как h2.h4 у dev (hb-kab-ag-v2.css, п. 8) */
+.hb.hb.kab--agent .srows .srow > summary .eyebrow { font-family: var(--font-display); font-size: var(--bb-card); line-height: var(--bb-card-l); font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--hb-ink); }
+/* H3: заголовок окна и шторки, имя клиента в шапке карточки (22/26) */
+.hb.hb.hb.kab--agent :is(.drawer__head > h2, .modal__in > h2, .modal__head > h2) { font-size: var(--bb-h3); line-height: var(--bb-h3-l); font-weight: 600; letter-spacing: -.01em; }
+/* надзаголовок («Клиент · Передан Вами», «История»): Geologica 600, 12, прописные, трекинг 12%, до 5 слов (так в ките) */
+/* «Что дальше» и его надзаголовок. Главная фраза: лид Plex 400, 18/28 */
+.hb.hb.hb.kab--agent .nstep__l { font-size: var(--bb-min); line-height: var(--bb-min-l); letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+.hb.hb.hb.kab--agent .nstep__t { font-size: var(--bb-lead); line-height: var(--bb-lead-l); font-weight: 400; }
+/* основной текст: абзацы, описания (16/25) */
+.hb.hb.kab--agent :is(p, dd, .tev__txt, .tev__bub, .strack > p, .notice) { font-size: var(--bb-text); line-height: var(--bb-text-l); }
+/* основной текст в строках: 16/24 */
+.hb.hb.kab--agent :is(.crow__last, .crow__need, .crow__who span, .arow > span, .lrow__b > p, .lrow__b > span, .nomain, .check, .cs__val, .cs__opt, .lrow__m, .lmeta) { font-size: var(--bb-text); line-height: var(--bb-row-l); }
+.hb.hb.kab--agent dd { font-weight: 600; color: var(--hb-ink); }
+.hb.hb.kab--agent :is(.check, .check > span) { font-weight: 500; }
+.hb.kab--agent .field__req { font-size: inherit; line-height: inherit; }
+/* акцент внутри текста: тот же размер, плотнее вес */
+.hb.hb.kab--agent :is(p, .nstep__t, .crow__need, .reqsum, .nomain, .notice, .fresh, .lmeta) b { font-size: inherit; line-height: inherit; font-weight: 600; }
+/* имя и сумма в строке, телефон: Plex 600, 16 */
+.hb.hb.kab--agent :is(.crow__who b, .arow__h > b, b.arow__a, .lrow__b > b, .tev__h > b, .kab__me b, .empty__t, .lact__ph) { font-size: var(--bb-text); line-height: var(--bb-row-l); font-weight: 600; }
+/* подписи и пояснения: 14/20 */
+.hb.hb.hb.kab--agent :is(small, .note, .clist__h, .crow__cap, .crow__st small, .field__hint, .field__err, .reqsum__l, .reqsum__d, .drawer__note, .drawer__st, dt, .sstrip small) { font-size: var(--bb-small); line-height: var(--bb-small-l); }
+/* даты, источник данных, мелкое: 13/18 */
+.hb.hb.hb.kab--agent :is(time, .tev__s, .fresh, .tline__d, .is-read, .tev__ticks) { font-size: var(--bb-cap); line-height: var(--bb-cap-l); }
+.hb.hb.hb.kab--agent .tline__d { font-family: var(--font-ui); letter-spacing: 0; text-transform: none; font-weight: 600; color: var(--hb-ink-2); }
+.hb.hb.hb.kab--agent .nstep__l { color: var(--hb-ink-3); }
+/* обычные цифры: Plex 600, 22, трекинг -1%, табличные */
+.hb.hb.kab--agent :is(.sstrip b, .sstrip b > *, .reqsum__v) { font-family: var(--font-ui); font-size: var(--bb-num); line-height: var(--bb-num-l); font-weight: 600; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+/* название показателя в полосе цифр: 14/20, 600 */
+.hb.kab--agent .sstrip > div > span { font-size: var(--bb-small); line-height: var(--bb-small-l); font-weight: 600; color: var(--hb-ink); }
+/* кнопки: обычная 15/20, главная btn--l 16/20, малая btn--s 14/18 */
+/* вкладки и фильтры: как кнопка, 15/20 */
+/* ссылка (Plex 600, 14/20) */
+/* пункты меню: 16/24 */
+/* теги-статусы и счётчики: Geologica 600, 12, прописные, трекинг 8% (как в ките); счётчик-число Plex 600 12 */
+
+/* ===== ОБОЛОЧКА: только кабинет агента (корень .kab--agent) ===== */
+/* Б1: пункт меню `.knav a`. Кит: 15/44, значок 20, выбранный только цветом. Б: размер из шкалы, высота 44, значок 24, выбранный ещё и полоской слева.
+   Подпись пункта ВСЕГДА в одну строку (кит обрезает многоточием); меню из 11 пунктов с подписями групп `.knav__t` (в ките есть, цвет темнее). */
+/* knav__cond: ТОЛЬКО ДЛЯ МАКЕТА. Пункты, которые в приложении видит не каждый (Медиапартнёр, API), показаны серым с примечанием «видит только ...». В коде блока нет: пункт либо есть, либо его нет. */
+.hb.kab--agent .knav__cond { padding-top: 12px; border-top: 1px dashed var(--hb-control); }
+.hb.kab--agent .knav__cond li { display: grid; }
+.hb.kab--agent .knav__cond a { color: var(--hb-ink-2); }
+.hb.kab--agent .knav__cond small, .hb.kab--agent .sheet-list small.sheet-list__n { display: block; padding: 0 12px 6px 48px; font-size: var(--bb-cap); line-height: var(--bb-cap-l); color: var(--hb-ink-2); }
+.hb.kab--agent .kab--rail .knav__cond { display: none; }
+/* sheet-list__t: подпись группы в шторке «Ещё» (как knav__t в боковом меню). Примечание «видит только» у условных пунктов и у API под аватаром. */
+.hb.kab--agent .sheet-list > li.sheet-list__t { padding: 14px 20px 4px; font: 600 var(--bb-min)/var(--bb-min-l) var(--font-display); letter-spacing: .12em; text-transform: uppercase; color: var(--hb-ink-2); }
+.hb.kab--agent .sheet-list > li:first-child.sheet-list__t { padding-top: 4px; }
+.hb.kab--agent .sheet-list > li.is-cond { display: grid; }
+.hb.kab--agent .sheet-list > li.is-cond > a { color: var(--hb-ink-2); }
+.hb.kab--agent .sheet-list small.sheet-list__n, .hb.kab--agent .sheet-list > li.is-cond > small { padding: 0 20px 8px 52px; margin-top: -6px; }
+.hb.kab--agent .pop .sheet-list small.sheet-list__n { padding: 0 0 8px 52px; margin-top: -6px; white-space: nowrap; }
+/* sputnik: плавающая кнопка помощника справа снизу на каждой странице. Тихая: бумага, тонкая рамка, текст ink-2; зелёная только у главной кнопки страницы.
+   На телефоне только значок и стоит над нижней панелью. */
+/* Б2: нижняя панель телефона `.kab__bar`. Кит: подпись 12, высота 52, значок 20. Б: подпись из шкалы (мелкий текст), высота 60, значок 24. */
+/* Б3: шапка страницы `.phead--kab`: размер заголовка по брендбуку (24/32, на телефоне 20/26), см. роли выше. */
+/* Б4: кнопка справки с подписью `help-btn`. */
+.hb.kab--agent .help-btn { gap: var(--hb-sp-2); }
+/* Б5: `nomain` - строка вместо главной кнопки, когда действия сейчас нет. Из токенов кита (как `.notice`, без цвета опасности). */
+.hb.kab--agent .nomain { display: flex; align-items: center; gap: 10px; max-width: 420px; padding: 12px 14px; border: 1px dashed var(--hb-control); border-radius: var(--hb-r-m); background: var(--hb-sunken); color: var(--hb-ink-2); }
+.hb.kab--agent .nomain .ic { color: var(--hb-ink-3); width: 22px; height: 22px; }
+.hb.kab--agent .nomain b { color: var(--hb-ink); }
+/* Б6: главная кнопка шапки берёт размер `btn--l` (56, кегль 16): размер уже есть в ките, меняется только применение. */
+/* Б7: пункт меню под аватаром и в «Ещё» (`.sheet-list`): кегль из шкалы (см. роли выше). */
+
+/* ===== МОДИФИКАТОРЫ БЛОКОВ КИТА (базовые классы не тронуты; размер текста дают роли выше, модификатор меняет только вёрстку) ===== */
+/* nstep--lg: «Что дальше» крупнее. Значок 24, отступы, кнопка внутри btn--t (44). Подпись 14 обычным шрифтом и текст 16 дают роли. */
+.hb.kab--agent .nstep--lg { gap: 6px 14px; padding: 18px 20px; }
+.hb.kab--agent .nstep--lg > .ic { width: 24px; height: 24px; margin-top: 0; }
+.hb.kab--agent .nstep--lg .nstep__act { margin-top: 10px; }
+@media (max-width: 540px) { .hb.kab--agent .nstep--lg { padding: 16px; } .hb.kab--agent .nstep--lg .lact > .btn:not(.btn--icon) { flex: 1 1 100%; } }
+/* sstrip--lg: полоса чисел. Кит: четыре в ряд. Б: отступы больше, подпись показателя тёмным, на телефоне две в ряд. Размеры дают роли. */
+.hb.kab--agent .sstrip--lg > div { padding: 16px 18px; }
+.hb.kab--agent .sstrip--lg b { letter-spacing: -.01em; white-space: nowrap; }
+.hb.kab--agent .sstrip--lg > div > span { margin-top: 2px; }
+.hb.kab--agent .sstrip--lg small { display: block; margin-top: 2px; color: var(--hb-ink-2); }
+.hb.kab--agent .sstrip--lg .is-zero > span { color: var(--hb-ink-2); }
+@media (max-width: 899px) {
+  .hb.kab--agent .sstrip--lg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hb.kab--agent .sstrip--lg > div:nth-child(odd) { border-left: 0; }
+  .hb.kab--agent .sstrip--lg > div:nth-child(n+3) { border-top: 1px solid var(--hb-line); }
+}
+/* msteps: путь денег на Деньгах компактной строкой из четырёх шагов по порядку; «Можно запросить» выделен (зелёная подложка и рамка, не только цвет: ещё aria-current). */
+.hb.kab--agent .msteps > div { padding: 12px 16px; }
+.hb.kab--agent .msteps > .is-cur { background: var(--hb-tint); box-shadow: inset 0 0 0 2px var(--hb-accent); position: relative; }
+.hb.kab--agent .msteps > .is-cur b { color: var(--hb-accent-text); }
+.hb.kab--agent .msteps > .is-cur small { color: var(--hb-ink); }
+/* tline--lg: история. День без капса, подписи 14, текст 16, заголовок события 17: всё из ролей; здесь только отступ. */
+.hb.kab--agent .tline--lg .tev__c { padding: 12px 14px; }
+/* srows--lg и lrows--lg: секции и строки списка выше (60). Надпись секции, имя строки, пояснение: роли. */
+.hb.kab--agent .srows--lg .srow > summary { min-height: 60px; }
+.hb.kab--agent .lrows--lg .lrow { min-height: 60px; }
+/* form--lg: подпись поля, подсказка и согласие тоже из ролей; здесь цвет подписи. */
+/* field--l: подпись поля в окне выплаты (размер даёт роль подписи поля). */
+/* badge--w: слово-статус. Размер и регистр теперь у всех `.badge` (роль «метка»); модификатор оставляет закругление и серый вариант. */
+
+/* ===== НОВЫЕ БЛОКИ ===== */
+/* clist / crow: строка клиента в четыре колонки «Клиент, Этап, Последний контакт, Что нужно от Вас». На телефоне строка превращается в карточку. */
+.hb.kab--agent .clist { display: grid; overflow: hidden; border: 1px solid var(--hb-line); border-radius: var(--hb-r-l); background: var(--hb-paper); }
+.hb.kab--agent .clist > ul { display: grid; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .clist > ul > li + li { border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .clist__h, .hb.kab--agent .crow { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, .8fr) minmax(0, 1.5fr) 20px; gap: 8px 20px; align-items: center; }
+.hb.kab--agent .clist__h { padding: 10px 20px; border-bottom: 1px solid var(--hb-line); background: var(--hb-sunken); font-weight: 600; color: var(--hb-ink-2); }
+.hb.kab--agent .crow { width: 100%; min-height: 84px; padding: 14px 20px; border: 0; background: none; font: inherit; text-align: start; color: var(--hb-ink-2); cursor: pointer; }
+.hb.kab--agent .crow:hover { background: var(--hb-sunken); }
+.hb.kab--agent .crow[aria-current="true"] { background: var(--hb-sel-bg); }
+.hb.kab--agent .crow:focus-visible { outline: var(--hb-ring); outline-offset: -2px; }
+.hb.kab--agent .crow > .ic:last-child { color: var(--hb-ink-3); }
+.hb.kab--agent .crow__who, .hb.kab--agent .crow__st, .hb.kab--agent .crow__last { display: grid; gap: 4px; min-width: 0; justify-items: start; }
+.hb.kab--agent .crow__who span { color: var(--hb-ink-2); }
+.hb.kab--agent .crow__st small { color: var(--hb-ink-3); }
+.hb.kab--agent .crow__last { color: var(--hb-ink); }
+.hb.kab--agent .crow__cap { display: none; color: var(--hb-ink-3); }
+.hb.kab--agent .crow__need { display: flex; align-items: flex-start; gap: 10px; min-width: 0; padding: 8px 12px; border-radius: var(--hb-r-m); color: var(--hb-ink-2); }
+.hb.kab--agent .crow__need > .ic { flex: none; margin-top: 1px; color: var(--hb-ink-3); }
+.hb.kab--agent .crow__need > span { display: grid; min-width: 0; }
+.hb.kab--agent .crow__need b { color: var(--hb-ink); }
+.hb.kab--agent .crow__need small { color: var(--hb-ink-2); }
+.hb.kab--agent .crow__need--act { border-left: 4px solid var(--hb-warn); background: var(--hb-sunken); }
+.hb.kab--agent .crow__need--act > .ic { color: var(--hb-warn); }
+@media (max-width: 1099px) {
+  .hb.kab--agent .clist { border: 0; border-radius: 0; background: none; overflow: visible; }
+  .hb.kab--agent .clist__h { display: none; }
+  .hb.kab--agent .clist > ul { gap: 12px; }
+  .hb.kab--agent .clist > ul > li { border: 1px solid var(--hb-line); border-radius: var(--hb-r-l); background: var(--hb-paper); overflow: hidden; }
+  .hb.kab--agent .clist > ul > li + li { border-top: 1px solid var(--hb-line); }
+  .hb.kab--agent .crow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "who chev" "st st" "last last" "need need"; padding: 16px; min-height: 0; }
+  .hb.kab--agent .crow__who { grid-area: who; }
+  .hb.kab--agent .crow > .ic:last-child { grid-area: chev; align-self: start; }
+  .hb.kab--agent .crow__st { grid-area: st; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+  .hb.kab--agent .crow__last { grid-area: last; display: flex; flex-wrap: wrap; gap: 0 6px; }
+  .hb.kab--agent .crow__cap { display: inline; }
+  .hb.kab--agent .crow__need { grid-area: need; }
+}
+/* strack: «этап словами и пятью чёрточками». Цвет не единственный признак: рядом фраза «Этап 3 из 5». */
+.hb.kab--agent .strack { display: grid; gap: 8px; }
+.hb.kab--agent .strack > ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .strack > ol > li { height: 8px; border-radius: var(--hb-r-pill); background: var(--hb-line); }
+.hb.kab--agent .strack > ol > li.is-done { background: var(--hb-accent); }
+.hb.kab--agent .strack > ol > li.is-cur { background: var(--hb-accent); box-shadow: 0 0 0 3px var(--hb-tint); }
+.hb.kab--agent .strack > ol > li.is-stop { background: var(--hb-err); }
+.hb.kab--agent .strack > p { margin: 0; color: var(--hb-ink-2); }
+.hb.kab--agent .strack > p b { color: var(--hb-ink); }
+/* arow: строка начисления и выплаты в контейнере `.lrows`: имя, жилой комплекс, этап словами, слово-статус, справа сумма. Кит: `.lrow` режет текст в одну строку. */
+.hb.kab--agent .arow { display: grid; gap: 4px; justify-items: start; padding: 16px 18px; }
+.hb.kab--agent .arow__h { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; width: 100%; }
+.hb.kab--agent .arow > span:not(.badge) { color: var(--hb-ink-2); }
+.hb.kab--agent .arow > .arow__s { color: var(--hb-ink); }
+.hb.kab--agent .arow > .badge { margin-top: 6px; }
+.hb.kab--agent .arow__h > .arow__a { font-family: var(--font-ui); white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* reqsum: сводка в окне выплаты: что именно уйдёт, крупно. */
+.hb.kab--agent .reqsum { display: grid; gap: 4px; padding: 16px 18px; border-radius: var(--hb-r-m); background: var(--hb-tint); color: var(--hb-ink); }
+.hb.kab--agent .reqsum p { margin: 0; }
+.hb.kab--agent .reqsum__l, .hb.kab--agent .reqsum__d { color: var(--hb-ink-2); }
+.hb.kab--agent /* money-screen--b: экран «Деньги». Размер текста даёт шкала (основной 16/24); модификатор оставлен как метка экрана. */
+
+/* ===== НОВОЕ В ВАРИАНТЕ В (всё внутри .kab--agent) ===== */
+/* help-q: кнопка «?» в шапке раздела. Круг со знаком и подпись «Справка»; на узком экране остаётся круг. */
+.hb.kab--agent .help-q { gap: var(--hb-sp-2); min-height: var(--hb-h-m); }
+.hb.kab--agent .help-q__m { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; border: 2px solid currentColor; font-weight: 600; line-height: 1; }
+@media (max-width: 539px) { .hb.kab--agent .btn.help-q { padding: 0; flex: 0 0 var(--hb-h-m); width: var(--hb-h-m); min-width: var(--hb-h-m); justify-content: center; } .hb.kab--agent .phead--kab #pg-main { flex: 1 1 auto; white-space: nowrap; } .hb.kab--agent .help-q__t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
+/* linkbar: личная ссылка компактно; кнопки вторичные, главная кнопка экрана одна. */
+.hb.kab--agent .linkbar__row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.hb.kab--agent .linkbar__row .copy { flex: 1 1 320px; min-width: 0; }
+.hb.kab--agent .linkbar__share { display: flex; gap: 8px; }
+@media (max-width: 539px) { .hb.kab--agent .linkbar__row .btn--quiet { flex: 1 1 100%; } }
+/* qr: пример кода в окне. */
+.hb.kab--agent .qr { display: grid; place-items: center; padding: 12px; background: #fff; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); width: 220px; height: 220px; margin: 0 auto; }
+.hb.kab--agent .qr svg { width: 100%; height: 100%; shape-rendering: crispEdges; }
+/* consent: согласие одной строкой со ссылкой на полный текст. */
+.hb.kab--agent .consent__a { color: var(--hb-ink); text-decoration: underline; text-underline-offset: 3px; }
+.hb.kab--agent .guardnote { display: flex; align-items: center; gap: 8px; }
+/* agrp: группа списка начислений с заголовком и счётчиком (раньше fgrp: имя занято в ките как группа фильтров каталога). */
+.hb.kab--agent .agrp { display: grid; gap: 8px; }
+.hb.kab--agent .agrp h3 { display: flex; align-items: baseline; gap: 8px; margin: 0; }
+.hb.kab--agent .agrp__n { font-size: var(--bb-small); line-height: var(--bb-small-l); font-weight: 500; font-family: var(--font-ui); color: var(--hb-ink-2); }
+/* pill в кабинете агента: 44 высотой, размер как у кнопки. «Ждут Вас» с тёплым значком. */
+.hb.kab--agent .pill--wait .ic { color: var(--hb-warn, #b25e09); }
+.hb.kab--agent .guardline p, .hb.kab--agent .stepline p { margin: 0; }
+.hb.kab--agent .reqsum--page { padding: 22px 24px; }
+.hb.hb.hb.kab--agent .reqsum--page .reqsum__v { font-size: var(--bb-big); line-height: var(--bb-big-l); letter-spacing: -.02em; }
+/* steps--list в справке: номер считает счётчик (в копии кита приращение у .step не задано). */
+.hb.kab--agent .steps--list .step { counter-increment: step; font-size: var(--bb-text); line-height: var(--bb-text-l); }
+.hb.kab--agent .steps--list .step p { margin: 0; }
+.hb.kab--agent .pill b { font-weight: 600; }
+/* полоса цифр в карточке клиента (шторка шире не станет): узкие ячейки, слово «Вознаграждение» не вылезает за край */
+.hb.kab--agent .drawer .sstrip > div { min-width: 0; padding: 12px 10px; }
+.hb.kab--agent .drawer .sstrip > div > span { overflow-wrap: anywhere; }
+.hb.kab--agent .drawer .sstrip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, .8fr); }
+.hb.kab--agent .drawer .sstrip > div > span { overflow-wrap: normal; }
+@media (max-width: 540px) {
+  .hb.kab--agent .drawer .sstrip { grid-template-columns: minmax(0, 1fr); }
+  .hb.kab--agent .drawer .sstrip > div { border-left: 0; }
+  .hb.kab--agent .drawer .sstrip > div + div { border-top: 1px solid var(--hb-line); }
+}
+
+/* Спутник: как в dev - круглая кнопка только с иконкой; подпись остаётся для скринридера, не вылезает за кнопку. */
+.hb.kab--agent .sputnik > span { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* === 19.11.2026, отзыв Ксении, П1 и П2: одним слоем на весь холст ===
+   П1. Размеры. Кнопки в одном ряду одной высоты (40, с главной l в ряду - 48, мелкая s рядом с обычной растёт до 40);
+   кнопки правой колонки строк списка (Взять / Позвонить / Открыть / Ответить) одной ширины и высоты 40;
+   бейджи статусов (кроме счётчиков .badge--n) одного минимального размера.
+   П2. Второстепенные кнопки (все кроме главной цветной, опасной, тихой без рамки и тональной) чуть зеленоватые:
+   лёгкий фон и граница на токене бренда, чтобы рамка была видна на мониторах с низким контрастом. Главная цветная кнопка по-прежнему одна. */
+.hb.kab--agent :is(.lrow__m, .pv-card__a, .c-act, .hc__q, .rz-ppl__a) > .btn:not(.btn--icon):not(.btn--quiet) {
+  box-sizing: border-box; min-height: var(--hb-h-m); }
+.hb.kab--agent :is(.lrow__m, .pv-card__a) > .btn:not(.btn--icon):not(.btn--quiet) {
+  width: 128px; min-width: 128px; flex: 0 0 128px; justify-content: center; padding-inline: 8px; }
+.hb.kab--agent :is(.c-act, .hc__q, .rz-ppl__a) > .btn:not(.btn--icon):not(.btn--quiet) { min-width: 112px; justify-content: center; }
+.hb.kab--agent :is(.sp-acts, .gd-ev__a, .rz-share, .rz-qrbig__a, .k2-btns, .phead__acts, .gd-fcard__a, .pv-now__a, .sm-comp__row, .sd-comp__row) > .btn:not(.btn--icon):not(.btn--quiet):not(.help-q) {
+  box-sizing: border-box; min-height: var(--hb-h-m); }
+.hb.kab--agent :is(.sp-acts, .gd-ev__a, .rz-share, .rz-qrbig__a, .k2-btns, .phead__acts, .gd-fcard__a, .pv-now__a):has(> .btn--l) > .btn:not(.btn--icon):not(.help-q) {
+  min-height: var(--hb-h-l); }
+.hb.kab--agent .badge:not(.badge--n):not(.rz-sm) {
+  box-sizing: border-box; min-width: 92px; min-height: 24px; justify-content: center; text-align: center; }
+.hb.kab--agent .btn:not(.btn--acc):not(.btn--danger):not(.btn--quiet):not(.btn--tint):not(.gd-chip):not(:disabled):not([aria-disabled="true"]) {
+  background: color-mix(in srgb, var(--hb-accent) 6%, var(--hb-paper));
+  border-color: color-mix(in srgb, var(--hb-accent) 40%, var(--hb-line)); }
+.hb.kab--agent .btn:not(.btn--acc):not(.btn--danger):not(.btn--quiet):not(.btn--tint):not(.gd-chip):not(:disabled):not([aria-disabled="true"]):hover {
+  background: color-mix(in srgb, var(--hb-accent) 12%, var(--hb-paper));
+  border-color: color-mix(in srgb, var(--hb-accent) 60%, var(--hb-line)); }

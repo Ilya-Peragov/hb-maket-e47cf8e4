@@ -1,0 +1,19 @@
+/* _cv.css - склейка кита с холстом Design (Housebook, кабинет агента). Только раскладка артборда, видов блоков тут нет.
+   Правило: каждое правило начинается с `.hb.kab--agent`. Кит (_shell.css, _kit-v.css) не менять.
+   Зачем: в макете страницы оболочку .kab рисовал js. На холсте меню приходит из Nav.dc.html четырьмя кусками
+   (side, top, bar, fab), каждый кусок в своей обёртке, поэтому сетку кита заменяет flex. */
+.hb.kab--agent .kab.kab--cv { display: flex; flex-direction: row; align-items: stretch; min-height: 100dvh; }
+.hb.kab--agent .kab--cv > .kab__main { flex: 1 1 0; width: auto; min-width: 0; max-width: none; align-content: start; }
+.hb.kab--agent .kab--cv > .kab__main > * { max-width: 1180px; width: 100%; margin-inline: auto; }
+@media (max-width: 899px) {
+  .hb.kab--agent .kab.kab--cv { flex-direction: column; }
+  .hb.kab--agent .kab--cv > .kab__main { flex: 1 0 auto; }
+}
+/* меню под аватаром: раскрывающийся блок на месте всплывающего окна макета */
+.hb.kab--agent .kab__side .knav { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+.hb.kab--agent .kab__side > .kab__acc { margin: 12px 12px 0; }
+.hb.kab--agent .kab__acc > summary { list-style: none; margin: 0; background: var(--hb-sunken); cursor: pointer; }
+.hb.kab--agent .kab__acc > summary::-webkit-details-marker { display: none; }
+.hb.kab--agent .kab__acc[open] > summary { background: var(--hb-line); }
+.hb.kab--agent .kab__acc > .sheet-list { margin: 4px 0 0; padding: 4px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); }
+.hb.kab--agent .kab__acc .sheet-list small.sheet-list__n { padding-left: 48px; margin-top: -4px; white-space: normal; }

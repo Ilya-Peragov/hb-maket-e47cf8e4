@@ -1,0 +1,127 @@
+/* _kit-v-rabota.css - НОВЫЕ блоки экранов «Объекты», «Подборки», «Сообщения». Нет в ките и в _kit-v.css.
+   Каждое правило начинается с `.hb.kab--agent`. Кегли только из шкалы брендбука (--bb-*), цвета и радиусы токены кита.
+   Блоки: ofilters, ocard, osel, pcard, pmenu, mlayout, dlg, bub, mcomp. */
+
+/* ofilters: поиск и три списка в одну строку, под ней ряд «Найдено, валюта, вид». */
+.hb.kab--agent .ofilters { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: 12px; align-items: end; }
+.hb.kab--agent .ofilters .search { align-self: end; }
+.hb.kab--agent .ofilters .field > label { font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .orow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; }
+.hb.kab--agent .orow__l { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.hb.kab--agent .orow__l p { margin: 0; font-size: var(--bb-text); line-height: var(--bb-row-l); color: var(--hb-ink); }
+.hb.kab--agent .ocur { display: flex; align-items: center; gap: 8px; }
+.hb.kab--agent .ocur > span { font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); }
+.hb.kab--agent .ocur .cs { width: 132px; }
+@media (max-width: 1099px) { .hb.kab--agent .ofilters { grid-template-columns: repeat(3, minmax(0, 1fr)); } .hb.kab--agent .ofilters .search { grid-column: 1 / -1; } }
+@media (max-width: 899px) { .hb.kab--agent .ofilters { grid-template-columns: minmax(0, 1fr); } }
+
+/* ocard: карточка жилого комплекса. Выбор не только цветом: рамка, галочка и слово «Выбрано». */
+.hb.kab--agent .ogrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+@media (max-width: 1099px) { .hb.kab--agent .ogrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 679px) { .hb.kab--agent .ogrid { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
+.hb.kab--agent .ocard { position: relative; display: grid; grid-template-rows: auto 1fr; overflow: hidden; border: 2px solid var(--hb-line); border-radius: var(--hb-r-l); background: var(--hb-paper); height: 100%; box-sizing: border-box; }
+.hb.kab--agent .ocard.is-sel { border-color: var(--hb-accent); }
+.hb.kab--agent .ocard__pic { position: relative; display: grid; place-items: center; height: 148px; background: var(--hb-sunken); color: var(--hb-ink-3); }
+.hb.kab--agent .ocard__pic .ic { width: 40px; height: 40px; stroke-width: 1.5; }
+.hb.kab--agent .ocard__tag { position: absolute; left: 12px; top: 12px; }
+.hb.kab--agent .ocard__pick { position: absolute; right: 10px; top: 10px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px 0 10px; border: 1px solid var(--hb-control); border-radius: var(--hb-r-m); background: var(--hb-paper); color: var(--hb-ink); font: inherit; font-size: var(--bb-small); line-height: var(--bb-small-l); font-weight: 600; cursor: pointer; }
+.hb.kab--agent .ocard__box { display: grid; place-items: center; width: 22px; height: 22px; box-sizing: border-box; border: 2px solid var(--hb-control); border-radius: var(--hb-r-xs); background: var(--hb-paper); color: var(--hb-on-accent); }
+.hb.kab--agent .ocard__box .ic { width: 14px; height: 14px; stroke-width: 3; opacity: 0; }
+.hb.kab--agent .is-sel .ocard__pick { border-color: var(--hb-accent); background: var(--hb-tint); color: var(--hb-accent-text); }
+.hb.kab--agent .is-sel .ocard__box { border-color: var(--hb-accent); background: var(--hb-accent); }
+.hb.kab--agent .is-sel .ocard__box .ic { opacity: 1; }
+.hb.kab--agent .ocard__b { display: grid; align-content: start; gap: 6px; padding: 16px 18px 18px; }
+.hb.kab--agent .ocard__b h3, .hb.kab--agent .ocard__b p { margin: 0; }
+.hb.kab--agent .ocard__b h3 { font-family: var(--font-display); font-size: var(--bb-card); line-height: var(--bb-card-l); font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .ocard__w { display: flex; align-items: center; gap: 6px; font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); }
+.hb.kab--agent .ocard__w .ic { width: 16px; height: 16px; }
+.hb.kab--agent .ocard__p { font-family: var(--font-ui); font-size: var(--bb-num); line-height: var(--bb-num-l); font-weight: 600; letter-spacing: -.01em; font-variant-numeric: tabular-nums; color: var(--hb-ink); margin-top: 4px; }
+.hb.kab--agent .ocard__p small { font-size: var(--bb-small); line-height: var(--bb-small-l); font-weight: 400; letter-spacing: 0; color: var(--hb-ink-2); }
+.hb.kab--agent .ocard__s { display: grid; gap: 2px; margin-top: 6px; padding: 10px 12px; border-radius: var(--hb-r-m); background: var(--hb-tint); font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink); }
+.hb.kab--agent .ocard__s b { font-family: var(--font-ui); font-size: var(--bb-text); line-height: var(--bb-row-l); font-weight: 600; color: var(--hb-accent-text); font-variant-numeric: tabular-nums; }
+
+/* osel: панель «Выбрано N», прилипает к низу. Главной кнопки в ней нет на компьютере, на телефоне есть (шапка уходит из вида). */
+.hb.kab--agent .osel { position: sticky; bottom: 16px; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 12px 16px; border: 1px solid var(--hb-accent); border-radius: var(--hb-r-l); background: var(--hb-paper); box-shadow: var(--hb-e-pop); }
+.hb.kab--agent .osel p { margin: 0; font-size: var(--bb-text); line-height: var(--bb-row-l); color: var(--hb-ink); }
+.hb.kab--agent .osel__r { display: flex; align-items: center; gap: 10px; }
+@media (max-width: 899px) { .hb.kab--agent .osel { bottom: 8px; padding: 12px; } .hb.kab--agent .osel__r { width: 100%; } .hb.kab--agent .osel__r .btn--l { flex: 1 1 auto; justify-content: center; } }
+
+/* pcard: строка подборки клиенту. Слева кому и что, справа смотрел ли клиент и действия. */
+.hb.kab--agent .plist { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .pcard { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) auto; gap: 14px 28px; align-items: center; padding: 18px 20px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-l); background: var(--hb-paper); }
+.hb.kab--agent .pcard__who { display: grid; gap: 2px; min-width: 0; }
+.hb.kab--agent .pcard__who h3, .hb.kab--agent .pcard__who p, .hb.kab--agent .pcard__see p { margin: 0; }
+.hb.kab--agent .pcard__who h3 { font-family: var(--font-display); font-size: var(--bb-card); line-height: var(--bb-card-l); font-weight: 600; color: var(--hb-ink); display: flex; align-items: center; gap: 8px; }
+.hb.kab--agent .pcard__who h3 .ic { width: 16px; height: 16px; color: var(--hb-accent-text); }
+.hb.kab--agent .pcard__who p { font-size: var(--bb-text); line-height: var(--bb-row-l); color: var(--hb-ink-2); }
+.hb.kab--agent .pcard__who p b { color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .pcard__see { display: grid; gap: 6px; justify-items: start; }
+.hb.kab--agent .pcard__see p { font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.hb.kab--agent .pcard__see p .ic { width: 16px; height: 16px; }
+.hb.kab--agent .pcard__acts { display: flex; align-items: center; gap: 8px; }
+@media (max-width: 1099px) { .hb.kab--agent .pcard { grid-template-columns: minmax(0, 1fr); padding: 16px; } .hb.kab--agent .pcard__acts { flex-wrap: wrap; } .hb.kab--agent .pcard__acts > .btn:first-child { flex: 1 1 auto; justify-content: center; } }
+
+/* pmenu: меню «Ещё» у подборки на нативном details, без скрипта. */
+.hb.kab--agent .pmenu { position: relative; }
+.hb.kab--agent .pmenu > summary { list-style: none; cursor: pointer; }
+.hb.kab--agent .pmenu > summary::-webkit-details-marker { display: none; }
+.hb.kab--agent .pmenu__l { position: absolute; right: 0; top: calc(100% + 6px); z-index: 4; display: grid; width: 260px; margin: 0; padding: 6px; list-style: none; border: 1px solid var(--hb-line); border-radius: var(--hb-r-l); background: var(--hb-paper); box-shadow: var(--hb-e-pop); }
+.hb.kab--agent .pmenu__l a { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border-radius: var(--hb-r-s); font-size: var(--bb-text); line-height: var(--bb-row-l); color: var(--hb-ink); text-decoration: none; }
+.hb.kab--agent .pmenu__l a:hover { background: var(--hb-sunken); }
+.hb.kab--agent .pmenu__l a .ic { color: var(--hb-ink-2); }
+.hb.kab--agent .pmenu__l .is-danger a, .hb.kab--agent .pmenu__l .is-danger a .ic { color: var(--hb-err); }
+.hb.kab--agent .pmenu__l li + .is-danger { border-top: 1px solid var(--hb-line); margin-top: 4px; padding-top: 4px; }
+
+/* aibox: «Подобрать с помощником» на странице подборок, тихая плитка. */
+.hb.kab--agent .aibox { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 16px 20px; border-radius: var(--hb-r-l); background: var(--hb-tint); color: var(--hb-ink); }
+.hb.kab--agent .aibox > .ic { color: var(--hb-accent-text); }
+.hb.kab--agent .aibox p { margin: 0; flex: 1 1 320px; font-size: var(--bb-text); line-height: var(--bb-row-l); }
+.hb.kab--agent .aibox p b { font-weight: 600; }
+
+/* mlayout: переписка. Слева диалоги, справа выбранный. На телефоне по очереди: список, затем диалог. */
+.hb.kab--agent .mlayout { display: grid; grid-template-columns: 340px minmax(0, 1fr); border: 1px solid var(--hb-line); border-radius: var(--hb-r-l); background: var(--hb-paper); overflow: hidden; min-height: 640px; }
+.hb.kab--agent .mlayout__l { display: grid; grid-template-rows: 1fr auto; border-inline-end: 1px solid var(--hb-line); min-width: 0; }
+.hb.kab--agent .mlayout__r { display: grid; grid-template-rows: auto 1fr auto; min-width: 0; }
+.hb.kab--agent .dlgs { display: grid; align-content: start; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .dlgs > li + li { border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .dlg { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 2px 12px; align-items: start; width: 100%; box-sizing: border-box; padding: 14px 16px; border: 0; background: none; font: inherit; text-align: start; color: var(--hb-ink); text-decoration: none; cursor: pointer; }
+.hb.kab--agent .dlg:hover { background: var(--hb-sunken); }
+.hb.kab--agent .dlg[aria-current="true"] { background: var(--hb-sel-bg); }
+.hb.kab--agent .dlg__av { grid-row: 1 / 4; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--hb-tint); color: var(--hb-accent-text); font-family: var(--font-display); font-size: var(--bb-small); font-weight: 600; }
+.hb.kab--agent .dlg__av .ic { width: 22px; height: 22px; }
+.hb.kab--agent .dlg__n { font-size: var(--bb-text); line-height: var(--bb-row-l); font-weight: 600; color: var(--hb-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hb.kab--agent .dlg__t { font-size: var(--bb-cap); line-height: var(--bb-cap-l); color: var(--hb-ink-2); white-space: nowrap; }
+.hb.kab--agent .dlg__c { grid-column: 2 / 4; font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hb.kab--agent .dlg__p { grid-column: 2; font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hb.kab--agent .dlg__u { grid-column: 3; grid-row: 3; justify-self: end; }
+.hb.kab--agent .dlg.is-new .dlg__p { font-weight: 600; }
+.hb.kab--agent .mlayout__f { padding: 14px 16px; border-top: 1px solid var(--hb-line); display: grid; gap: 6px; }
+.hb.kab--agent .mlayout__f p { margin: 0; font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); }
+.hb.kab--agent .dh { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--hb-line); }
+.hb.kab--agent .dh > div { display: grid; gap: 0; min-width: 0; flex: 1 1 auto; }
+.hb.kab--agent .dh b { font-size: var(--bb-text); line-height: var(--bb-row-l); font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .dh span { font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); }
+.hb.kab--agent .dh .btn--icon { display: none; }
+.hb.kab--agent .thread { display: grid; align-content: start; gap: 10px; padding: 20px; background: var(--hb-sunken); }
+.hb.kab--agent .thread__d { justify-self: center; margin: 4px 0; font-size: var(--bb-cap); line-height: var(--bb-cap-l); color: var(--hb-ink-2); }
+.hb.kab--agent .thread__new { display: flex; align-items: center; gap: 12px; margin: 6px 0; font-size: var(--bb-small); line-height: var(--bb-small-l); font-weight: 600; color: var(--hb-accent-text); }
+.hb.kab--agent .thread__new::before, .hb.kab--agent .thread__new::after { content: ""; flex: 1 1 auto; height: 1px; background: var(--hb-accent); }
+.hb.kab--agent .bub { display: grid; gap: 4px; max-width: min(520px, 82%); padding: 10px 14px; border-radius: var(--hb-r-l); background: var(--hb-paper); border: 1px solid var(--hb-line); justify-self: start; }
+.hb.kab--agent .bub p { margin: 0; font-size: var(--bb-text); line-height: var(--bb-text-l); color: var(--hb-ink); }
+.hb.kab--agent .bub time { font-size: var(--bb-cap); line-height: var(--bb-cap-l); color: var(--hb-ink-2); }
+.hb.kab--agent .bub--me { justify-self: end; background: var(--hb-tint); border-color: var(--hb-tint); }
+.hb.kab--agent .bub--me time { justify-self: end; }
+.hb.kab--agent .mcomp { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: end; padding: 14px 20px; border-top: 1px solid var(--hb-line); background: var(--hb-paper); }
+.hb.kab--agent .mcomp .textarea { min-height: var(--hb-h-l); resize: none; }
+.hb.kab--agent .mlayout__only { display: none; }
+@media (max-width: 899px) {
+  .hb.kab--agent .mlayout { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .hb.kab--agent .mlayout--list .mlayout__r { display: none; }
+  .hb.kab--agent .mlayout--chat .mlayout__l { display: none; }
+  .hb.kab--agent .dh .btn--icon { display: inline-flex; }
+  .hb.kab--agent .thread { padding: 14px; min-height: 380px; }
+  .hb.kab--agent .mcomp { grid-template-columns: minmax(0, 1fr); padding: 12px 14px; }
+  .hb.kab--agent .mcomp .btn { width: 100%; justify-content: center; }
+  .hb.kab--agent .bub { max-width: 90%; }
+}
+.hb.kab--agent .dh .dlg__av { grid-row: auto; flex: none; }

@@ -1,0 +1,170 @@
+/* Финальные правки проверки: касания 44 px, вкладки клиентов, тост-пояснения. Грузится последним. */
+html .hb.kab--agent .kab__main{position:relative}
+html .hb.kab--agent .pgx-toast{position:absolute;left:50%;transform:translateX(-50%);width:max-content;max-width:min(420px,calc(100% - 32px));pointer-events:none;z-index:70;display:flex;gap:10px;align-items:center;background:var(--hb-ink);color:var(--hb-paper);padding:12px 18px;border-radius:var(--hb-r-m);box-shadow:var(--hb-e3);font:500 15px/22px "IBM Plex Sans",sans-serif}
+html .hb.kab--agent .pgx-toast .ic{flex:none;color:var(--hb-paper)}
+
+@media (max-width:899px){
+  /* кликабельная зона не меньше 44 px */
+  html .hb.kab--agent :is(button.dl-btn,[role=radio],.pt-link,.pt-chip__x,.pt-toast__x,.seg__b){min-height:var(--hb-h-m)}
+  html .hb.kab--agent :is(.pt-chip__x,.pt-toast__x){min-width:var(--hb-h-m)}
+  html .hb.kab--agent :is(a.more,.pt-link){display:inline-flex;align-items:center;min-height:var(--hb-h-m)}
+  /* флажки и переключатели: рисуем прежние 20 px внутри зоны 44 px */
+  html .hb.kab--agent :is(.check,.radio) input{box-sizing:border-box;width:44px;height:44px;margin:-12px;border:11px solid transparent;border-radius:var(--hb-r-l);background-clip:padding-box;box-shadow:inset 0 0 0 1.5px var(--hb-control)}
+  html .hb.kab--agent .check input[type=radio],html .hb.kab--agent .radio input{border-radius:50%}
+  html .hb.kab--agent :is(.check,.radio) input:is(:checked,:indeterminate){box-shadow:inset 0 0 0 1.5px var(--hb-accent)}
+  html .hb.kab--agent .check input.hp,html .hb.kab--agent input.hp{width:1px;height:1px;margin:0;border:0;box-shadow:none}
+  html .hb.kab--agent .kl-sel{min-width:var(--hb-h-m);min-height:var(--hb-h-m);align-items:center;justify-content:center}
+  html .hb.kab--agent .kl-sel input{margin:0}
+  /* вкладки клиентов в одну строку: прокрутка вбок и стрелка-подсказка */
+  html .hb.kab--agent .tabs__list{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;position:relative}
+  html .hb.kab--agent .tabs__list::-webkit-scrollbar{display:none}
+  html .hb.kab--agent .tabs__list > button{flex:none;white-space:nowrap}
+  html .hb.kab--agent .tabs__list > button > span{white-space:nowrap}
+  html .hb.kab--agent .tabs__list::after{content:"";position:sticky;right:0;flex:none;align-self:stretch;width:40px;margin-left:-40px;pointer-events:none;background:linear-gradient(to left,var(--hb-bg,#fff) 45%,transparent) , url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23566860' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat right 6px center/20px 20px;animation:fxtabfade linear both;animation-timeline:scroll(self inline);animation-range:40% 100%}
+  @keyframes fxtabfade{from{opacity:1}to{opacity:0}}
+}
+
+@media (max-width:899px){
+  html .hb.kab--agent .tev__h a{display:inline-block;padding:11px 0}
+}
+html .hb.kab--agent .ob-card__b b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+html .hb.kab--agent .ob-card__b>span{display:block;white-space:normal}
+html .hb.kab--agent summary small{white-space:normal;overflow:visible;text-overflow:clip;text-align:right}
+@media (max-width:899px){
+  html .hb.kab--agent .cs__pop{width:100%;max-width:100%;right:auto}
+  html .hb.kab--agent .cs__pop li{white-space:normal}
+}
+
+/* Полоса из трёх и из двух чисел: кит даёт четыре колонки, из-за этого третья плитка занимала свою колонку, а справа оставалась пустая четвёртая. */
+.hb.kab--agent .sstrip--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hb.kab--agent .sstrip--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:899px){
+  /* телефон: три плитки столбиком, каждая на всю ширину, сверху разделительная линия (две колонки кита сбрасываем) */
+  .hb.kab--agent .sstrip--lg.sstrip--3{grid-template-columns:minmax(0,1fr)}
+  .hb.kab--agent .sstrip--lg.sstrip--3>div{border-left:0;border-top:0}
+  .hb.kab--agent .sstrip--lg.sstrip--3>div+div{border-top:1px solid var(--hb-line)}
+}
+
+/* Раскрывашки-ссылки прямыми детьми .stack (сетка) тянулись на всю ширину, и текст вставал по центру: прижимаем влево. */
+.hb.kab--agent :is(.stack,.stack--s,.stack--l)>.btn--link{justify-self:start;align-self:start;justify-content:flex-start;text-align:left}
+
+/* Ряды чипов и вкладок: между соседями всегда зазор 8px по строке и между строками при переносе (fpills жил в css, который не везде подключён). */
+html .hb.kab--agent .fpills{display:flex;flex-wrap:wrap;gap:8px}
+html .hb.kab--agent .tabs__list{gap:8px}
+/* Одно выделенное состояние: наведение на невыбранный чип не рисует тёмную рамку, тёмный контур только с клавиатуры (focus-visible). */
+html .hb.kab--agent .pill:where(a,button,label):hover:not([aria-pressed="true"]){border-color:var(--hb-line);background:var(--hb-sunken)}
+html .hb.kab--agent button.pill:focus:not(:focus-visible){outline:none;box-shadow:none}
+html .hb.kab--agent button.pill:focus-visible{outline:2px solid var(--hb-ink);outline-offset:2px}
+
+/* Аккордеоны-плашки (.xrow с кнопкой .dl-btn): кнопка занимает всю шапку плашки, нажимается любая точка, подсветка по наведению на всю шапку, стрелка поворачивается. */
+html .hb.kab--agent .xrow:has(>.dl-btn){padding:0;gap:0}
+html .hb.kab--agent .xrow>.dl-btn{box-sizing:border-box;width:100%;padding:14px 16px;border-radius:var(--hb-r-m);cursor:pointer}
+html .hb.kab--agent .xrow>.dl-btn:hover{background:var(--hb-sunken)}
+html .hb.kab--agent .xrow>.dl-btn[aria-expanded="true"]{border-bottom-left-radius:0;border-bottom-right-radius:0}
+html .hb.kab--agent .xrow>.dl-det{margin:0;padding:12px 16px 14px;border-top:1px solid var(--hb-line)}
+html .hb.kab--agent .xrow__h>.ic{flex:none;transition:transform .15s}
+html .hb.kab--agent .dl-btn[aria-expanded="true"] .xrow__h>.ic{transform:rotate(180deg)}
+
+/* Метки состояния урока и шага: иконка и текст в одну линию, иконка 16 px */
+html .hb.kab--agent :is(.ob-st,.ob-card__b,.ob-steps__a) .badge{display:inline-flex;align-items:center;gap:6px;line-height:1}
+html .hb.kab--agent :is(.ob-st,.ob-card__b,.ob-steps__a) .badge .ic{width:16px;height:16px;flex:none}
+/* Кнопка-раскрытие в стеке: не растягивать на всю ширину */
+html .hb.kab--agent :is(.stack,.stack--s,.stack--l)>.btn[aria-expanded]{justify-self:start}
+/* Ссылка-кнопка (btn--link) всегда прижата влево, даже если на телефоне растянута на всю ширину */
+html .hb.kab--agent .btn.btn--link{justify-content:flex-start;text-align:left}
+/* Раскрытый текст под своей кнопкой: строка с кнопкой сверху, пояснение под ней */
+html .hb.kab--agent .guardline__c{display:grid;gap:8px;flex:1;min-width:0}
+html .hb.kab--agent .guardline__r{display:flex;align-items:center;gap:12px}
+html .hb.kab--agent .guardline__r>p{flex:1;min-width:0;margin:0}
+html .hb.kab--agent .guardline__more{margin:0}
+
+/* ===== Правки независимой проверки стилей (QA-STILI), раздел «Исправлено» ===== */
+
+/* K1, K2, V6: окна и панели лежат на реальном экране (position:fixed), не выше экрана, тело окна прокручивается, кнопки действий прилипают к низу окна.
+   На холсте с очень высоким артбордом (экран выше 1299 px) слой остаётся прежним: окно стоит на высоте нажатой строки, чтобы его было видно на длинной доске. */
+@media all{
+  html .hb.kab--agent :is(.pgx-ovl,.ob-ovl,.b3ovl){position:fixed;inset:0;z-index:1000;box-sizing:border-box;padding:16px !important;align-items:center;overflow:hidden}
+  html .hb.kab--agent .b3ovl--r{align-items:stretch;justify-content:flex-end;padding:0 !important}
+  html .hb.kab--agent .b3drawer{height:100%;max-height:100%}
+  html .hb.kab--agent :is(.pgx-ovl .modal,.b3modal,.ob-modal){max-height:calc(100dvh - 32px);overflow-y:auto}
+}
+html .hb.kab--agent .kl-ovl .modal.kl-modal{max-height:calc(100dvh - 32px)}
+html .hb.kab--agent .modal :is(.modal__foot,.pt-acts,.ob-foot){position:sticky;bottom:0;z-index:2;background:var(--hb-paper);padding-block:12px;margin-block:-12px;box-shadow:0 -10px 12px -10px rgba(20,30,25,.14)}
+@media (max-width:899px){
+  html .hb.kab--agent .ob-ovl{padding:0 !important;align-items:stretch}
+  html .hb.kab--agent .ob-modal{width:100%;height:100%;max-height:100%;min-height:0;border-radius:0}
+}
+
+/* K2, V6: выпадашки списков: по ширине поля, не шире экрана, длинный список прокручивается внутри */
+html .hb.kab--agent :is(.cs,.kl-cs){position:relative}
+html .hb.kab--agent .cs__pop{position:absolute;top:calc(100% + 4px);left:0;right:auto;width:100%;min-width:100%;max-width:min(360px,calc(100vw - 16px));max-height:min(320px,50dvh);overflow-y:auto;z-index:30}
+@media (max-width:899px){html .hb.kab--agent .cs__pop{max-width:calc(100vw - 16px)}}
+
+/* K5: плавающая кнопка помощника не лежит на данных. Десктоп: правая полоса 88 px у области данных занята кнопкой; телефон: запас снизу, чтобы последний блок прокручивался выше кнопки */
+
+/* V1: вкладки на телефоне в одну строку с прокруткой вбок (ни у одной доски перенос не нужен) */
+@media (max-width:899px){
+  html .hb.kab--agent .tabs__list{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;position:relative}
+  html .hb.kab--agent .tabs__list::-webkit-scrollbar{display:none}
+  html .hb.kab--agent .tabs__list>:is(button,a){flex:none;white-space:nowrap}
+}
+
+/* V2: переключатель из 2-4 значений держит все значения в одну строку */
+html .hb.kab--agent .seg:not(.pt-seg-w):not(:has(>button:nth-child(5))){flex-wrap:nowrap}
+html .hb.kab--agent .seg:not(.pt-seg-w)>button{flex:1 1 0;min-width:0;justify-content:center;padding-inline:10px}
+@media (max-width:899px){html .hb.kab--agent .linkhero__row>.btn--quiet:not(.btn--icon){padding-inline-start:0}}
+html .hb.kab--agent .xrow__h{flex-wrap:nowrap;align-items:flex-start}
+html .hb.kab--agent .xrow__h>b{flex:1 1 auto;min-width:0}
+html .hb.kab--agent .xrow__h>.ic{margin-top:3px}
+html .hb.kab--agent .sstrip b>.sc-interp{color:inherit;font:inherit}
+html .hb.kab--agent div.notice__t>p{font-weight:400}
+html .hb.hb.hb.kab--agent span.avatar.avatar--s{font-size:14px;line-height:20px}
+html .hb.hb.hb.kab--agent span.avatar.pf-av{font-size:24px;line-height:32px}
+@media (max-width:899px){html .hb.kab--agent .w2t--static>.w2t__c:nth-child(3):nth-last-child(2){grid-column:1/-1}}
+html .hb.kab--agent .pt-plans{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+@media (min-width:1200px){html .hb.kab--agent .mgrid:not(:has(>.mgrid__main)){grid-template-columns:repeat(4,minmax(0,1fr))}}
+html .hb.kab--agent .fgrid>.field:last-child:nth-child(odd){grid-column:1/-1}
+html .hb.kab--agent :is(.ob-start,.ob-grid)>li{display:flex}
+html .hb.kab--agent :is(.ob-start,.ob-grid)>li>:is(.ob-st,.ob-card){flex:1 1 auto;align-content:start}
+html .hb.kab--agent .dlg{align-items:center}
+html .hb.kab--agent .b3bal__act{justify-items:start;text-align:left}
+html .hb.kab--agent .b3bal__q{justify-content:flex-start;justify-items:start}
+html .hb.kab--agent .b3bal__q{gap:8px 24px}
+html .hb.kab--agent .b3bal__q>.btn--quiet{padding-inline:0}
+@media (max-width:899px){html .hb.kab--agent .linkbar__row>.btn--quiet{justify-content:flex-start;padding-inline-start:0}}
+
+/* M21: флажок в списке подборок на телефоне: зона нажатия 44 px при прежнем рисунке */
+@media (max-width:899px){html .hb.kab--agent .pt-ck{min-width:var(--hb-h-m);min-height:var(--hb-h-m);display:inline-flex;align-items:center;justify-content:center}}
+
+/* ===== Раунд 2 ===== */
+/* K1/K2: окна всегда fixed (правило выше без ограничения по высоте экрана) */
+
+/* M14: плашка «ждёт действия» */
+html .hb.kab--agent .badge--wait{background:var(--hb-ag-soft-start, #fbf0c4);color:var(--hb-ink)}
+
+/* M16: кнопка «?» одного вида на всех досках */
+html .hb.kab--agent .btn.help-q{padding:0;flex:0 0 var(--hb-h-m);width:var(--hb-h-m);min-width:var(--hb-h-m);height:var(--hb-h-m);min-height:var(--hb-h-m);justify-content:center;border-radius:50%;gap:0}
+html .hb.kab--agent .help-q__m{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;border:2px solid currentColor;font-weight:600;line-height:1}
+
+/* M17: на телефоне «?» остаётся в одной строке с заголовком, если рядом нет главной кнопки */
+@media (max-width:539px){
+  html .hb.kab--agent .phead__row:has(>.phead__acts>.help-q:only-child){flex-wrap:nowrap;align-items:flex-start}
+  html .hb.kab--agent .phead__row:has(>.phead__acts>.help-q:only-child)>.phead__main{flex:1 1 auto;min-width:0}
+  html .hb.kab--agent .phead__row:has(>.phead__acts>.help-q:only-child)>.phead__acts{flex:none;width:auto}
+}
+
+/* M18: mediapartner на телефоне */
+@media (max-width:899px){
+  html .hb.kab--agent .seg[aria-label="Новая страна"]{display:grid;grid-template-columns:1fr 1fr}
+  html .hb.kab--agent .seg[aria-label="Новая страна"]>button:nth-child(3){grid-column:1/-1}
+  html .hb.kab--agent .mlane__id>span:not(.avatar){text-align:left;display:grid;justify-items:start;min-width:0}
+  html .hb.kab--agent .mlane__id small{white-space:normal;overflow:visible;text-overflow:clip}
+  html .hb.kab--agent .dpath__s:has(>li:nth-child(3):last-child) b{font-size:14px;line-height:18px;min-height:36px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;overflow-wrap:normal}
+  html .hb.kab--agent .dpath__s:has(>li:nth-child(3):last-child)>li{align-content:start}
+}
+
+/* M27: в строках клиентов на десктопе видимые подписи под иконками */
+@media (min-width:900px){
+  html .hb.kab--agent .kl-qa .btn{width:auto;min-width:76px;height:auto;padding:6px 8px;flex-direction:column;gap:2px;line-height:1.2}
+  html .hb.kab--agent .kl-qa__t{display:block;font-size:13px}
+}

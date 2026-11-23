@@ -1,0 +1,145 @@
+/* _kit-v-partner.css - блоки кабинета локального партнёра на холсте. Все правила под `.hb.kab--agent`, токены только var(--hb-*).
+   Что здесь: общие куски холста (тост, оверлей, шторка), блоки варианта Б Главной (pv-now, pv-grp, pv-steps, pv-side) и общие блоки,
+   которых нет в ките (pv-timer, pv-fn). Блоки варианта А берутся из кита. Список новых блоков - OTCHET-osnova.md. */
+
+/* ---------- общее для холста ---------- */
+.hb.kab--agent .kab.kab--cv { position: relative; }
+.hb.kab--agent .kab--cv > .kab__main { position: relative; }
+.hb.kab--agent .pv-toast { position: absolute; left: 50%; transform: translateX(-50%); width: max-content; max-width: min(420px, calc(100% - 32px)); z-index: 120; display: flex; gap: 10px; align-items: center; padding: 12px 18px; border-radius: var(--hb-r-m); background: var(--hb-ink); color: var(--hb-paper); box-shadow: var(--hb-e3); font: 500 15px/22px var(--font-ui); pointer-events: none; }
+.hb.kab--agent .pv-toast .ic { flex: none; color: var(--hb-paper); }
+.hb.kab--agent .pv-ovl { position: absolute; inset: 0; z-index: 100; display: flex; justify-content: center; align-items: flex-start; background: var(--hb-scrim); }
+.hb.kab--agent .pv-ovl--r { justify-content: flex-end; }
+.hb.kab--agent .pv-modal { margin-top: 96px; width: min(520px, calc(100% - 32px)); border: 1px solid var(--hb-line); border-radius: var(--hb-r-l); background: var(--hb-paper); box-shadow: var(--hb-e3); }
+.hb.kab--agent .pv-drawer { position: sticky; top: 0; width: min(520px, 100%); height: min(100vh, 980px); display: grid; grid-template-rows: auto minmax(0, 1fr) auto; border-left: 1px solid var(--hb-line); background: var(--hb-paper); box-shadow: var(--hb-e3); }
+.hb.kab--agent .pv-drawer__h { display: flex; align-items: center; gap: 12px; padding: 12px 16px 12px 20px; border-bottom: 1px solid var(--hb-line); }
+.hb.kab--agent .pv-drawer__h h2 { margin: 0 auto 0 0; }
+.hb.kab--agent .pv-drawer__b { display: grid; align-content: start; gap: 20px; padding: 20px; overflow-y: auto; }
+.hb.kab--agent .pv-drawer__f { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .pv-drawer__f .btn { flex: 1 1 auto; }
+.hb.kab--agent .pv-cols { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.hb.kab--agent .pv-cols__m { flex: 999 1 560px; min-width: 0; display: grid; gap: 24px; }
+.hb.kab--agent .pv-cols__s { flex: 1 1 320px; min-width: 0; display: grid; gap: 24px; }
+.hb.kab--agent .pv-h { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
+.hb.kab--agent .pv-h h2 { margin: 0; }
+.hb.kab--agent .pv-wrap > .btn, .hb.kab--agent .lrow__b > b, .hb.kab--agent .lrow__b > span, .hb.kab--agent .lrow__b > p { white-space: normal; overflow: visible; text-overflow: clip; }
+.hb.kab--agent .pv-nb { white-space: nowrap; }
+
+/* ---------- таймер принятия заявки (новое: 15 минут на принятие) ---------- */
+.hb.kab--agent .pv-timer { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: var(--hb-r-pill); background: var(--hb-sunken); color: var(--hb-ink); font: 600 14px/20px var(--font-ui); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hb.kab--agent .pv-timer .ic { width: 16px; height: 16px; }
+.hb.kab--agent .pv-timer.is-hot { background: color-mix(in srgb, var(--hb-err) 12%, transparent); color: var(--hb-err); }
+.hb.kab--agent .pv-late { color: var(--hb-err); font-weight: 600; }
+
+/* ---------- строка очереди (А): кит .lrow + кнопка ---------- */
+.hb.kab--agent .pv-q { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 4px 14px; padding: 12px 16px; }
+.hb.kab--agent .pv-q__b { display: grid; gap: 2px; min-width: 0; }
+.hb.kab--agent .pv-q__b b { font-size: var(--bb-text); line-height: var(--bb-row-l); font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .pv-q__b span { font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); }
+.hb.kab--agent .pv-q__d { display: grid; justify-items: end; gap: 6px; text-align: right; }
+.hb.kab--agent .pv-q__d small { color: var(--hb-ink-2); }
+.hb.kab--agent .pv-q__a { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+@media (max-width: 899px) {
+  .hb.kab--agent .pv-q { grid-template-columns: auto minmax(0, 1fr); }
+  .hb.kab--agent .pv-q__d { grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr); justify-items: start; text-align: left; }
+  .hb.kab--agent .pv-q__d .badge { white-space: normal; height: auto; }
+  .hb.kab--agent .pv-q__a { justify-content: flex-start; }
+}
+
+/* ---------- Б: карточка «Сначала это» ---------- */
+.hb.kab--agent .pv-now { display: grid; gap: 16px; padding: 24px; border: 1px solid var(--hb-line); border-left: 6px solid var(--hb-accent); border-radius: var(--hb-r-l); background: var(--hb-paper); box-shadow: var(--hb-e1); }
+.hb.kab--agent .pv-now__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.hb.kab--agent .pv-now__who { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.hb.kab--agent .pv-now__who b { display: block; font: 600 var(--bb-h3)/var(--bb-h3-l) var(--font-display); color: var(--hb-ink); }
+.hb.kab--agent .pv-now__who span { display: block; color: var(--hb-ink-2); }
+.hb.kab--agent .pv-now__t { display: grid; gap: 6px; justify-items: end; text-align: right; }
+.hb.kab--agent .pv-now__t b { font: 600 var(--bb-num)/var(--bb-num-l) var(--font-ui); font-variant-numeric: tabular-nums; color: var(--hb-ink); }
+.hb.kab--agent .pv-now__t small { color: var(--hb-ink-2); }
+.hb.kab--agent .pv-bar { height: 8px; border-radius: var(--hb-r-pill); background: var(--hb-sunken); overflow: hidden; }
+.hb.kab--agent .pv-bar > i { display: block; height: 100%; border-radius: inherit; background: var(--hb-accent); }
+.hb.kab--agent .pv-now__a { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.hb.kab--agent .pv-now__facts { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 12px 16px; border-radius: var(--hb-r-m); background: var(--hb-sunken); }
+.hb.kab--agent .pv-now__facts > div { display: grid; gap: 0; }
+.hb.kab--agent .pv-now__facts dt { color: var(--hb-ink-2); }
+.hb.kab--agent .pv-now__facts dd { margin: 0; font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .pv-now.is-done { border-left-color: var(--hb-ok); }
+
+/* ---------- Б: очередь по группам ---------- */
+.hb.kab--agent .pv-grp { display: grid; gap: 8px; }
+.hb.kab--agent .pv-grp__h { display: flex; align-items: center; gap: 8px; margin: 0; font: 600 var(--bb-text)/var(--bb-row-l) var(--font-display); color: var(--hb-ink); }
+.hb.kab--agent .pv-grp__h .badge { margin-left: 2px; }
+.hb.kab--agent .pv-grp ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .pv-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 4px 14px; padding: 12px 16px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); }
+.hb.kab--agent .pv-card.is-late { border-left: 5px solid var(--hb-err); }
+.hb.kab--agent .pv-card.is-soon { border-left: 5px solid var(--hb-warn); }
+.hb.kab--agent .pv-card__b { display: grid; gap: 2px; min-width: 0; }
+.hb.kab--agent .pv-card__b b { font-size: var(--bb-text); line-height: var(--bb-row-l); font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .pv-card__b span { font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); }
+.hb.kab--agent .pv-card__a { display: flex; align-items: center; gap: 8px; }
+@media (max-width: 899px) {
+  .hb.kab--agent .pv-card { grid-template-columns: auto minmax(0, 1fr); }
+  .hb.kab--agent .pv-card__a { grid-column: 1 / -1; }
+  .hb.kab--agent .pv-card__a .btn:not(.btn--icon) { flex: 1 1 auto; }
+  .hb.kab--agent .pv-now { padding: 16px; }
+  .hb.kab--agent .pv-now__t { justify-items: start; text-align: left; }
+  .hb.kab--agent .pv-now__a .btn { width: 100%; }
+}
+
+/* ---------- путь клиентов: полосы (А) и шаги (Б) ---------- */
+.hb.kab--agent .pv-fn { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .pv-fn a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; color: var(--hb-ink); text-decoration: none; border-radius: var(--hb-r-s); }
+.hb.kab--agent .pv-fn a:hover { background: var(--hb-sunken); }
+.hb.kab--agent .pv-fn b { font-weight: 600; }
+.hb.kab--agent .pv-fn .pv-fn__n { font: 600 var(--bb-num-s, 22px)/28px var(--font-ui); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .pv-fn small { grid-column: 1 / -1; color: var(--hb-ink-2); }
+.hb.kab--agent .pv-fn .progress { grid-column: 1 / -1; }
+.hb.kab--agent .pv-steps { display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); overflow: hidden; background: var(--hb-paper); }
+.hb.kab--agent .pv-steps li + li { border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .pv-steps a { display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: center; gap: 8px; min-height: 48px; padding: 8px 14px; text-decoration: none; color: var(--hb-ink); align-content: start; }
+.hb.kab--agent .pv-steps a:hover { background: var(--hb-sunken); }
+.hb.kab--agent .pv-steps b { font: 600 var(--bb-num)/var(--bb-num-l) var(--font-ui); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .pv-steps span { font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); overflow-wrap: anywhere; }
+
+/* ---------- Б: боковая колонка: скорость, деньги ---------- */
+.hb.kab--agent .pv-side { display: grid; gap: 12px; padding: 20px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-l); background: var(--hb-paper); }
+.hb.kab--agent .pv-side h2 { margin: 0; }
+.hb.kab--agent .pv-big { display: flex; align-items: baseline; gap: 8px; }
+.hb.kab--agent .pv-big b { font: 600 34px/40px var(--font-ui); font-variant-numeric: tabular-nums; color: var(--hb-ink); }
+.hb.kab--agent .pv-big span { color: var(--hb-ink-2); }
+.hb.kab--agent .pv-kv { display: grid; gap: 0; margin: 0; }
+.hb.kab--agent .pv-kv > div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .pv-kv > div:first-child { border-top: 0; }
+.hb.kab--agent .pv-kv dt { color: var(--hb-ink-2); }
+.hb.kab--agent .pv-kv dd { margin: 0; font-weight: 600; color: var(--hb-ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.hb.kab--agent .pv-fine { margin: 0; color: var(--hb-ink-2); }
+
+/* ---------- меню и панели Nav ---------- */
+.hb.kab--agent .pv-pop { position: absolute; z-index: 90; display: grid; gap: 0; width: 340px; max-width: calc(100vw - 16px); border: 1px solid var(--hb-line); border-radius: var(--hb-r-l); background: var(--hb-paper); box-shadow: var(--hb-e3); }
+.hb.kab--agent .pv-pop__h { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--hb-line); }
+.hb.kab--agent .pv-pop__h b { font: 600 var(--bb-text)/var(--bb-row-l) var(--font-display); }
+.hb.kab--agent .pv-pop ul { display: grid; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .pv-pop li + li { border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .pv-pop li a { display: grid; gap: 2px; padding: 12px 16px; text-decoration: none; color: var(--hb-ink); min-height: 44px; }
+.hb.kab--agent .pv-pop li a:hover { background: var(--hb-sunken); }
+.hb.kab--agent .pv-pop li a.is-unread b::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--hb-accent); }
+.hb.kab--agent .pv-pop li span { font-size: var(--bb-small); line-height: var(--bb-small-l); color: var(--hb-ink-2); }
+.hb.kab--agent .pv-pop--bell-side { left: 12px; top: 60px; }
+.hb.kab--agent .pv-pop--bell-top { right: 8px; top: 56px; }
+.hb.kab--agent .pv-pop--sputnik { position: fixed; right: 20px; bottom: 76px; width: 360px; padding: 0; }
+.hb.kab--agent .pv-pop--more { position: fixed; left: 8px; right: 8px; bottom: 68px; width: auto; max-width: none; max-height: 70vh; overflow-y: auto; }
+.hb.kab--agent .pv-pop--more li a, .hb.kab--agent .pv-pop--more li button { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 48px; padding: 8px 16px; border: 0; background: none; font: 500 16px/24px var(--font-ui); color: var(--hb-ink); text-align: left; text-decoration: none; cursor: pointer; }
+.hb.kab--agent .pv-pop--more li .ic { width: 22px; height: 22px; color: var(--hb-ink-3); }
+.hb.kab--agent .pv-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 16px; }
+.hb.kab--agent .pv-ask { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .pv-ask .input { flex: 1 1 auto; min-width: 0; }
+@media (max-width: 899px) { .hb.kab--agent .pv-pop--sputnik { right: 8px; left: 8px; width: auto; bottom: 132px; } }
+.hb.kab--agent .pv-nav-toast { position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%); z-index: 130; width: max-content; max-width: calc(100vw - 32px); padding: 12px 18px; border-radius: var(--hb-r-m); background: var(--hb-ink); color: var(--hb-paper); font: 500 15px/22px var(--font-ui); box-shadow: var(--hb-e3); }
+
+/* ---------- заглушка «Рисуется» ---------- */
+.hb.kab--agent .pv-stub { display: grid; gap: 8px; justify-items: center; padding: 48px 24px; border: 1px dashed var(--hb-control); border-radius: var(--hb-r-l); background: var(--hb-sunken); text-align: center; }
+
+/* цели нажатия не меньше 44 px */
+.hb.kab--agent .kab__main .more { min-height: var(--hb-h-m); display: inline-flex; align-items: center; }
+.hb.kab--agent .pv-fn a { min-height: 44px; }
+.hb.kab--agent .pv-now .avatar { width: 64px; height: 64px; font-size: 20px; flex: none; }
+.hb.kab--agent .pv-fine { font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .pv-now .avatar { display: grid; place-items: center; line-height: 1; overflow: visible; }

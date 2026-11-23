@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Telegram-бот Housebook</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+html, body { margin: 0; background: #E6EDF0; }
+.tb { --acc: #00732D; --acc-t: #005A23; --tint: #DAF1DC; --ink: #1A1E20; --ink2: #4D5254; --line: #D5DCE0; --sun: #EDF2F5;
+  box-sizing: border-box; width: 390px; height: 844px; display: flex; flex-direction: column; background: #fff; color: var(--ink);
+  font: 400 15px/21px "IBM Plex Sans", system-ui, -apple-system, Arial, sans-serif; overflow: hidden; position: relative; }
+.tb *, .tb *::before, .tb *::after { box-sizing: border-box; }
+.tb-st { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px 6px; font: 600 15px/18px "IBM Plex Sans", system-ui, sans-serif; background: #fff; }
+.tb-st svg { height: 12px; width: auto; }
+.tb-hd { display: flex; align-items: center; gap: 12px; padding: 6px 16px 10px 8px; background: #fff; border-bottom: 1px solid var(--line); }
+.tb-hd > .tb-bk { display: grid; place-items: center; width: 40px; height: 40px; color: var(--acc); }
+.tb-ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.tb-av { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--acc); color: #fff; font: 600 18px/20px "Geologica", "IBM Plex Sans", sans-serif; flex: none; }
+.tb-hd b { display: block; font: 600 16px/20px "Geologica", "IBM Plex Sans", sans-serif; }
+.tb-hd span.s { display: block; color: var(--ink2); font-size: 13px; line-height: 16px; }
+.tb-feed { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 12px 12px 8px; background: #E4EEE8; display: flex; flex-direction: column; gap: 8px; scroll-behavior: smooth; }
+.tb-day { align-self: center; padding: 2px 10px; border-radius: 12px; background: rgba(26,30,32,.28); color: #fff; font-size: 13px; line-height: 18px; }
+.tb-m { max-width: 86%; display: flex; flex-direction: column; gap: 4px; align-items: stretch; }
+.tb-m--b { align-self: flex-start; }
+.tb-m--m { align-self: flex-end; }
+.tb-bub { padding: 8px 12px 6px; border-radius: 14px; background: #fff; box-shadow: 0 1px 1px rgba(26,30,32,.08); overflow-wrap: anywhere; }
+.tb-m--b .tb-bub { border-bottom-left-radius: 4px; }
+.tb-m--m .tb-bub { background: var(--tint); border-bottom-right-radius: 4px; }
+.tb-k { display: block; font: 600 12px/16px "IBM Plex Sans", sans-serif; letter-spacing: .04em; text-transform: uppercase; color: var(--acc-t); margin-bottom: 2px; }
+.tb-h { display: block; font-weight: 600; }
+.tb-t { white-space: pre-line; }
+.tb-tm { display: block; text-align: right; color: var(--ink2); font-size: 12px; line-height: 16px; margin-top: 2px; }
+.tb-pg { height: 6px; border-radius: 3px; background: var(--sun); overflow: hidden; margin: 8px 0 2px; }
+.tb-pg i { display: block; height: 100%; background: var(--acc); }
+.tb-cd { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 13px; line-height: 18px; color: var(--ink2); margin-top: 6px; }
+.tb-cd b { font: 600 15px/18px "IBM Plex Sans", sans-serif; font-variant-numeric: tabular-nums; color: var(--ink); }
+.tb-kb { display: flex; flex-wrap: wrap; gap: 4px; }
+.tb-btn { flex: 1 1 calc(50% - 2px); min-height: 40px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 6px 10px; border: 0; border-radius: 10px; background: rgba(255,255,255,.92); color: var(--acc-t); font: 600 14px/18px "IBM Plex Sans", sans-serif; text-decoration: none; cursor: pointer; box-shadow: 0 1px 1px rgba(26,30,32,.08); text-align: center; }
+.tb-btn:hover { background: #fff; }
+.tb-btn.is-full { flex-basis: 100%; }
+.tb-btn.is-on { background: var(--acc); color: #fff; }
+.tb-btn.is-off { opacity: .5; cursor: default; }
+.tb-btn .tb-ic { width: 16px; height: 16px; }
+.tb-bot { background: var(--sun); border-top: 1px solid var(--line); padding: 8px 12px 10px; display: grid; gap: 8px; }
+.tb-in { display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: 8px; }
+.tb-in input { min-width: 0; height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 22px; background: #fff; font: 400 15px/21px "IBM Plex Sans", system-ui, sans-serif; color: var(--ink); outline: none; }
+.tb-in input:focus { border-color: var(--acc); }
+.tb-in button { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--acc); color: #fff; cursor: pointer; }
+.tb-rk { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.tb-rk button { min-height: 44px; border: 0; border-radius: 10px; background: #fff; color: var(--ink); font: 500 14px/18px "IBM Plex Sans", sans-serif; cursor: pointer; box-shadow: 0 1px 1px rgba(26,30,32,.12); }
+.tb-rk button:hover { background: var(--tint); }
+.tb-aw { color: var(--acc-t); font-size: 13px; line-height: 18px; }
+</style>
+<style id="hb-fix-sys-2211">/* Свод 22.11, системные правки по аудиту: один блок на все живые экраны. Источник правды для <style id="hb-fix-sys-2211">. .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent (18 повторов .hb) и .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent (22 повтора .hb, для правил, что должны перебивать групповые блоки и gk) подставляются при сборке. */
+
+/* 1. Шапка -> первый блок 16 (телефон 12); лид вплотную, ink-2 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp { row-gap: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp > .phead { margin-bottom: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__main > h1 + :is(p, .lead) { margin-top: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__main > :is(p, .lead) { color: var(--hb-ink-2); }
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp { row-gap: 12px; } }
+
+/* 2. Заголовок блока 18/24 Geologica 600; под ним 8-12 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-t, .sp-tit, .k2-h, .gd-late > h2, .netlink__ttl) { font: 600 18px/24px var(--font-display); letter-spacing: 0; color: var(--hb-ink); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .pv-pop__h > b { font: 600 18px/24px var(--font-display); letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .netlink__ttl + * { margin-top: 6px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp-tit :is(h2, h3) { margin: 0; font: inherit; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3).sp-tit { font: 600 18px/24px var(--font-display) !important; }
+
+/* 3. Карточка: r16 (вложенное 14), padding 22 (телефон 18), рамка 1px line, без тени */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero, .hl-card, .ocard, .pcard, .k2-next, .k2-contact, .notice, .kk-li, .k2-lr, .dpath__m, .thread__d) { box-shadow: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero, .hl-card, .ocard) { border-radius: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero) { padding: 22px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.rz-tbl, .lrows, .k2-lrs, .kk-th, .pf-acc) { border-radius: 14px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.sstrip, .sstrip--lg) { border-radius: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-contact, .kk-li, .notice, .k2-next) { border-radius: 14px; }
+/* карточка в карточке: внутри секции без своей рамки, фон sunken */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-sec, .pv-side, .gd-late) :is(.k2-contact, .kk-li) { border-color: transparent; background: var(--hb-sunken); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-sec .notice { border-color: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .plist > .pcard { border: 0; border-radius: 0; background: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .plist > .pcard + .pcard { border-top: 1px solid var(--hb-line); }
+@media (max-width: 767px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero) { padding: 18px; }
+}
+
+/* 4. Кнопки: 32 -> r10, 40 -> r12; 48 нет; телефон 40 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn { border-radius: 10px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts, .kab__head) .btn:not(.btn--s, .btn--icon) { border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn--acc.btn--l { border-radius: 10px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn--round, .mcomp .btn, .copy--code .btn, .agm__f .btn) { border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts) .btn--acc.btn--l { border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next .btn--l { min-height: 32px; height: 32px; }
+@media (max-width: 767px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .btn--s, .btn--acc.btn--l) { border-radius: 12px; min-height: 40px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(button.btn--link, .k2-lnk, .rowopen, .pcard__t, .pt-stretch, .fl__h, .kk-hl__r, .x-lnk, .crumbs__b) { min-height: 40px; display: inline-flex; align-items: center; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .fl__h { display: grid; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .switch { min-height: 40px; }
+}
+
+/* 5. Поля и триггеры 40 на десктопе; метка -> поле 6; между полями 16 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-flt__s .input, .input--t, .cs__btn, .kk-dd .cs__btn, .fbar .cs__btn) { height: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-flt, .fbar) :is(.btn, .btn--s, .btn--quiet):not(.btn--icon) { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.field, .modal__body .field, .pv-modal .modal__body .field) { gap: 6px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .sp-card, .field) .fbtn { height: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp-two { row-gap: 16px; }
+@media (min-width: 768px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.linkhero, .netlink) .copy--code .input { font-size: 16px; line-height: 24px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.sp-card .sp-two, .sp-card form, .sp-card .stack) { row-gap: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp-card .field + .field { margin-top: 0; }
+
+/* 6. Окна: не выше экрана, тело прокручивается, шапка и подвал на месте; ширина 440-560 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) { max-height: calc(100dvh - 48px) !important; overflow: hidden !important; display: flex; flex-direction: column; box-sizing: border-box; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) > .modal__in { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) :is(.modal__head, .modal__foot) { flex: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot { margin-top: 0 !important; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal { max-height: calc(100dvh - 48px) !important; overflow-y: auto !important; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal .modal__head { position: sticky; top: 0; z-index: 3; background: var(--hb-paper); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal .pt-acts { position: sticky; bottom: 0; z-index: 3; background: var(--hb-paper); padding-block: 12px 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal.pt-wiz { width: min(560px, 100%); max-width: 560px; }
+
+/* 7. Значки в кнопках: 16 в кнопках 32, 20 в кнопках 40 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn svg { width: 16px; height: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts) .btn svg { width: 20px; height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts) .btn--icon svg { width: 20px; height: 20px; }
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn:not(.btn--link) svg { width: 20px; height: 20px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sputnik svg { width: 24px; height: 24px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-ib, .x-chev, .k3-chev, .k3-info) svg, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-ib--s) .ic { width: 16px; height: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .search :is(.ic, svg) { width: 20px; height: 20px; }
+
+/* 8. Бейджи 12 мягкие без капса; th 13/18 600 ink-3 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.badge, .cnt-pill, .dlg__tag, .dlg__u, .ocard__tag) { font-size: 12px; line-height: 16px; text-transform: none; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent th { font: 600 13px/18px var(--font-ui); color: var(--hb-ink-3); text-transform: none; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next__l { text-transform: none; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sstrip small { font: 400 12px/16px var(--font-ui); color: var(--hb-ink-3); }
+
+/* 9. Спутник: кнопка в экране */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sputnik { max-width: calc(100vw - 20px); }
+
+/* 10. Меню аккаунта и пункты бокового меню одной высоты 36 (телефон: касание 40) */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 36px; height: 36px; padding-inline: 12px; gap: 10px; font-size: 14px; line-height: 20px; white-space: nowrap; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) > span:not(.badge) { overflow: hidden; text-overflow: ellipsis; }
+@media (min-width: 900px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .knav a { min-height: 36px; padding-block: 0; } }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 40px; height: 40px; } }
+
+/* 11. Число KPI 24/28, при узкой ячейке уменьшается и не вылезает; шапка -> блок 16 (телефон 12) */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sstrip--lg b { font-size: clamp(14px, 14.5cqi, 24px); line-height: 28px; white-space: nowrap; }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sstrip--lg b { line-height: 24px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent main.kab__main { row-gap: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__acts:empty { display: none; }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent main.kab__main { row-gap: 12px; } }
+
+/* 12. Заголовок-ссылка цветом заголовка; подсказки в карточке без рамки и фона, только полоса слева */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3) > .x-op__t, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3) > .x-op__t:hover, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3) > .x-op__t:visited { color: var(--hb-ink); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-sec .notice { border-top: 0; border-right: 0; border-bottom: 0; border-left-width: 3px; border-radius: 0; box-shadow: none; background: transparent; padding: 4px 0 4px 14px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-sec .k2-next, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next { border-top: 0; border-right: 0; border-bottom: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next .k2-next__l { text-transform: none; letter-spacing: 0; }
+
+/* 13. Шрифт по высоте: кнопки 32 = 14 (база), кнопки 40 = 15, триггеры и поля 40 = 16. Причина прежних 14 у кнопок и триггеров 40: базовое правило размеров (size-pass) задаёт 14 всем .btn/.fbtn/.select/.cs__btn и 15 только внутри .phead__acts и .modal__foot, поэтому кнопки 40 в формах и фильтрах оставались на 14 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.linkhero .copy--code .btn, .cal-dd .fbtn, .hp-fdd .fbtn, .pv-modal .fbtn, .sp-card .fbtn, .field .fbtn, .fbar .btn, .k2-flt .btn, .contact .btn):not(.btn--icon, .btn--link) { font-size: 15px; line-height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .contact .btn:not(.btn--icon, .btn--link) { min-height: 40px; padding-inline: 16px; border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.select, .cs__btn) { font-size: 16px; line-height: 24px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__val.is-ph { color: var(--hb-ink-3); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .field__l:has(.x-i) { display: flex; align-items: center; height: 18px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .field__hint { margin-top: -2px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(input[type=checkbox], input[type=radio]) { -webkit-appearance: none; appearance: none; }
+
+/* 14. Значки: пункты меню и поповеров 20, на телефоне в кнопках-фильтрах и подсказках 20 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .pt-menu button .ic { width: 20px; height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sa-pop :is(button, a) svg { width: 20px; height: 20px; }
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.fbtn, .k3-info, .x-i, .ocard__pick) svg { width: 20px; height: 20px; } }
+
+/* 15. На телефоне главная колонка во всю ширину, в детальных видах не схлопывается */
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__main { flex: 1 1 auto; width: 100%; min-width: 0; margin-inline: 0; box-sizing: border-box; } }
+
+/* 16. Тосты: фиксированно снизу по центру на всех экранах, на телефоне над нижней навигацией */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-toast, .pt-toast, .pv-nav-toast) { position: fixed; top: auto !important; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 500; max-width: calc(100vw - 32px); }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-toast, .pt-toast, .pv-nav-toast) { bottom: 88px; } }
+
+/* 17. Меню и листы на телефоне (E1): лист снизу на всю ширину, на нижней панели (61), углы 16 сверху, затемнение страницы без перехвата касаний. Одинаково для «Ещё» (роли и меню аккаунта), меню карточки материалов и поповера «О ценах и курсе» */
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-pop--more, .pmenu__l.pt-menu, .k3-fx) { position: fixed; left: 0; right: 0; top: auto; bottom: 61px; width: auto; max-width: none; margin: 0; box-sizing: border-box; max-height: calc(100dvh - 109px); overflow-y: auto; border-width: 1px 0 0; border-radius: 16px 16px 0 0; box-shadow: 0 0 0 100vmax rgb(18 21 23 / .32); z-index: 90; } }
+
+/* 18. Подпись группы в меню аккаунта («Роль»): обычный регистр, без разрядки (B7) */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sheet-list > li.sheet-list__t { font: 600 13px/18px var(--font-ui); letter-spacing: 0; text-transform: none; }
+</style>
+<style id="hb-fix-gk-2211">
+.tb .tb-hd > button.tb-bk { border: 0; background: transparent; padding: 0; cursor: pointer; border-radius: 10px; }
+.tb .tb-k { text-transform: none; letter-spacing: 0; }
+.tb .tb-rk button { min-height: 40px; }
+</style>
+</helmet>
+<div class="tb">
+<div class="tb-st"><span>{{clock}}</span><svg viewBox="0 0 60 12" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1" fill="#1A1E20"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#1A1E20"/><rect x="10" y="2" width="3" height="10" rx="1" fill="#1A1E20"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1A1E20"/><rect x="30" y="1" width="26" height="11" rx="3" fill="none" stroke="#1A1E20"/><rect x="32" y="3" width="17" height="7" rx="1.5" fill="#1A1E20"/><rect x="57" y="4" width="2" height="5" rx="1" fill="#1A1E20"/></svg></div>
+<div class="tb-hd"><button type="button" class="tb-bk" aria-label="Назад"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button><span class="tb-av" aria-hidden="true">H</span><div><b>Housebook Партнёр</b><span class="s">бот</span></div></div>
+<div class="tb-feed" id="tb-feed" role="log" aria-live="polite">
+<sc-for list="{{feed}}" as="r" hint-placeholder-count="6">
+<sc-if value="{{r.isDay}}" hint-placeholder-val="{{ false }}"><div class="tb-day">{{r.day}}</div></sc-if>
+<sc-if value="{{r.isMsg}}" hint-placeholder-val="{{ true }}"><div class="tb-m {{r.cls}}"><div class="tb-bub">
+<sc-if value="{{r.k}}" hint-placeholder-val="{{ true }}"><span class="tb-k">{{r.k}}</span></sc-if>
+<sc-if value="{{r.h}}" hint-placeholder-val="{{ true }}"><span class="tb-h">{{r.h}}</span></sc-if>
+<sc-if value="{{r.t}}" hint-placeholder-val="{{ true }}"><span class="tb-t">{{r.t}}</span></sc-if>
+<sc-if value="{{r.cd}}" hint-placeholder-val="{{ false }}"><div class="tb-pg"><i style="{{r.pg}}"></i></div><div class="tb-cd"><span>{{r.cdl}}</span><b>{{r.cd}}</b></div></sc-if>
+<span class="tb-tm">{{r.time}}</span></div>
+<sc-if value="{{r.hasB}}" hint-placeholder-val="{{ true }}"><div class="tb-kb"><sc-if value="{{r.b1l}}" hint-placeholder-val="{{ false }}"><sc-if value="{{r.b1h}}" hint-placeholder-val="{{ false }}"><a class="tb-btn {{r.b1c}}" href="{{r.b1h}}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span>{{r.b1l}}</span></a></sc-if><sc-if value="{{r.b1n}}" hint-placeholder-val="{{ true }}"><button type="button" class="tb-btn {{r.b1c}}" onClick="{{r.b1f}}"><sc-if value="{{r.b1x}}" hint-placeholder-val="{{ false }}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></sc-if><span>{{r.b1l}}</span></button></sc-if></sc-if><sc-if value="{{r.b2l}}" hint-placeholder-val="{{ false }}"><sc-if value="{{r.b2h}}" hint-placeholder-val="{{ false }}"><a class="tb-btn {{r.b2c}}" href="{{r.b2h}}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span>{{r.b2l}}</span></a></sc-if><sc-if value="{{r.b2n}}" hint-placeholder-val="{{ true }}"><button type="button" class="tb-btn {{r.b2c}}" onClick="{{r.b2f}}"><sc-if value="{{r.b2x}}" hint-placeholder-val="{{ false }}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></sc-if><span>{{r.b2l}}</span></button></sc-if></sc-if><sc-if value="{{r.b3l}}" hint-placeholder-val="{{ false }}"><sc-if value="{{r.b3h}}" hint-placeholder-val="{{ false }}"><a class="tb-btn {{r.b3c}}" href="{{r.b3h}}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span>{{r.b3l}}</span></a></sc-if><sc-if value="{{r.b3n}}" hint-placeholder-val="{{ true }}"><button type="button" class="tb-btn {{r.b3c}}" onClick="{{r.b3f}}"><sc-if value="{{r.b3x}}" hint-placeholder-val="{{ false }}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></sc-if><span>{{r.b3l}}</span></button></sc-if></sc-if><sc-if value="{{r.b4l}}" hint-placeholder-val="{{ false }}"><sc-if value="{{r.b4h}}" hint-placeholder-val="{{ false }}"><a class="tb-btn {{r.b4c}}" href="{{r.b4h}}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span>{{r.b4l}}</span></a></sc-if><sc-if value="{{r.b4n}}" hint-placeholder-val="{{ true }}"><button type="button" class="tb-btn {{r.b4c}}" onClick="{{r.b4f}}"><sc-if value="{{r.b4x}}" hint-placeholder-val="{{ false }}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></sc-if><span>{{r.b4l}}</span></button></sc-if></sc-if><sc-if value="{{r.b5l}}" hint-placeholder-val="{{ false }}"><sc-if value="{{r.b5h}}" hint-placeholder-val="{{ false }}"><a class="tb-btn {{r.b5c}}" href="{{r.b5h}}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span>{{r.b5l}}</span></a></sc-if><sc-if value="{{r.b5n}}" hint-placeholder-val="{{ true }}"><button type="button" class="tb-btn {{r.b5c}}" onClick="{{r.b5f}}"><sc-if value="{{r.b5x}}" hint-placeholder-val="{{ false }}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></sc-if><span>{{r.b5l}}</span></button></sc-if></sc-if><sc-if value="{{r.b6l}}" hint-placeholder-val="{{ false }}"><sc-if value="{{r.b6h}}" hint-placeholder-val="{{ false }}"><a class="tb-btn {{r.b6c}}" href="{{r.b6h}}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span>{{r.b6l}}</span></a></sc-if><sc-if value="{{r.b6n}}" hint-placeholder-val="{{ true }}"><button type="button" class="tb-btn {{r.b6c}}" onClick="{{r.b6f}}"><sc-if value="{{r.b6x}}" hint-placeholder-val="{{ false }}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></sc-if><span>{{r.b6l}}</span></button></sc-if></sc-if></div></sc-if></div></sc-if>
+</sc-for>
+</div>
+<div class="tb-bot">
+<sc-if value="{{hasAw}}" hint-placeholder-val="{{ false }}"><span class="tb-aw">{{awText}}</span></sc-if>
+<div class="tb-in"><input type="text" placeholder="{{ph}}" value="{{draft}}" onInput="{{onDraft}}" onKeyDown="{{onKey}}" autocomplete="off" aria-label="Сообщение"><button type="button" aria-label="Отправить" onClick="{{send}}"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button></div>
+<div class="tb-rk"><button type="button" onClick="{{kbList}}">Заявки</button><button type="button" onClick="{{kbStage}}">Этап</button><button type="button" onClick="{{kbAct}}">Действие</button></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    // Esc: закрывает верхнее окно или поповер (общий обработчик)
+    try { if (!window.__hbEsc) { window.__hbEsc = 1; document.addEventListener("keydown", function (e) { try { if (e.key !== "Escape" || e.defaultPrevented) return; var v = function (x) { var r = x.getBoundingClientRect(); return r.width > 0 && r.height > 0 }, q = function (s) { return Array.prototype.filter.call(document.querySelectorAll(s), v) }; var o = q(".pv-ovl,.k3-ovl,.kl-ovl,.kl-scrim,.k3-scrim,.sa-scrim").pop() || q("[class*=away]").pop() || q('[aria-expanded="true"][aria-haspopup]').pop() || q('[aria-expanded="true"]').filter(function (x) { return !x.closest("main") }).pop(); if (o) { o.click(); e.preventDefault(); return } var d = q("details.kab__acc[open]").pop(); if (d) { d.removeAttribute("open"); e.preventDefault() } } catch (x) {} }) } } catch (x) {}
+    const R = { id: "r1", side: "b", time: "14:48", k: "Новая заявка", h: "HB-10436 Ольга Громова", t: "Грузия, проект, горячий.\nУ Вас 15 минут, чтобы взять.", tm: true,
+      btns: [{ id: "take", l: "Взять" }, { id: "decl", l: "Отклонить" }, { id: "cab", l: "Открыть в кабинете", href: "klienty-kartochka.dc.html#olga", full: true }] };
+    this.state = { sec: 900, req: "pending", aw: "", ctx: {}, draft: "", clk: 48, n: 10, msgs: [
+      { id: "d0", day: "Сегодня" },
+      { id: "s1", side: "b", time: "09:12", k: "Агент дополнил", h: "HB-10312 Павел Седов", t: "Добавлены данные: 3 комнаты, цель покупки: ВНЖ, комментарий агента.", btns: [{ id: "cab", l: "Открыть в кабинете", href: "klienty-kartochka.dc.html", full: true }] },
+      { id: "a1", side: "b", time: "10:03", k: "Сообщение агента", h: "Марат Сулейманов, HB-10431", t: "Клиент ждёт звонка. Примите заявку в течение 15 минут.", btns: [{ id: "rag", l: "Ответить" }, { id: "cab", l: "Открыть в кабинете", href: "soobshcheniya.dc.html", full: true }] },
+      { id: "c1", side: "b", time: "11:40", k: "Ответ клиента, WhatsApp", h: "HB-10344 Георгий Мелия", t: "Добрый день, можно ли взять рассрочку на пентхаус?", btns: [{ id: "rcl", l: "Ответить" }, { id: "cab", l: "Открыть в кабинете", href: "soobshcheniya.dc.html", full: true }] },
+      { id: "rm", side: "b", time: "14:30", k: "Напоминание", h: "Звонок через час", t: "HB-10344 Георгий Мелия, 15:30.", btns: [{ id: "done", l: "Сделано" }, { id: "mv", l: "Перенести" }], lock: true },
+      R ] };
+    [80, 400, 1200].forEach(d => setTimeout(() => { try { const e = document.getElementById("tb-feed"); if (e) e.scrollTop = e.scrollHeight; } catch (x) {} }, d));
+    this._iv = setInterval(() => { const S = this.state; if (S.req !== "pending") return; if (S.sec <= 1) this.setState({ sec: 0, req: "expired" }); else this.setState({ sec: S.sec - 1 }); }, 1000);
+  }
+  now() { const m = this.state.clk; return "14:" + String(m).padStart(2, "0"); }
+  cur() { const c = this.state.ctx.cur; if (c) return c; return this.state.req === "taken" ? "HB-10436 Ольга Громова" : "HB-10398 Нина Фёдорова"; }
+  add(list, patch, baseMsgs) {
+    const S = this.state; let clk = S.clk, n = S.n;
+    const out = list.map(m => { clk = Math.min(59, clk + 1); n += 1; return Object.assign({ id: "n" + n, time: "14:" + String(clk).padStart(2, "0") }, m); });
+    this.setState(Object.assign({ msgs: (baseMsgs || S.msgs).concat(out), clk, n }, patch || {}));
+    setTimeout(() => { try { const e = document.getElementById("tb-feed"); if (e) e.scrollTop = e.scrollHeight; } catch (x) {} }, 40);
+  }
+  me(t) { return { side: "m", t }; }
+  bot(o) { return Object.assign({ side: "b" }, o); }
+  mark(mid, bid) { return this.state.msgs.map(m => m.id === mid ? Object.assign({}, m, { done: bid }) : m); }
+  press(mid, bid, label, pre) {
+    const S = this.state, msg = S.msgs.find(m => m.id === mid);
+    if (msg && msg.done) return;
+    if (msg && msg.tm && S.req !== "pending") return;
+    const lock = msg && (msg.lock || msg.tm);
+    const marked = lock ? this.mark(mid, bid) : S.msgs;
+    const go = (list, patch) => this.add((pre || []).concat(list), patch, marked);
+    const ctx = (o) => Object.assign({}, S.ctx, o);
+    if (bid === "take") return go([this.me("Взять"), this.bot({ h: "HB-10436 Ваша", t: "Ольга Громова, Грузия, проект, горячий.\nПозвоните клиенту в течение часа.", btns: [{ id: "act", l: "Записать действие" }, { id: "stg", l: "Сменить этап" }] })], { req: "taken", ctx: ctx({ cur: "HB-10436 Ольга Громова" }) });
+    if (bid === "decl") return go([this.me("Отклонить"), this.bot({ h: "HB-10436 отклонена", t: "Заявка уйдёт следующему партнёру." })], { req: "declined" });
+    if (bid === "stg") return go([this.bot({ h: this.cur(), t: "Выберите этап.", lock: true, btns: [["work", "В работе"], ["later", "Отложил покупку"], ["potential", "Потенциальная сделка"], ["deal", "Сделка"], ["refused", "Отказ"]].map((x, i) => ({ id: "st:" + x[1], l: x[1], full: i === 2 })) })]);
+    if (bid.indexOf("st:") === 0) { const st = bid.slice(3); return go([this.me(st), this.bot({ t: "Этап: " + st + ".\nНапишите комментарий, он обязателен." })], { aw: "stcom", ctx: ctx({ stage: st }) }); }
+    if (bid === "act") return go([this.bot({ h: this.cur(), t: "Что сделали? «Не дозвонился» - и когда нет ответа.", lock: true, btns: [{ id: "ac:Звонок", l: "Звонок" }, { id: "ac:Не дозвонился", l: "Не дозвонился" }, { id: "ac:Zoom", l: "Zoom" }] })]);
+    if (bid.indexOf("ac:") === 0) { const a = bid.slice(3); return go([this.me(a), this.bot({ t: "Коротко, что было? Отчёт обязателен." })], { aw: "rep", ctx: ctx({ act: a }) }); }
+    if (bid.indexOf("d:") === 0) { const d = bid.slice(2); return go([this.me(d), this.bot({ t: "Во сколько?", lock: true, btns: ["10:00", "12:00", "15:00", "18:00"].map(t => ({ id: "t:" + t, l: t })).concat([{ id: "tin:d", l: "Ввести время", full: true }]) })], { ctx: ctx({ day: d }) }); }
+    if (bid.indexOf("tin:") === 0) { const k = bid.slice(4); return go([this.me("Ввести время"), this.bot({ t: "Напишите время, например 14:30." + (S.ctx.cal === false ? "" : "\nЯ сверю его с календарём.") })], { aw: "time", ctx: ctx({ tk: k }) }); }
+    if (bid.indexOf("tt:") === 0) { const t = bid.slice(3); return go([this.me(label), this.bot(this.saved(t))], { ctx: ctx({}) }); }
+    if (bid.indexOf("t:") === 0) { const t = bid.slice(2), c = S.ctx; return go([this.me(t), this.bot({ h: "Записано", t: (c.act || "Действие") + ": " + (c.rep || "отчёт сохранён") + "\nСледующее действие: " + (c.day || "") + ", " + t + ".\nДобавлено в Google Календарь.\nВидят агент и партнёрский отдел." })], { ctx: ctx({}) }); }
+    if (bid === "done") return go([this.me("Сделано"), this.bot({ t: "Отметил звонок выполненным. Добавьте отчёт.", btns: [{ id: "act", l: "Записать действие" }] })], { ctx: ctx({ cur: "HB-10344 Георгий Мелия" }) });
+    if (bid === "mv") return go([this.me("Перенести"), this.bot({ t: "На когда?", lock: true, btns: [{ id: "m:через час, 15:48", l: "Через час" }, { id: "m:сегодня, 18:00", l: "Сегодня 18:00" }, { id: "m:завтра, 10:00", l: "Завтра 10:00" }, { id: "tin:m", l: "Ввести время", full: true }] })]);
+    if (bid.indexOf("m:") === 0) { const w = bid.slice(2); return go([this.me(label), this.bot({ h: "Перенесено", t: "Звонок Георгию Мелия: " + w + ".\nНапомню за 30 минут." })]); }
+    if (bid === "rcl") return go([this.me("Ответить"), this.bot({ t: "Напишите ответ клиенту. Уйдёт в WhatsApp." })], { aw: "rcl", ctx: ctx({ cur: "HB-10344 Георгий Мелия" }) });
+    if (bid === "rag") return go([this.me("Ответить"), this.bot({ t: "Напишите агенту Марату. Он увидит в чате кабинета." })], { aw: "rag" });
+  }
+  onDraft(e) { this.setState({ draft: e.target.value }); }
+  onKey(e) { if (e && e.key === "Enter") this.send(); }
+  send() {
+    const S = this.state, text = (S.draft || "").trim();
+    if (!text) { this.add([this.bot({ t: S.aw ? "Текст обязателен, напишите его." : "Выберите кнопку ниже." })]); return; }
+    const m = this.me(text), c = S.ctx, p = { draft: "", aw: "" };
+    if (S.aw === "time") {
+      const mt = /^([01]?\d|2[0-3])[:.]?([0-5]\d)$/.exec(text);
+      if (!mt) return this.add([m, this.bot({ t: "Не понял время. Напишите ЧЧ:ММ, например 14:30." })], { draft: "" });
+      const s = +mt[1] * 60 + +mt[2], tt = this.fmt(s), day = c.tk === "m" ? "Сегодня" : (c.day || "Сегодня"), hit = this.busyOf(day).find(b => s < b[1] && s + 30 > b[0]);
+      if (!hit) return this.add([m, this.bot(this.saved(tt))], { draft: "", aw: "", ctx: Object.assign({}, c, {}) });
+      let free = s; while (free + 30 <= 1200 && this.busyOf(day).some(b => free < b[1] && free + 30 > b[0])) free += 5;
+      return this.add([m, this.bot({ h: "Пересекается", t: this.fmt(hit[0]) + " " + hit[2] + ".\nБлижайшее свободное: " + this.fmt(free) + ".", lock: true, btns: [{ id: "tt:" + this.fmt(free), l: "Записать на " + this.fmt(free) }, { id: "tt:" + tt, l: "Всё равно на " + tt }] })], { draft: "", aw: "" });
+    }
+    if (S.aw === "stcom") return this.add([m, this.bot({ h: "Записано", t: "Этап: " + c.stage + ", " + this.cur() + ".\nВидят агент и партнёрский отдел." })], p);
+    if (S.aw === "rep") return this.add([m, this.bot({ t: "Отчёт принят. Когда следующее действие?", lock: true, btns: [{ id: "d:Сегодня", l: "Сегодня" }, { id: "d:Завтра", l: "Завтра" }, { id: "d:Пн 24 ноя", l: "Пн 24 ноя" }, { id: "d:Вт 25 ноя", l: "Вт 25 ноя" }] })], Object.assign(p, { ctx: Object.assign({}, c, { rep: text }) }));
+    if (S.aw === "rcl") return this.add([m, this.bot({ h: "Отправлено", t: "WhatsApp, Георгий Мелия. Статус: доставлено." })], p);
+    if (S.aw === "rag") return this.add([m, this.bot({ h: "Отправлено", t: "Марату Сулейманову, в чат кабинета." })], p);
+    this.add([m, this.bot({ t: "Выберите кнопку ниже." })], p);
+  }
+  busyOf(day) { const B = { "Сегодня": [[900, 960, "Показ, Анна Белова"], [1110, 1170, "Занято (личное)"]], "Завтра": [[660, 690, "Созвон, Тимур Касымов"], [780, 840, "Занято (личное)"]] }; return B[day] || []; }
+  fmt(t) { return String(Math.floor(t / 60)).padStart(2, "0") + ":" + String(t % 60).padStart(2, "0"); }
+  saved(t) { const c = this.state.ctx; return c.tk === "m" ? { h: "Перенесено", t: "Звонок Георгию Мелия: " + (c.mday || "сегодня") + ", " + t + ".\nНапомню за 30 минут.\nДобавлено в Google Календарь." } : { h: "Записано", t: (c.act || "Действие") + ": " + (c.rep || "отчёт сохранён") + "\nСледующее действие: " + (c.day || "") + ", " + t + ".\nДобавлено в Google Календарь.\nВидят агент и партнёрский отдел." }; }
+  kbList() { this.add([this.me("Заявки"), this.bot({ h: "Ваши заявки", t: "HB-10436 Ольга Громова, новая\nHB-10431 Дмитрий Орлов, новая\nHB-10398 Нина Фёдорова, в работе", btns: [{ id: "cab", l: "Открыть в кабинете", href: "klienty.dc.html", full: true }] })]); }
+  kbStage() { this.press("", "stg", "", [this.me("Этап")]); }
+  kbAct() { this.press("", "act", "", [this.me("Действие")]); }
+  renderVals() {
+    const S = this.state, mm = String(Math.floor(S.sec / 60)).padStart(2, "0") + ":" + String(S.sec % 60).padStart(2, "0");
+    const feed = S.msgs.map(m => {
+      if (m.day) return { isDay: true, isMsg: false, day: m.day };
+      const r = { isDay: false, isMsg: true, cls: m.side === "b" ? "tb-m--b" : "tb-m--m", k: m.k || "", h: m.h || "", t: m.t || "", time: m.time, cd: "", cdl: "", pg: "" };
+      if (m.tm) { r.cd = S.req === "pending" ? mm : ({ taken: "Принята", declined: "Отклонена", expired: "Время вышло" })[S.req]; r.cdl = S.req === "pending" ? "Осталось" : "Статус"; r.pg = "width:" + (S.req === "pending" ? Math.round(S.sec / 9) : 0) + "%"; }
+      const bs = m.btns || []; r.hasB = bs.length > 0;
+      for (let k = 1; k <= 6; k++) {
+        const b = bs[k - 1]; const on = b && (m.done === b.id), off = b && ((m.done && m.done !== b.id) || (m.tm && S.req !== "pending" && !on && b.id !== "cab"));
+        r["b" + k + "l"] = b ? b.l : ""; r["b" + k + "x"] = !!b && b.id === "decl"; r["b" + k + "h"] = b && b.href ? b.href : ""; r["b" + k + "n"] = !!b && !b.href;
+        r["b" + k + "c"] = b ? ((b.full ? "is-full " : "") + (on ? "is-on " : "") + (off ? "is-off" : "")).trim() : "";
+        r["b" + k + "f"] = () => b && !b.href && this.press(m.id, b.id, b.l);
+      }
+      return r;
+    });
+    const ph = { stcom: "Комментарий", rep: "Отчёт", rcl: "Ответ клиенту", rag: "Ответ агенту", time: "ЧЧ:ММ" }[S.aw] || "Сообщение";
+    const awT = { stcom: "Нужен комментарий к этапу", rep: "Нужен отчёт о действии", rcl: "Пишете клиенту в WhatsApp", rag: "Пишете агенту", time: "Нужно время, ЧЧ:ММ" }[S.aw] || "";
+    return { clock: this.now(), feed, ph, hasAw: !!S.aw, awText: awT, draft: S.draft, onDraft: (e) => this.onDraft(e), onKey: (e) => this.onKey(e), send: () => this.send(), kbList: () => this.kbList(), kbStage: () => this.kbStage(), kbAct: () => this.kbAct() };
+  }
+}
+</script>
+</body>
+</html>

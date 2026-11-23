@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Команда (вариант А)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/b6d61f6a852f2b892c29e893498e480d">
+<link rel="stylesheet" href="/_blob/4f56f85d2f4e02ca0912dfd3df6a2a83">
+<link rel="stylesheet" href="/_blob/7a7f2f76526be09a23ffdde0d5e074ef">
+<link rel="stylesheet" href="/_blob/05b5ccb176e10f4ea8947c672867c86e">
+<link rel="stylesheet" href="/_blob/f723dc6d14062e5908ec707b33239ccf">
+<link rel="stylesheet" href="/_blob/7a5609f0b5595feedf4e981df638ec2c">
+<link rel="stylesheet" href="/_blob/6e83a7c838f5045c8d7a133dec189fc9">
+<link rel="stylesheet" href="/_blob/692513e374d3f5f56ee20080c25bfe57">
+<link rel="stylesheet" href="/_blob/4885ad303115e6d1a8f040d3c04bb007">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+<style>body{margin:0}
+
+/* gd: Главная и Деньги, макет v2. Только токены кита. */
+.hb.kab--agent .gd-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-chip { gap: 6px; padding-inline: 14px; text-decoration: none; }
+.hb.kab--agent .gd-chip b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-chip.is-hot { background: color-mix(in srgb, var(--hb-err) 9%, var(--hb-paper)); border-color: color-mix(in srgb, var(--hb-err) 35%, var(--hb-line)); color: var(--hb-err); }
+.hb.kab--agent .gd-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-sec { display: grid; gap: 12px; min-width: 0; }
+.hb.kab--agent .gd-lrow .lrow__m { display: flex; align-items: center; gap: 12px; justify-items: initial; font-size: var(--bb-small); }
+.hb.kab--agent .gd-lrow .lrow__m > span { white-space: nowrap; }
+.hb.kab--agent .gd-lrow .lrow__b > span, .hb.kab--agent .gd-lrow .lrow__b > b { white-space: normal; overflow: visible; text-overflow: clip; }
+.hb.kab--agent .gd-sum { font: 600 var(--bb-text)/var(--bb-row-l) var(--font-ui); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--hb-ink); }
+.hb.kab--agent .gd-mini { display: grid; gap: 2px; min-width: 0; }
+.hb.kab--agent .gd-mini b { font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .gd-mini span { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-tabs .tabs__list { flex-wrap: wrap; }
+.hb.kab--agent .gd-cnt { display: inline-block; margin-left: 6px; padding: 0 8px; border-radius: var(--hb-r-pill); background: var(--hb-sunken); color: var(--hb-ink-2); font-size: var(--bb-cap); line-height: 20px; font-weight: 600; }
+.hb.kab--agent .gd-path { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-path--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.hb.kab--agent .gd-step { position: relative; display: grid; gap: 2px; align-content: start; width: 100%; min-height: 116px; padding: 14px 14px 12px; border: 1px solid var(--hb-line); border-top: 4px solid var(--hb-control); border-radius: var(--hb-r-m); background: var(--hb-paper); font: inherit; text-align: left; color: var(--hb-ink); cursor: pointer; }
+.hb.kab--agent .gd-step:hover { background: var(--hb-sunken); }
+.hb.kab--agent .gd-step[aria-pressed="true"] { border-color: var(--hb-accent); background: var(--hb-sel-bg); box-shadow: inset 0 0 0 1px var(--hb-accent); }
+.hb.kab--agent .gd-step__n { font: 600 28px/32px var(--font-ui); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-step__t { font-weight: 600; }
+.hb.kab--agent .gd-step__a { color: var(--hb-accent-text); font-weight: 600; font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-step__a.is-muted { color: var(--hb-ink-2); font-weight: 400; }
+.hb.kab--agent .gd-step__s { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-step.is-hot { border-top-color: var(--hb-err); }
+.hb.kab--agent .gd-step.is-ok { border-top-color: var(--hb-ok); }
+.hb.kab--agent .gd-here { position: absolute; top: 8px; right: 10px; padding: 0 8px; border-radius: var(--hb-r-pill); background: var(--hb-err); color: var(--hb-on-accent); font-size: var(--bb-cap); line-height: 20px; font-weight: 600; }
+.hb.kab--agent .gd-cols { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.hb.kab--agent .gd-cols__m { flex: 999 1 560px; min-width: 0; display: grid; gap: 24px; }
+.hb.kab--agent .gd-cols__s { flex: 1 1 300px; min-width: 0; display: grid; gap: 16px; }
+.hb.kab--agent .gd-feed { display: grid; grid-template-columns: minmax(0, 640px) 300px; justify-content: center; gap: 24px; align-items: start; }
+.hb.kab--agent .gd-feed__m { display: grid; gap: 20px; min-width: 0; }
+.hb.kab--agent .gd-feed__s { display: grid; gap: 16px; min-width: 0; }
+.hb.kab--agent .gd-day { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-day__h { display: flex; align-items: center; gap: 10px; margin: 0; font: 600 var(--bb-text)/var(--bb-row-l) var(--font-display); color: var(--hb-ink); }
+.hb.kab--agent .gd-day__h::after { content: ""; flex: 1; height: 1px; background: var(--hb-line); }
+.hb.kab--agent .gd-ev { display: grid; gap: 10px; padding: 16px; border: 1px solid var(--hb-line); border-left: 5px solid var(--hb-control); border-radius: var(--hb-r-m); background: var(--hb-paper); }
+.hb.kab--agent .gd-ev.is-hot { border-left-color: var(--hb-err); }
+.hb.kab--agent .gd-ev.is-warn { border-left-color: var(--hb-warn); }
+.hb.kab--agent .gd-ev.is-ok { border-left-color: var(--hb-ok); }
+.hb.kab--agent .gd-ev.is-big { padding: 20px; box-shadow: var(--hb-e1); }
+.hb.kab--agent .gd-ev__h { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.hb.kab--agent .gd-ev__who { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.hb.kab--agent .gd-ev__who b { display: block; font-weight: 600; color: var(--hb-ink); font-size: var(--bb-text); line-height: var(--bb-row-l); }
+.hb.kab--agent .gd-ev__who span:not(.avatar) { display: block; color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-ev__t { color: var(--hb-ink-2); white-space: nowrap; font-size: var(--bb-small); }
+.hb.kab--agent .gd-ev__big { font: 600 36px/44px var(--font-ui); font-variant-numeric: tabular-nums; color: var(--hb-ink); }
+.hb.kab--agent .gd-ev__a { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.hb.kab--agent .gd-ev__facts { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-ev__facts b { color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .gd-pay3 { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .gd-pay3 li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--hb-line); }
+.hb.kab--agent .gd-pay3 li span { color: var(--hb-ink-2); }
+.hb.kab--agent .gd-pay3 li b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hb.kab--agent .gd-det { display: grid; gap: 4px; margin: 0; padding: 4px 0 0; }
+.hb.kab--agent .gd-det > div { display: flex; justify-content: space-between; gap: 12px; }
+.hb.kab--agent .gd-det dt { color: var(--hb-ink-2); }
+.hb.kab--agent .gd-det dd { margin: 0; font-weight: 600; text-align: right; }
+.hb.kab--agent .gd-pin-w { display: contents; }
+.hb.kab--agent .gd-note-s { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-note-s .ic { width: 18px; height: 18px; flex: none; color: var(--hb-ok); }
+@media (max-width: 899px) {
+  .hb.kab--agent .gd-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hb.kab--agent .gd-chip { justify-content: center; width: 100%; }
+  .hb.kab--agent .gd-lrow { grid-template-columns: auto minmax(0, 1fr); }
+  .hb.kab--agent .gd-lrow .lrow__m { grid-column: 1 / -1; justify-content: space-between; }
+  .hb.kab--agent .gd-lrow .lrow__m .btn { flex: 1 1 auto; max-width: 180px; }
+  .hb.kab--agent .gd-path { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .hb.kab--agent .gd-path--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hb.kab--agent .gd-step { min-height: 96px; padding: 10px 10px 8px; }
+  .hb.kab--agent .gd-step__n { font-size: 24px; line-height: 28px; }
+  .hb.kab--agent .gd-here { top: 6px; right: 6px; }
+  .hb.kab--agent .gd-feed { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-bottom: 80px; }
+  .hb.kab--agent .gd-feed--first .gd-feed__s { order: -1; }
+  .hb.kab--agent .gd-pin { position: fixed; left: 16px; right: 72px; bottom: 76px; z-index: 20; width: auto; justify-content: center; box-shadow: var(--hb-e3); }
+  .hb.kab--agent .gd-ev.is-big { padding: 16px; }
+  .hb.kab--agent .gd-ev__big { font-size: 32px; line-height: 40px; }
+  .hb.kab--agent .gd-ev__a .btn:not(.gd-pin) { flex: 1 1 auto; }
+  .hb.kab--agent .pv-now__facts { gap: 4px 16px; padding: 8px 12px; }
+}
+
+.hb.kab--agent .gd-focus { display: grid; gap: 20px; width: 100%; max-width: 640px; margin: 0 auto; }
+.hb.kab--agent .gd-fbar { display: grid; gap: 8px; }
+.hb.kab--agent .gd-fbar p { margin: 0; color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-fbar b { color: var(--hb-ink); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-fcard { display: grid; gap: 24px; padding: 32px; border: 1px solid var(--hb-line); border-top: 6px solid var(--hb-err); border-radius: var(--hb-r-l, var(--hb-r-xl)); background: var(--hb-paper); box-shadow: var(--hb-e2); }
+.hb.kab--agent .gd-fcard.is-calm { border-top-color: var(--hb-accent); }
+.hb.kab--agent .gd-fcard__who { display: flex; align-items: center; gap: 14px; }
+.hb.kab--agent .gd-fcard__who .avatar { width: 56px; height: 56px; }
+.hb.kab--agent .gd-fcard__who b { display: block; font: 600 24px/32px var(--font-display); color: var(--hb-ink); }
+.hb.kab--agent .gd-fcard__who span:not(.avatar) { color: var(--hb-ink-2); }
+.hb.kab--agent p.gd-fcard__big { font: 600 64px/72px var(--font-ui); font-variant-numeric: tabular-nums; color: var(--hb-err); margin: 0; }
+.hb.kab--agent p.gd-fcard__big.is-calm { color: var(--hb-ink); }
+.hb.kab--agent .gd-fcard__facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 14px 16px; border-radius: var(--hb-r-m); background: var(--hb-sunken); }
+.hb.kab--agent .gd-fcard__facts dt { color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .gd-fcard__facts dd { margin: 2px 0 0; font-weight: 600; color: var(--hb-ink); }
+.hb.kab--agent .gd-fcard__a { display: grid; gap: 8px; justify-items: stretch; }
+.hb.kab--agent .gd-fcard__a .btn { justify-content: center; }
+.hb.kab--agent .gd-fnext { display: grid; gap: 8px; }
+.hb.kab--agent .gd-fnext h2 { margin: 0; font: 600 var(--bb-text)/var(--bb-row-l) var(--font-display); }
+.hb.kab--agent .gd-fnext ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-fnext li { display: grid; padding: 8px 12px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-fnext li b { color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .gd-fnext li span { color: var(--hb-ink-2); }
+.hb.kab--agent .gd-tl { display: grid; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-tl__r { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 0 12px; padding-bottom: 12px; }
+.hb.kab--agent .gd-tl__t { padding-top: 16px; text-align: right; color: var(--hb-ink-2); font-size: var(--bb-small); font-variant-numeric: tabular-nums; font-weight: 600; }
+.hb.kab--agent .gd-tl__c { position: relative; min-width: 0; padding-left: 18px; border-left: 2px solid var(--hb-line); }
+.hb.kab--agent .gd-tl__c::before { content: ""; position: absolute; left: -7px; top: 20px; width: 12px; height: 12px; border-radius: 50%; background: var(--hb-paper); border: 2px solid var(--hb-control); }
+.hb.kab--agent .gd-tl__r.is-hot .gd-tl__c::before { border-color: var(--hb-err); background: var(--hb-err); }
+.hb.kab--agent .gd-tl__r.is-free .gd-tl__c { padding-block: 14px; color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .gd-now { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; padding: 0; list-style: none; color: var(--hb-err); font-weight: 600; font-size: var(--bb-small); }
+.hb.kab--agent .gd-now span { width: 64px; text-align: right; font-variant-numeric: tabular-nums; }
+.hb.kab--agent .gd-now::after { content: ""; flex: 1; height: 2px; background: var(--hb-err); }
+.hb.kab--agent .gd-late { display: grid; gap: 10px; padding: 14px; border: 1px solid color-mix(in srgb, var(--hb-err) 35%, var(--hb-line)); border-radius: var(--hb-r-m); background: color-mix(in srgb, var(--hb-err) 5%, var(--hb-paper)); }
+.hb.kab--agent .gd-late h2 { margin: 0; font: 600 var(--bb-text)/var(--bb-row-l) var(--font-display); color: var(--hb-err); }
+.hb.kab--agent .gd-wk { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .gd-wk li { display: grid; gap: 8px; padding: 10px 0; border-top: 1px solid var(--hb-line); }
+.hb.kab--agent .gd-wk li.is-today { background: var(--hb-sel-bg); margin-inline: -8px; padding-inline: 8px; border-radius: var(--hb-r-s, 8px); }
+.hb.kab--agent .gd-wk b { color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .gd-wk .gd-wk__e { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.hb.kab--agent .gd-wk .gd-wk__e span { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-top { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 16px; }
+.hb.kab--agent .gd-top .panel { align-content: start; }
+.hb.kab--agent p.gd-top__big { font: 600 48px/56px var(--font-ui); font-variant-numeric: tabular-nums; margin: 0; color: var(--hb-ink); }
+.hb.kab--agent p.gd-top__big.is-soft { color: var(--hb-ink-2); }
+.hb.kab--agent .gd-earns { display: grid; margin: 0; padding: 0; list-style: none; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); overflow: hidden; }
+.hb.kab--agent .gd-earn { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px 16px; padding: 14px 16px; border-bottom: 1px solid var(--hb-line); }
+.hb.kab--agent .gd-earns > li:last-child { border-bottom: 0; }
+.hb.kab--agent .gd-earn__b b { display: block; color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .gd-earn__b span { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .gd-earn__a { display: flex; align-items: center; gap: 12px; }
+.hb.kab--agent .gd-earn__a .ic { width: 20px; height: 20px; color: var(--hb-ink-2); flex: none; }
+.hb.kab--agent .gd-earn__sum { min-width: 120px; font: 600 24px/32px var(--font-ui); font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; color: var(--hb-ink); }
+.hb.kab--agent .gd-earn.is-top .gd-earn__sum { color: var(--hb-accent-text); }
+@media (max-width: 899px) {
+  .hb.kab--agent .gd-focus { min-height: calc(100svh - 230px); align-content: start; gap: 14px; }
+  .hb.kab--agent .gd-fcard { padding: 20px; gap: 18px; }
+  .hb.kab--agent p.gd-fcard__big { font-size: 52px; line-height: 60px; }
+  .hb.kab--agent .gd-fcard__facts { grid-template-columns: 1fr; gap: 8px; }
+  .hb.kab--agent .gd-fcard__facts div { display: flex; justify-content: space-between; gap: 12px; }
+  .hb.kab--agent .gd-fcard__facts dd { margin: 0; }
+  .hb.kab--agent .gd-tl__r { grid-template-columns: 44px minmax(0, 1fr); gap: 0 8px; }
+  .hb.kab--agent .gd-tl__c { padding-left: 14px; }
+  .hb.kab--agent .gd-now span { width: 44px; }
+  .hb.kab--agent .gd-late { padding: 10px; gap: 6px; }
+  .hb.kab--agent .gd-late .avatar, .hb.kab--agent .gd-late .lrow__b span { display: none; }
+  .hb.kab--agent .gd-late .gd-lrow { grid-template-columns: minmax(0, 1fr) auto; gap: 0 8px; padding-block: 6px; }
+  .hb.kab--agent .gd-late .lrow__m { display: contents; }
+  .hb.kab--agent .gd-late .lrow__m > span { grid-column: 1; grid-row: 2; }
+  .hb.kab--agent .gd-late .gd-lrow .btn { grid-column: 2; grid-row: 1 / 3; max-width: none; }
+  .hb.kab--agent .gd-top { grid-template-columns: minmax(0, 1fr); }
+  .hb.kab--agent p.gd-top__big { font-size: 44px; line-height: 52px; }
+  .hb.kab--agent .gd-earn { grid-template-columns: auto minmax(0, 1fr); }
+  .hb.kab--agent .gd-earn__a { grid-column: 1 / -1; justify-content: space-between; flex-direction: row-reverse; }
+  .hb.kab--agent .gd-earn__sum { font-size: 28px; line-height: 36px; text-align: left; min-width: 0; }
+  .hb.kab--agent .gd-earn__a .btn { flex: 0 1 auto; }
+}
+
+/* rz: разделы v2. Только токены кита. */
+.hb.kab--agent .rz-link { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.hb.kab--agent .rz-link .input { flex: 1 1 220px; min-width: 0; }
+.hb.kab--agent .gd-cols__s .rz-link .input, .hb.kab--agent .gd-feed__s .rz-link .input { font-size: 13px; }
+.hb.kab--agent .rz-share { display: flex; flex-wrap: wrap; gap: 8px; }
+.hb.kab--agent .rz-ico { display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: var(--hb-r-m); background: var(--hb-sunken); color: var(--hb-ink-2); }
+.hb.kab--agent .rz-ico .ic { width: 20px; height: 20px; }
+.hb.kab--agent .rz-qr { display: grid; gap: 8px; justify-items: start; }
+.hb.kab--agent .rz-qr > svg { width: 132px; height: 132px; padding: 8px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: #fff; color: #111; }
+.hb.kab--agent .rz-two { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; }
+.hb.kab--agent .rz-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-obj .lrow__b > span { white-space: normal; overflow: visible; text-overflow: clip; }
+.hb.kab--agent .rz-price { font: 600 var(--bb-text)/var(--bb-row-l) var(--font-ui); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--hb-ink); }
+.hb.kab--agent .rz-inc { color: var(--hb-ok); font-size: var(--bb-small); white-space: nowrap; }
+.hb.kab--agent .gd-pin-top { margin: 0; }
+.hb.kab--agent .gd-cols__s .lrow, .hb.kab--agent .gd-feed__s .lrow { grid-template-columns: auto minmax(0, 1fr); }
+.hb.kab--agent .gd-cols__s .lrow__m, .hb.kab--agent .gd-feed__s .lrow__m { grid-column: 1 / -1; justify-content: flex-start; }
+@media (max-width: 899px) {
+  .hb.kab--agent .gd-tabs [role=tab] { padding-inline: 10px; }
+  .hb.kab--agent .gd-tabs .gd-cnt { margin-left: 4px; padding: 0 6px; }
+  .hb.kab--agent .gd-feed--first .gd-feed__s { order: 1; }
+  .hb.kab--agent .rz-two { grid-template-columns: minmax(0, 1fr); }
+  .hb.kab--agent .rz-link .btn { flex: 1 1 100%; }
+  .hb.kab--agent .gd-cols__s .lrow { grid-template-columns: auto minmax(0, 1fr); }
+}
+
+.hb.kab--agent .rz-pick { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 10px 14px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); font: inherit; color: var(--hb-ink); text-align: left; cursor: pointer; }
+.hb.kab--agent .rz-pick:hover { background: var(--hb-sunken); }
+.hb.kab--agent .rz-pick[aria-pressed="true"] { border-color: var(--hb-accent); background: var(--hb-sel-bg); box-shadow: inset 0 0 0 1px var(--hb-accent); }
+.hb.kab--agent .rz-pick__b { display: grid; min-width: 0; flex: 1; }
+.hb.kab--agent .rz-pick__b b { font-weight: 600; }
+.hb.kab--agent .rz-pick__b span { color: var(--hb-ink-2); font-size: var(--bb-small); line-height: var(--bb-small-l); }
+.hb.kab--agent .rz-chk { display: none; flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--hb-accent); color: var(--hb-on-accent); place-items: center; }
+.hb.kab--agent .rz-chk .ic { width: 16px; height: 16px; }
+.hb.kab--agent .rz-pick[aria-pressed="true"] .rz-chk { display: inline-grid; }
+.hb.kab--agent .rz-stack { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-col3 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.hb.kab--agent .rz-col3 > section { display: grid; gap: 12px; min-width: 0; }
+.hb.kab--agent .rz-two-c { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 24px; align-items: start; }
+.hb.kab--agent .rz-phone { display: grid; gap: 12px; width: 100%; max-width: 340px; margin: 0 auto; padding: 14px 12px 18px; border: 8px solid var(--hb-ink); border-radius: 32px; background: var(--hb-paper); }
+.hb.kab--agent .rz-phone__h { display: flex; align-items: center; gap: 10px; }
+.hb.kab--agent .rz-phone__h b { display: block; font-weight: 600; }
+.hb.kab--agent .rz-phone__h span:not(.avatar) { color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .rz-oc { display: grid; gap: 4px; margin: 0; padding: 0 0 10px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); overflow: hidden; }
+.hb.kab--agent .rz-oc__img { display: grid; place-items: center; height: 84px; background: linear-gradient(135deg, color-mix(in srgb, var(--hb-accent) 22%, var(--hb-paper)), var(--hb-sunken)); color: var(--hb-ink-2); }
+.hb.kab--agent .rz-oc__img .ic { width: 28px; height: 28px; }
+.hb.kab--agent .rz-oc b, .hb.kab--agent .rz-oc span { padding-inline: 10px; }
+.hb.kab--agent .rz-oc span { color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .rz-oc b { font-weight: 600; }
+.hb.kab--agent .rz-fake { display: inline-block; justify-self: start; margin: 4px 10px 0; padding: 4px 12px; border-radius: var(--hb-r-pill); background: var(--hb-sel-bg); color: var(--hb-accent-text); font-size: var(--bb-small); font-weight: 600; }
+.hb.kab--agent .rz-grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-cc { display: grid; gap: 12px; padding: 16px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); }
+.hb.kab--agent .rz-cc.is-hot { border-left: 5px solid var(--hb-err); }
+.hb.kab--agent .rz-cc__h { display: flex; align-items: center; gap: 12px; }
+.hb.kab--agent .rz-cc__h b { display: block; font-weight: 600; }
+.hb.kab--agent .rz-cc__h span:not(.avatar) { color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .rz-trk { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-trk li { display: grid; gap: 4px; justify-items: start; color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .rz-trk li::before { content: ""; height: 6px; width: 100%; border-radius: 3px; background: var(--hb-line); }
+.hb.kab--agent .rz-trk li.is-on { color: var(--hb-ink); font-weight: 600; }
+.hb.kab--agent .rz-trk li.is-on::before { background: var(--hb-accent); }
+.hb.kab--agent .rz-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-tile { display: grid; gap: 8px; justify-items: center; align-content: center; width: 100%; min-height: 104px; padding: 16px 8px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); font: 600 var(--bb-text)/var(--bb-row-l) var(--font-ui); color: var(--hb-ink); cursor: pointer; }
+.hb.kab--agent .rz-tile:hover { background: var(--hb-sunken); }
+.hb.kab--agent .rz-tile .ic { width: 32px; height: 32px; color: var(--hb-accent-text); }
+.hb.kab--agent .rz-text { margin: 0; padding: 12px 14px; border-radius: var(--hb-r-m); background: var(--hb-sunken); color: var(--hb-ink); }
+.hb.kab--agent .rz-fun { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-fun li { display: grid; grid-template-columns: 120px minmax(0, 1fr) 64px; align-items: center; gap: 12px; }
+.hb.kab--agent .rz-fun__l { font-weight: 600; }
+.hb.kab--agent .rz-fun__bar { display: flex; align-items: center; height: 52px; min-width: 0; }
+.hb.kab--agent .rz-fun__bar i { display: flex; align-items: center; justify-content: flex-end; height: 100%; padding-inline: 14px; border-radius: var(--hb-r-m); background: var(--hb-accent); color: #fff; font: 600 20px/28px var(--font-ui); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hb.kab--agent .rz-fun li:nth-child(2) i { opacity: .82; } .hb.kab--agent .rz-fun li:nth-child(3) i { opacity: .66; } .hb.kab--agent .rz-fun li:nth-child(4) i { background: var(--hb-ok); }
+.hb.kab--agent .rz-fun__c { color: var(--hb-ink-2); font-size: var(--bb-small); text-align: right; }
+.hb.kab--agent .rz-qrbig { display: grid; gap: 16px; justify-items: center; padding: 24px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-l, var(--hb-r-xl)); background: var(--hb-paper); }
+.hb.kab--agent .rz-qrbig > svg { width: min(360px, 100%); height: auto; aspect-ratio: 1; padding: 12px; border-radius: var(--hb-r-m); background: #fff; color: #111; }
+.hb.kab--agent .rz-qrbig__u { margin: 0; font: 600 var(--bb-text)/var(--bb-row-l) var(--font-ui); word-break: break-all; text-align: center; }
+.hb.kab--agent .rz-qrbig__a { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; width: 100%; }
+.hb.kab--agent .rz-map { position: relative; width: 100%; aspect-ratio: 2 / 1; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); overflow: hidden; background: color-mix(in srgb, var(--hb-accent) 9%, var(--hb-paper)); }
+.hb.kab--agent .rz-map > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hb.kab--agent .rz-map__c { position: absolute; color: var(--hb-ink-2); font-size: var(--bb-small); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.hb.kab--agent .rz-pin { position: absolute; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; transform: translate(-50%, -50%); border: 2px solid var(--hb-accent); border-radius: 50%; background: var(--hb-paper); color: var(--hb-accent-text); font: 600 16px/1 var(--font-ui); cursor: pointer; box-shadow: var(--hb-e1); }
+.hb.kab--agent .rz-pin[aria-pressed="true"] { background: var(--hb-accent); color: var(--hb-on-accent); }
+.hb.kab--agent .rz-pin span { position: absolute; left: calc(100% + 6px); top: 50%; transform: translateY(-50%); color: var(--hb-ink); font: 600 var(--bb-small)/1.2 var(--font-ui); white-space: nowrap; }
+.hb.kab--agent .rz-pin.is-l span { left: auto; right: calc(100% + 6px); }
+.hb.kab--agent .rz-cmp { width: 100%; border-collapse: collapse; background: var(--hb-paper); border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); table-layout: fixed; }
+.hb.kab--agent .rz-cmp th, .hb.kab--agent .rz-cmp td { padding: 12px 10px; border-bottom: 1px solid var(--hb-line); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.hb.kab--agent .rz-cmp th:first-child { width: 22%; color: var(--hb-ink-2); font-weight: 400; font-size: var(--bb-small); }
+.hb.kab--agent .rz-cmp thead th { font-weight: 600; font-size: var(--bb-text); color: var(--hb-ink); }
+.hb.kab--agent .rz-cmp td.is-best { background: var(--hb-sel-bg); font-weight: 600; }
+.hb.kab--agent .rz-cmp tr:last-child > * { border-bottom: 0; }
+.hb.kab--agent .rz-match { display: grid; gap: 4px; min-width: 76px; }
+.hb.kab--agent .rz-match b { font: 600 20px/24px var(--font-ui); color: var(--hb-accent-text); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .rz-match i { display: block; height: 6px; border-radius: 3px; background: var(--hb-accent); }
+.hb.kab--agent .rz-match s { display: block; height: 6px; border-radius: 3px; background: var(--hb-line); text-decoration: none; }
+.hb.kab--agent .rz-tbl { width: 100%; border-collapse: collapse; background: var(--hb-paper); border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); }
+.hb.kab--agent .rz-tbl th { padding: 10px 14px; text-align: left; color: var(--hb-ink-2); font-size: var(--bb-small); font-weight: 600; border-bottom: 1px solid var(--hb-line); }
+.hb.kab--agent .rz-tbl td { padding: 10px 14px; min-height: 56px; border-bottom: 1px solid var(--hb-line); vertical-align: middle; }
+.hb.kab--agent .rz-tbl tr:last-child td { border-bottom: 0; }
+.hb.kab--agent .rz-tbl .rz-n { display: flex; align-items: center; gap: 10px; }
+.hb.kab--agent .rz-tbl .rz-n b { display: block; font-weight: 600; }
+.hb.kab--agent .rz-tbl .rz-n span:not(.avatar):not(.badge) { color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .rz-tbl .rz-r { text-align: right; white-space: nowrap; }
+.hb.kab--agent .rz-sm { display: none; }
+.hb.kab--agent .rz-tree { position: relative; height: 340px; margin-bottom: 8px; }
+.hb.kab--agent .rz-tree > svg { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--hb-line); }
+.hb.kab--agent .rz-node { position: absolute; display: grid; place-items: center; align-content: center; width: 28%; min-height: 60px; padding: 6px; transform: translate(-50%, -50%); border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); font: inherit; color: var(--hb-ink); text-align: center; cursor: pointer; }
+.hb.kab--agent .rz-node b { font-weight: 600; }
+.hb.kab--agent .rz-node span { color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .rz-node[aria-pressed="true"] { border-color: var(--hb-accent); background: var(--hb-sel-bg); box-shadow: inset 0 0 0 1px var(--hb-accent); }
+.hb.kab--agent .rz-node.is-me { cursor: default; background: var(--hb-accent); border-color: var(--hb-accent); color: var(--hb-on-accent); }
+.hb.kab--agent .rz-node.is-me span { color: var(--hb-on-accent); }
+.hb.kab--agent .rz-node.is-idle { border-style: dashed; }
+.hb.kab--agent .rz-bars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: end; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-bar { display: grid; gap: 6px; align-content: end; justify-items: center; width: 100%; height: 240px; padding: 8px 8px 10px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); font: inherit; color: var(--hb-ink); cursor: pointer; }
+.hb.kab--agent .rz-bar i { display: block; width: 56%; border-radius: var(--hb-r-xs) var(--hb-r-xs) 0 0; background: color-mix(in srgb, var(--hb-accent) 45%, var(--hb-paper)); }
+.hb.kab--agent .rz-bar b { font: 600 18px/24px var(--font-ui); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .rz-bar[aria-pressed="true"] { border-color: var(--hb-accent); background: var(--hb-sel-bg); box-shadow: inset 0 0 0 1px var(--hb-accent); }
+.hb.kab--agent .rz-bar[aria-pressed="true"] i { background: var(--hb-accent); }
+.hb.kab--agent .rz-load { display: flex; height: 14px; border-radius: var(--hb-r-xs); overflow: hidden; background: var(--hb-sunken); }
+.hb.kab--agent .rz-load i { display: block; height: 100%; background: var(--hb-accent); }
+.hb.kab--agent .rz-load i.is-late { background: var(--hb-err); }
+.hb.kab--agent .rz-rank { display: grid; grid-template-columns: 48px auto minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--hb-line); }
+.hb.kab--agent .rz-rank__n { font: 600 32px/40px var(--font-ui); color: var(--hb-ink-2); text-align: center; }
+.hb.kab--agent .rz-rank.is-1 .rz-rank__n { color: var(--hb-accent-text); }
+.hb.kab--agent .rz-rank b { display: block; font-weight: 600; }
+.hb.kab--agent .rz-rank__b span { color: var(--hb-ink-2); font-size: var(--bb-small); }
+.hb.kab--agent .rz-rank__v { font: 600 24px/32px var(--font-ui); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hb.kab--agent .rz-ppl { display: grid; gap: 14px; justify-items: start; padding: 20px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); }
+.hb.kab--agent .rz-ppl .avatar { width: 64px; height: 64px; font-size: 22px; }
+.hb.kab--agent .rz-ppl b { display: block; font: 600 20px/28px var(--font-display); }
+.hb.kab--agent .rz-ppl p { margin: 0; color: var(--hb-ink-2); }
+.hb.kab--agent .rz-dot { display: inline-flex; align-items: center; gap: 6px; font-size: var(--bb-small); color: var(--hb-ink-2); }
+.hb.kab--agent .rz-dot::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--hb-control); }
+.hb.kab--agent .rz-dot.is-on::before { background: var(--hb-ok); }
+.hb.kab--agent .rz-ppl__a { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 899px) {
+  .hb.kab--agent .rz-col3, .hb.kab--agent .rz-two-c { grid-template-columns: minmax(0, 1fr); }
+  .hb.kab--agent .rz-grid2, .hb.kab--agent .rz-grid3 { grid-template-columns: minmax(0, 1fr); }
+  .hb.kab--agent .rz-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hb.kab--agent .rz-fun li { grid-template-columns: minmax(0, 1fr) 48px; }
+  .hb.kab--agent .rz-fun__l { grid-column: 1 / -1; }
+  .hb.kab--agent .rz-fun__bar { height: 44px; }
+  .hb.kab--agent .rz-map { aspect-ratio: 4 / 3.6; }
+  .hb.kab--agent .rz-cmp th, .hb.kab--agent .rz-cmp td { padding: 10px 6px; font-size: var(--bb-small); }
+  .hb.kab--agent .rz-cmp th:first-child { width: 18%; }
+  .hb.kab--agent .rz-hm { display: none; }
+  .hb.kab--agent .rz-sm { display: inline-flex; }
+  .hb.kab--agent .rz-tbl th, .hb.kab--agent .rz-tbl td { padding: 8px 8px; }
+  .hb.kab--agent .rz-node { width: 31%; padding: 4px; }
+  .hb.kab--agent .rz-rank { grid-template-columns: 32px minmax(0, 1fr) auto; }
+  .hb.kab--agent .rz-rank .avatar { display: none; }
+  .hb.kab--agent .rz-qrbig { padding: 16px; }
+  .hb.kab--agent .rz-bar { height: 200px; }
+  .hb.kab--agent .rz-cmp .btn { padding-inline: 0; font-size: 12px; min-width: 0; width: 100%; white-space: nowrap; }
+  .hb.kab--agent .rz-cmp td, .hb.kab--agent .rz-cmp th { padding-inline: 4px; }
+  .hb.kab--agent .gd-tabs .tabs__list > * { padding-inline: 10px; }
+}
+
+.hb.kab--agent .gd-tabs .tabs__list { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.hb.kab--agent .gd-tabs .tabs__list > button { flex: none; white-space: nowrap; }
+.hb.kab--agent .rz-flow { display: flex; align-items: stretch; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-step { display: grid; flex: 1; gap: 4px; align-content: center; justify-items: center; min-width: 0; padding: 20px 8px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); text-align: center; }
+.hb.kab--agent .rz-step b { font: 600 40px/48px var(--font-display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hb.kab--agent .rz-step span { color: var(--hb-ink-2); font-weight: 600; }
+.hb.kab--agent .rz-step.is-money { border-color: var(--hb-ok); background: var(--hb-sel-bg); }
+.hb.kab--agent .rz-step.is-money b { color: var(--hb-accent-text); }
+.hb.kab--agent .rz-arrow { display: grid; gap: 2px; align-content: center; justify-items: center; flex: none; color: var(--hb-ink-2); font-size: 28px; line-height: 1; }
+.hb.kab--agent .rz-arrow span { font-size: var(--bb-small); font-weight: 600; }
+.hb.kab--agent .rz-pod { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: end; margin: 0; padding: 0; list-style: none; }
+.hb.kab--agent .rz-pod li { display: grid; gap: 6px; justify-items: center; align-content: end; padding: 14px 8px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m) var(--hb-r-m) 0 0; background: var(--hb-paper); text-align: center; }
+.hb.kab--agent .rz-pod li.is-p1 { order: 2; min-height: 250px; background: var(--hb-sel-bg); }
+.hb.kab--agent .rz-pod li.is-p2 { order: 1; min-height: 200px; }
+.hb.kab--agent .rz-pod li.is-p3 { order: 3; min-height: 160px; }
+.hb.kab--agent .rz-medal { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: #fff; font: 600 20px/1 var(--font-display); }
+.hb.kab--agent .is-p1 .rz-medal { background: #C9A227; } .hb.kab--agent .is-p2 .rz-medal { background: #8E98A3; } .hb.kab--agent .is-p3 .rz-medal { background: #B0713A; }
+.hb.kab--agent .rz-pod b { font-weight: 600; }
+.hb.kab--agent .rz-pod__v { font: 600 24px/32px var(--font-display); font-variant-numeric: tabular-nums; }
+.hb.kab--agent .rz-pod__s { color: var(--hb-ink-2); font-size: var(--bb-small); }
+@media (max-width: 899px) {
+  .hb.kab--agent .rz-flow { flex-direction: column; }
+  .hb.kab--agent .rz-arrow { grid-auto-flow: column; justify-content: center; gap: 8px; transform: rotate(90deg); height: 28px; }
+  .hb.kab--agent .rz-arrow span { transform: rotate(-90deg); }
+  .hb.kab--agent .rz-step { padding: 14px 8px; }
+  .hb.kab--agent .rz-pin span, .hb.kab--agent .rz-pin.is-l span { left: 50%; right: auto; top: calc(100% + 2px); transform: translateX(-50%); }
+  .hb.kab--agent .rz-map { aspect-ratio: 4 / 3.9; }
+  .hb.kab--agent .rz-pod__v { font-size: 18px; line-height: 24px; }
+  .hb.kab--agent .rz-pod b { font-size: var(--bb-small); }
+}
+</style>
+<style id="hb-partner-fix">
+/* Финальные правки проверки: меню без многоточий, доска без разрыва слов, вкладки на телефоне видны целиком. Только под .hb.kab--agent. */
+.hb.kab--agent .kab__me { gap: 8px; padding-inline: 8px; }
+.hb.kab--agent .kab__me b, .hb.kab--agent .kab__me small { white-space: normal; overflow: visible; text-overflow: clip; }
+.hb.kab--agent .knav a { gap: 10px; padding-inline: 8px; height: auto; padding-block: 8px; }
+.hb.kab--agent .knav a > span:not(.badge) { white-space: normal; overflow: visible; text-overflow: clip; }
+@media (max-width: 767px) {
+  html .hb.kab--agent .tabs__list { flex-wrap: wrap; overflow: visible; row-gap: 0; column-gap: 0; }
+  html .hb.kab--agent .tabs__list::after { display: none; }
+  html .hb.kab--agent .tabs__list > :is(button, a) { padding-inline: 6px; gap: 4px; font-size: 14px; flex: 1 1 45%; justify-content: center; }
+}
+</style>
+<style id="hb-1911-razdely">
+/* 19.11: иконки действий, строки и карточки, которые открываются, подсказки «i». Только токены кита. */
+.hb.kab--agent [data-tip] { position: relative; }
+.hb.kab--agent [data-tip]::after { content: attr(data-tip); display: none; position: absolute; z-index: 40; top: calc(100% + 6px); left: 0; width: max-content; max-width: min(240px, calc(100vw - 48px)); padding: 8px 12px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-s); background: var(--hb-paper); box-shadow: var(--hb-e2); font: 400 var(--hb-fs-cap)/18px var(--font-ui); font-weight: 400; text-align: start; white-space: normal; color: var(--hb-ink-2); pointer-events: none; transform: translateX(var(--tdx, 0px)); }
+.hb.kab--agent [data-tip]:hover::after, .hb.kab--agent [data-tip]:focus::after { display: block; }
+.hb.kab--agent [data-tip].x-w::after { top: 50%; left: auto; right: calc(100% + 6px); transform: translate(var(--tdx, 0px), -50%); }
+.hb.kab--agent .btn.btn--icon.x-w { flex: none; width: var(--hb-h-m); min-width: var(--hb-h-m); padding: 0; }
+.hb.kab--agent .lrow__m .btn.x-w { margin-inline-start: auto; }
+.hb.kab--agent .x-i { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-inline-start: 4px; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--hb-ink-3); vertical-align: middle; cursor: help; }
+.hb.kab--agent .x-i .ic { width: 16px; height: 16px; }
+.hb.kab--agent .x-i:hover, .hb.kab--agent .x-i:focus-visible { color: var(--hb-accent-text); }
+.hb.kab--agent .x-op { position: relative; }
+.hb.kab--agent .x-op:hover { background: var(--hb-sunken); }
+.hb.kab--agent .x-op__t { padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: start; text-decoration: none; cursor: pointer; }
+.hb.kab--agent .x-op__t::after { content: ""; position: absolute; inset: 0; z-index: 0; }
+.hb.kab--agent .x-op:has(.x-op__t:focus-visible) { outline: var(--hb-ring); outline-offset: -2px; }
+.hb.kab--agent .x-op .btn { position: relative; z-index: 1; }
+.hb.kab--agent .x-chev { flex: none; width: 20px; height: 20px; color: var(--hb-ink-3); }
+.hb.kab--agent .x-op:hover .x-chev { color: var(--hb-ink); }
+.hb.kab--agent .x-lnk { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
+.hb.kab--agent .x-lnk:hover { color: var(--hb-accent-text); }
+.hb.kab--agent .x-lnk .x-chev { width: 16px; height: 16px; }
+.hb.kab--agent .lrow__m .x-chev { margin-inline-start: -4px; }
+.hb.kab--agent .rz-cc__h .x-chev { margin-inline-start: auto; }
+.hb.kab--agent a.sa-who { padding: 4px 8px; margin: -4px -8px; border-radius: var(--hb-r-m); }
+.hb.kab--agent a.sa-who:has(.x-chev) { grid-template-columns: 44px minmax(0, 1fr) auto; }
+.hb.kab--agent a.sa-who:hover { background: var(--hb-sunken); }
+.hb.kab--agent .hl-card { position: relative; }
+.hb.kab--agent .hl-card .x-chev { position: absolute; right: 12px; bottom: 14px; }
+.hb.kab--agent .hl-card:hover { background: var(--hb-sunken); }
+/* + главная, деньги, сеть, команда */
+.hb.kab--agent .x-op__t--s::after { display: none; }
+.hb.kab--agent .x-op details, .hb.kab--agent .x-op summary { position: relative; z-index: 1; }
+.hb.kab--agent .x-push { margin-inline-start: auto; }
+.hb.kab--agent .x-tr { display: flex; align-items: center; gap: 6px; }
+.hb.kab--agent .x-op__t.gd-w__n { display: flex; }
+.hb.kab--agent .x-lbl { display: inline-flex; align-items: center; white-space: nowrap; }
+.hb.kab--agent .x-ev__b { display: block; }
+.hb.kab--agent .gd-wk__e.x-op .x-op__t { flex: 1 1 auto; min-width: 0; }
+@media (max-width: 899px) {
+  .hb.kab--agent .pv-card__a { display: flex; align-items: center; gap: 8px; }
+  .hb.kab--agent .gd-late .lrow__m .x-chev { display: none; }
+}
+.hb.kab--agent .mt-pk { width: min(560px, calc(100% - 32px)); max-width: calc(100% - 32px); }
+.hb.kab--agent .mt-d { position: relative; }
+.hb.kab--agent .mt-pop { position: absolute; inset: auto; top: calc(100% + 8px); left: 0; z-index: 30; width: 240px; max-width: calc(100vw - 48px); max-height: 320px; overflow: auto; }
+</style>
+<style>
+/* size-pass 21.11.2026 v2: единая шкала размеров кабинета агента. Десктоп: кнопка в карточке, строке, ленте, подсказке 32 (кегль 14, отступ 12, иконка 16); главная кнопка шапки и кнопки модального окна 40 (кегль 15); выпадающий список: триггер 32, пункт 36, кегль 14, стрелка 16. 48 нет нигде. Причина прежней разницы «Подробнее»/«Скрыть»: вариант .btn--t кита держит min-height: --hb-h-touch, и это значение было 40; теперь на десктопе --hb-h-touch = 32, а высота и кегль кнопок заданы одним правилом для всех вариантов. Не менять раскладку, только размеры. */
+.hb.kab--agent { --hb-h-xs: 24px; --hb-h-s: 32px; --hb-h-m: 40px; --hb-h-l: 40px; --hb-h-touch: 32px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-tabs a { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-pl.k2-pl.k2-pl { min-height: 24px; font-size: 13px; line-height: 18px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.x-i, .k3-info) { width: 28px; height: 28px; margin-block: -4px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-cc > div, .k2-sec) { grid-template-columns: minmax(0, 1fr); }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .fbtn, .sa-cb, .ocard__pick):not(.btn--icon, .btn--link) { min-height: 32px; padding-inline: 12px; font-size: 14px; line-height: 20px; gap: 6px; border-width: 1px; width: auto; height: auto; min-width: 0; flex: 0 0 auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .fbtn, .sa-cb, .ocard__pick) .ic { width: 16px; height: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-ib.k2-ib--s, .fmeta__reset) { min-width: 32px; min-height: 32px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn--icon, .btn--round) { width: 32px; height: 32px; min-width: 32px; min-height: 32px; padding: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot) .btn:not(.btn--icon, .btn--link) { min-height: 40px; padding-inline: 16px; font-size: 15px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__acts :is(.help-q, .btn--icon), .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__head .btn--icon { width: 40px; height: 40px; min-width: 40px; min-height: 40px; padding: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sputnik { width: 40px; height: 40px; min-width: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.select, .cs__btn) { position: relative; display: flex; align-items: center; min-height: 32px; padding: 0 32px 0 12px; font-size: 14px; line-height: 20px; text-align: left; background-image: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__val { font-size: inherit; line-height: inherit; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__btn::after { content: ""; position: absolute; right: 10px; top: 50%; width: 16px; height: 16px; margin: -8px 0 0; border: 0; transform: none; background: var(--hb-ink-2); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat; pointer-events: none; transition: transform var(--hb-dur-1, .15s); }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.cs.is-open > .cs__btn, .cs__btn[aria-expanded="true"])::after { transform: rotate(180deg); }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__pop:not(.k2-cal) { width: max-content; min-width: 100%; max-width: min(360px, calc(100vw - 32px)); padding: 6px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__opt { display: flex; align-items: center; min-height: 36px; padding: 6px 40px 6px 12px; font-size: 14px; line-height: 20px; white-space: nowrap; text-align: left; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 36px; font-size: 14px; line-height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.fdd__pop, .fbar .fdd__pop) :is(.check, .radio) { font-size: 14px; line-height: 20px; }
+@media (min-width: 900px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .fmeta__sort .fdd__pop { width: max-content; min-width: 100%; max-width: min(360px, calc(100vw - 32px)); }
+  .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .fmeta__sort .fdd__pop .radio { white-space: nowrap; }
+}
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent { --hb-h-xs: 32px; --hb-h-s: 40px; --hb-h-m: 40px; --hb-h-l: 40px; --hb-h-touch: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .fbtn, .sa-cb, .ocard__pick):not(.btn--icon, .btn--link), .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.select, .cs__btn) { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .fbtn, .sa-cb, .ocard__pick):not(.btn--icon, .btn--link) { font-size: 15px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn--icon, .btn--round, .k2-ib.k2-ib--s, .fmeta__reset, .help-q, .k3t__x, .top__lang, .tb-btn, .sputnik) { width: 40px; height: 40px; min-width: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .fmeta__reset { width: auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.x-i, .k3-info) { width: 40px; height: 40px; margin-block: -10px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pill, .gd-chip, .qchip, .seg > button, .k3m__tg) { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__opt, .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kk-dd .cs__pop { left: auto; right: 0; }
+</style>
+<style id="hb-ovl-center">
+/* 21.11 вечер: все окна строго по центру видимой области, на телефоне лист снизу */
+.hb.hb.kab--agent .pv-ovl, .hb.hb.kab--agent .k3-ovl { position: fixed !important; inset: 0 !important; z-index: 1000 !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 16px !important; box-sizing: border-box; overflow-y: auto; width: auto !important; max-width: none !important; margin: 0 !important; }
+.hb.hb.kab--agent .pv-ovl > .pv-modal, .hb.hb.kab--agent .k3-ovl > .k3-win { margin: 0 !important; }
+.hb.hb.kab--agent .pv-ovl > .pv-modal { max-height: calc(100dvh - 32px); overflow-y: auto; }
+.hb.hb.kab--agent .k3-ovl--r { justify-content: flex-end !important; align-items: stretch !important; padding: 0 !important; }
+.hb.hb.kab--agent .k3-ovl--r > .k3-drw { margin: 0 !important; height: 100dvh !important; max-height: none !important; }
+@media (max-width: 640px) {
+  .hb.hb.kab--agent :is(.pv-ovl, .k3-ovl, .k3-ovl--r) { align-items: flex-end !important; justify-content: center !important; padding: 0 !important; }
+  .hb.hb.kab--agent :is(.pv-ovl > .pv-modal, .k3-ovl > .k3-win, .k3-ovl--r > .k3-drw) { width: 100% !important; max-width: 100% !important; border-radius: var(--hb-r-xl, 16px) var(--hb-r-xl, 16px) 0 0 !important; border-bottom: 0 !important; }
+  .hb.hb.kab--agent .pv-ovl > .pv-modal { max-height: 90dvh; }
+  .hb.hb.kab--agent .k3-ovl > .k3-win { max-height: 90dvh !important; }
+  .hb.hb.kab--agent .k3-ovl--r > .k3-drw { height: auto !important; max-height: 90dvh !important; min-height: 60dvh; }
+}
+/* окно уведомлений: по ширине экрана, текст переносится */
+.hb.hb.kab--agent .pv-pop--bell-side { position: fixed; z-index: 200; left: 12px; top: 60px; width: min(340px, calc(100vw - 24px)); max-width: none; }
+.hb.hb.kab--agent .pv-pop--bell-top { width: min(340px, calc(100vw - 16px)); max-width: none; }
+.hb.hb.kab--agent .pv-pop__h { flex-wrap: wrap; }
+.hb.hb.kab--agent .kab__side { z-index: 60; }
+.hb.hb.kab--agent .pv-pop li a b, .hb.hb.kab--agent .pv-pop li a span { overflow-wrap: anywhere; white-space: normal; min-width: 0; }
+</style>
+<style id="hb-modal-layout">
+/* 21.11 вечер: единая раскладка окна. Отступы 24 (телефон 20), шапка в одну строку, подвал справа */
+.hb.hb.kab--agent .pv-modal .modal__in { display: grid; gap: 16px; padding: 24px; }
+.hb.hb.kab--agent .k3-win { padding: 24px; gap: 16px; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 32px; padding: 0; margin: 0; border: 0; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__head h2 { margin: 0; font-size: 20px; line-height: 26px; font-weight: 600; letter-spacing: 0; min-width: 0; overflow-wrap: anywhere; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__head .btn--icon { flex: none; margin: 0; width: 32px !important; height: 32px !important; min-width: 32px !important; min-height: 32px !important; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body { display: grid; align-content: start; gap: 16px; padding: 0; min-width: 0; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body > p { margin: 0; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body .field { display: grid; gap: 8px; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body :is(.field__l, .field label) { margin: 0; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body textarea { min-height: 96px; max-height: 120px; resize: vertical; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body .pill { min-height: 32px !important; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; padding: 0 !important; margin: 8px 0 0 !important; border: 0 !important; box-shadow: none; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot:has(> .btn--acc:first-child) { flex-direction: row-reverse; justify-content: flex-start; }
+.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot .btn { min-height: 40px; }
+@media (max-width: 640px) {
+  .hb.hb.kab--agent .pv-modal .modal__in, .hb.hb.kab--agent .k3-win { padding: 20px; }
+  .hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__head .btn--icon { width: 40px !important; height: 40px !important; min-width: 40px !important; min-height: 40px !important; margin-right: -8px; }
+  .hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body .pill { min-height: 40px !important; }
+  .hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot .btn { flex: 1 1 auto; }
+}
+</style>
+<style id="hb-komanda-2111">
+/* 21.11 вечер: строки таблицы нажимаются целиком (обработчик на самой строке, без наложения ::after, оно в Safari на tr не работает) */
+.hb.kab--agent tr.x-op { cursor: pointer; }
+.hb.kab--agent tr.x-op .x-op__t::after { display: none; }
+.hb.kab--agent tr.x-op:hover td { background: var(--hb-sunken); }
+.hb.kab--agent .lrow.x-op .lrow__m .btn { flex: none; }
+</style>
+<style id="hb-fix-sys-2211">/* Свод 22.11, системные правки по аудиту: один блок на все живые экраны. Источник правды для <style id="hb-fix-sys-2211">. .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent (18 повторов .hb) и .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent (22 повтора .hb, для правил, что должны перебивать групповые блоки и gk) подставляются при сборке. */
+
+/* 1. Шапка -> первый блок 16 (телефон 12); лид вплотную, ink-2 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp { row-gap: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp > .phead { margin-bottom: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__main > h1 + :is(p, .lead) { margin-top: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__main > :is(p, .lead) { color: var(--hb-ink-2); }
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp { row-gap: 12px; } }
+
+/* 2. Заголовок блока 18/24 Geologica 600; под ним 8-12 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-t, .sp-tit, .k2-h, .gd-late > h2, .netlink__ttl) { font: 600 18px/24px var(--font-display); letter-spacing: 0; color: var(--hb-ink); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .pv-pop__h > b { font: 600 18px/24px var(--font-display); letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .netlink__ttl + * { margin-top: 6px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp-tit :is(h2, h3) { margin: 0; font: inherit; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3).sp-tit { font: 600 18px/24px var(--font-display) !important; }
+
+/* 3. Карточка: r16 (вложенное 14), padding 22 (телефон 18), рамка 1px line, без тени */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero, .hl-card, .ocard, .pcard, .k2-next, .k2-contact, .notice, .kk-li, .k2-lr, .dpath__m, .thread__d) { box-shadow: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero, .hl-card, .ocard) { border-radius: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero) { padding: 22px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.rz-tbl, .lrows, .k2-lrs, .kk-th, .pf-acc) { border-radius: 14px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.sstrip, .sstrip--lg) { border-radius: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-contact, .kk-li, .notice, .k2-next) { border-radius: 14px; }
+/* карточка в карточке: внутри секции без своей рамки, фон sunken */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-sec, .pv-side, .gd-late) :is(.k2-contact, .kk-li) { border-color: transparent; background: var(--hb-sunken); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-sec .notice { border-color: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .plist > .pcard { border: 0; border-radius: 0; background: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .plist > .pcard + .pcard { border-top: 1px solid var(--hb-line); }
+@media (max-width: 767px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-side, .sp-card, .k2-sec, .gd-ev, .gd-late, .rcard, .dpath, .panel.inv-link, .linkhero) { padding: 18px; }
+}
+
+/* 4. Кнопки: 32 -> r10, 40 -> r12; 48 нет; телефон 40 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn { border-radius: 10px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts, .kab__head) .btn:not(.btn--s, .btn--icon) { border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn--acc.btn--l { border-radius: 10px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn--round, .mcomp .btn, .copy--code .btn, .agm__f .btn) { border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts) .btn--acc.btn--l { border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next .btn--l { min-height: 32px; height: 32px; }
+@media (max-width: 767px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.btn, .btn--s, .btn--acc.btn--l) { border-radius: 12px; min-height: 40px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(button.btn--link, .k2-lnk, .rowopen, .pcard__t, .pt-stretch, .fl__h, .kk-hl__r, .x-lnk, .crumbs__b) { min-height: 40px; display: inline-flex; align-items: center; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .fl__h { display: grid; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .switch { min-height: 40px; }
+}
+
+/* 5. Поля и триггеры 40 на десктопе; метка -> поле 6; между полями 16 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-flt__s .input, .input--t, .cs__btn, .kk-dd .cs__btn, .fbar .cs__btn) { height: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-flt, .fbar) :is(.btn, .btn--s, .btn--quiet):not(.btn--icon) { min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.field, .modal__body .field, .pv-modal .modal__body .field) { gap: 6px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .sp-card, .field) .fbtn { height: 40px; min-height: 40px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp-two { row-gap: 16px; }
+@media (min-width: 768px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.linkhero, .netlink) .copy--code .input { font-size: 16px; line-height: 24px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.sp-card .sp-two, .sp-card form, .sp-card .stack) { row-gap: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sp-card .field + .field { margin-top: 0; }
+
+/* 6. Окна: не выше экрана, тело прокручивается, шапка и подвал на месте; ширина 440-560 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) { max-height: calc(100dvh - 48px) !important; overflow: hidden !important; display: flex; flex-direction: column; box-sizing: border-box; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) > .modal__in { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) :is(.modal__head, .modal__foot) { flex: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-modal, .k3-win) .modal__foot { margin-top: 0 !important; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal { max-height: calc(100dvh - 48px) !important; overflow-y: auto !important; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal .modal__head { position: sticky; top: 0; z-index: 3; background: var(--hb-paper); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal .pt-acts { position: sticky; bottom: 0; z-index: 3; background: var(--hb-paper); padding-block: 12px 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-modal.pt-wiz { width: min(560px, 100%); max-width: 560px; }
+
+/* 7. Значки в кнопках: 16 в кнопках 32, 20 в кнопках 40 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn svg { width: 16px; height: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts) .btn svg { width: 20px; height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.phead__acts, .modal__foot, .pt-acts) .btn--icon svg { width: 20px; height: 20px; }
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .btn:not(.btn--link) svg { width: 20px; height: 20px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sputnik svg { width: 24px; height: 24px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-ib, .x-chev, .k3-chev, .k3-info) svg, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.k2-ib--s) .ic { width: 16px; height: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .search :is(.ic, svg) { width: 20px; height: 20px; }
+
+/* 8. Бейджи 12 мягкие без капса; th 13/18 600 ink-3 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.badge, .cnt-pill, .dlg__tag, .dlg__u, .ocard__tag) { font-size: 12px; line-height: 16px; text-transform: none; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent th { font: 600 13px/18px var(--font-ui); color: var(--hb-ink-3); text-transform: none; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next__l { text-transform: none; letter-spacing: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sstrip small { font: 400 12px/16px var(--font-ui); color: var(--hb-ink-3); }
+
+/* 9. Спутник: кнопка в экране */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sputnik { max-width: calc(100vw - 20px); }
+
+/* 10. Меню аккаунта и пункты бокового меню одной высоты 36 (телефон: касание 40) */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 36px; height: 36px; padding-inline: 12px; gap: 10px; font-size: 14px; line-height: 20px; white-space: nowrap; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) > span:not(.badge) { overflow: hidden; text-overflow: ellipsis; }
+@media (min-width: 900px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .knav a { min-height: 36px; padding-block: 0; } }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__acc .sheet-list :is(button, a) { min-height: 40px; height: 40px; } }
+
+/* 11. Число KPI 24/28, при узкой ячейке уменьшается и не вылезает; шапка -> блок 16 (телефон 12) */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sstrip--lg b { font-size: clamp(14px, 14.5cqi, 24px); line-height: 28px; white-space: nowrap; }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sstrip--lg b { line-height: 24px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent main.kab__main { row-gap: 16px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .phead__acts:empty { display: none; }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent main.kab__main { row-gap: 12px; } }
+
+/* 12. Заголовок-ссылка цветом заголовка; подсказки в карточке без рамки и фона, только полоса слева */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3) > .x-op__t, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3) > .x-op__t:hover, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(h2, h3) > .x-op__t:visited { color: var(--hb-ink); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-sec .notice { border-top: 0; border-right: 0; border-bottom: 0; border-left-width: 3px; border-radius: 0; box-shadow: none; background: transparent; padding: 4px 0 4px 14px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-sec .k2-next, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next { border-top: 0; border-right: 0; border-bottom: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-next .k2-next__l { text-transform: none; letter-spacing: 0; }
+
+/* 13. Шрифт по высоте: кнопки 32 = 14 (база), кнопки 40 = 15, триггеры и поля 40 = 16. Причина прежних 14 у кнопок и триггеров 40: базовое правило размеров (size-pass) задаёт 14 всем .btn/.fbtn/.select/.cs__btn и 15 только внутри .phead__acts и .modal__foot, поэтому кнопки 40 в формах и фильтрах оставались на 14 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.linkhero .copy--code .btn, .cal-dd .fbtn, .hp-fdd .fbtn, .pv-modal .fbtn, .sp-card .fbtn, .field .fbtn, .fbar .btn, .k2-flt .btn, .contact .btn):not(.btn--icon, .btn--link) { font-size: 15px; line-height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .contact .btn:not(.btn--icon, .btn--link) { min-height: 40px; padding-inline: 16px; border-radius: 12px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.select, .cs__btn) { font-size: 16px; line-height: 24px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__val.is-ph { color: var(--hb-ink-3); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .field__l:has(.x-i) { display: flex; align-items: center; height: 18px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .field__hint { margin-top: -2px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(input[type=checkbox], input[type=radio]) { -webkit-appearance: none; appearance: none; }
+
+/* 14. Значки: пункты меню и поповеров 20, на телефоне в кнопках-фильтрах и подсказках 20 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .pt-menu button .ic { width: 20px; height: 20px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sa-pop :is(button, a) svg { width: 20px; height: 20px; }
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.fbtn, .k3-info, .x-i, .ocard__pick) svg { width: 20px; height: 20px; } }
+
+/* 15. На телефоне главная колонка во всю ширину, в детальных видах не схлопывается */
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kab__main { flex: 1 1 auto; width: 100%; min-width: 0; margin-inline: 0; box-sizing: border-box; } }
+
+/* 16. Тосты: фиксированно снизу по центру на всех экранах, на телефоне над нижней навигацией */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-toast, .pt-toast, .pv-nav-toast) { position: fixed; top: auto !important; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 500; max-width: calc(100vw - 32px); }
+@media (max-width: 899px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-toast, .pt-toast, .pv-nav-toast) { bottom: 88px; } }
+
+/* 17. Меню и листы на телефоне (E1): лист снизу на всю ширину, на нижней панели (61), углы 16 сверху, затемнение страницы без перехвата касаний. Одинаково для «Ещё» (роли и меню аккаунта), меню карточки материалов и поповера «О ценах и курсе» */
+@media (max-width: 767px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent :is(.pv-pop--more, .pmenu__l.pt-menu, .k3-fx) { position: fixed; left: 0; right: 0; top: auto; bottom: 61px; width: auto; max-width: none; margin: 0; box-sizing: border-box; max-height: calc(100dvh - 109px); overflow-y: auto; border-width: 1px 0 0; border-radius: 16px 16px 0 0; box-shadow: 0 0 0 100vmax rgb(18 21 23 / .32); z-index: 90; } }
+
+/* 18. Подпись группы в меню аккаунта («Роль»): обычный регистр, без разрядки (B7) */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .sheet-list > li.sheet-list__t { font: 600 13px/18px var(--font-ui); letter-spacing: 0; text-transform: none; }
+</style>
+<style id="hb-fix-grp-2211">
+/* Свод 22.11, группа set-profil: Команда */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-sec { gap: 8px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl tbody td { padding-block: 10px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .stack--l > .btn.btn--t { justify-self: start; align-self: flex-start; width: auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .drop { padding: 20px; border-radius: 14px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .drop > .ic { width: 24px; height: 24px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .drop > span:first-of-type { color: var(--hb-ink); font-weight: 600; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .drop:focus-within { border-color: var(--hb-accent); }
+@media (max-width: 767px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl td:first-child { width: 99%; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl .rz-r { width: 1%; white-space: nowrap; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-n { gap: 8px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl :is(th, td) { padding-inline: 8px 4px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl td.rz-r:not(:last-child), .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl th.rz-r:not(:last-child) { padding-inline: 4px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-n .avatar { width: 36px; height: 36px; font-size: 13px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl td:last-child { padding-inline: 4px 8px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl td:last-child .btn { padding-inline: 10px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-lrow .lrow__m { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .gd-lrow { grid-template-columns: auto minmax(0, 1fr) auto; }
+}
+/* fix2-komanda-1 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl .x-op__t { position: relative; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl .x-op__t::after { content: ""; position: absolute; inset: -12px -8px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl .rz-n .rz-d { display: block; font-size: 12px; line-height: 16px; color: var(--hb-ink-3); }
+/* fix2-komanda-2 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl .rz-inc { display: block; font-size: 12px; line-height: 16px; font-weight: 400; color: var(--hb-ink-3); white-space: nowrap; }
+/* fix2-komanda-3 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl td:last-child .btn { padding-inline: 8px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl td:last-child { padding-inline: 2px 6px; }
+/* fix2-komanda-4 */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .rz-tbl tbody td { padding-block: 8px; }
+</style>
+</helmet>
+<div class="hb kab--agent">
+<div class="kab kab--cv kab--agent" id="kab">
+<dc-import name="Nav" part="side" current="komanda" suffix="-m" hint-size="256px,900px"></dc-import>
+<dc-import name="Nav" part="top" current="komanda" suffix="-m" hint-size="100%,56px"></dc-import>
+<main class="kab__main">
+<section class="phead phead--kab" aria-labelledby="pg-h"><div class="wrap"><div class="phead__row"><div class="phead__main"><h1 id="pg-h">Команда</h1></div><div class="phead__acts"><button type="button" class="btn btn--acc btn--l " id="pg-main" onClick="{{a_add}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/><path d="M19 16v6"/><path d="M22 19h-6"/></svg><span>Добавить сотрудника</span></button></div></div></div></section>
+<div class="stack stack--l"><table class="rz-tbl"><thead><tr><th>Сотрудник</th><th class="rz-hm">Роль</th><th class="rz-r">Заявки</th><th class="rz-hm rz-r">Доход</th><th></th></tr></thead><tbody><tr><td><div class="rz-n"><span class="avatar" aria-hidden="true">АК</span><div><b>Алексей Кузнецов</b><span>Владелец</span><span class="rz-sm rz-d">Доход USD&nbsp;4&nbsp;358</span></div></div></td><td class="rz-hm"><span class="badge badge--ok">Владелец</span></td><td class="rz-r">10</td><td class="rz-hm rz-r">USD&nbsp;4&nbsp;358</td><td class="rz-r"></td></tr><tr class="x-op" onClick="{{a_tm_Екат}}"><td><div class="rz-n"><span class="avatar" aria-hidden="true">ЕС</span><div><b><button type="button" class="x-op__t">Екатерина Смирнова</button></b><span>{{rl_Екат}}</span><span class="rz-sm rz-d">Доход USD&nbsp;2&nbsp;900</span></div></div></td><td class="rz-hm"><span class="badge badge--muted">{{bg_Екат}}</span></td><td class="rz-r">4</td><td class="rz-hm rz-r">USD&nbsp;2&nbsp;900</td><td class="rz-r"></td></tr><tr class="x-op" onClick="{{a_tm_Дави}}"><td><div class="rz-n"><span class="avatar" aria-hidden="true">ДБ</span><div><b><button type="button" class="x-op__t">Давид Беридзе</button></b><span>{{rl_Дави}}</span><span class="rz-sm rz-d">Доход USD&nbsp;1&nbsp;300</span></div></div></td><td class="rz-hm"><span class="badge badge--muted">{{bg_Дави}}</span></td><td class="rz-r">2</td><td class="rz-hm rz-r">USD&nbsp;1&nbsp;300</td><td class="rz-r"></td></tr><tr><td><div class="rz-n"><span class="avatar" aria-hidden="true">НЧ</span><div><b>Нино Чихладзе</b><span>Приглашение</span><span class="rz-sm rz-d">Доход USD&nbsp;0</span></div></div></td><td class="rz-hm"><span class="badge badge--wait">Ждёт</span></td><td class="rz-r">0</td><td class="rz-hm rz-r">USD&nbsp;0</td><td class="rz-r"><button type="button" class="btn btn--t" onClick="{{a_tm_pend}}"><span>Напомнить</span></button></td></tr></tbody></table><section class="gd-sec" aria-labelledby="h-act"><div class="pv-h"><h2 class="h4" id="h-act">Сегодня</h2></div><ul class="lrows lrows--lg"><li><div class="lrow gd-lrow x-op"><span class="avatar" aria-hidden="true">ЕС</span><div class="lrow__b"><b><a class="x-op__t" href="klienty-kartochka-m.dc.html">Екатерина Смирнова</a></b><span>Закрыла заявку: Нина Фёдорова</span></div><div class="lrow__m"><span class="fresh">09:40</span></div></div></li><li><div class="lrow gd-lrow x-op"><span class="avatar" aria-hidden="true">ДБ</span><div class="lrow__b"><b><a class="x-op__t" href="klienty-kartochka-m.dc.html">Давид Беридзе</a></b><span>Взял заявку: Игорь Лапин</span></div><div class="lrow__m"><span class="fresh">09:12</span></div></div></li><li><div class="lrow gd-lrow x-op"><span class="avatar" aria-hidden="true">АК</span><div class="lrow__b"><b><a class="x-op__t" href="klienty-kartochka-m.dc.html">Алексей Кузнецов</a></b><span>Отправил подборку: Анна Белова</span></div><div class="lrow__m"><span class="fresh">08:55</span></div></div></li></ul></section><button type="button" class="btn btn--t" onClick="{{a_bulk}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="m17 8-5-5-5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg><span>Загрузить списком</span></button></div><sc-if value="{{showReject}}" hint-placeholder-val="{{ false }}"><div class="pv-ovl" style="{{ovlStyle}}" onClick="{{closeOvl}}"><div class="pv-modal" role="dialog" aria-modal="true" aria-labelledby="rj-t" onClick="{{stop}}"><div class="modal__in"><div class="modal__head"><h2 id="rj-t">Отказаться?</h2><button type="button" class="btn btn--icon btn--quiet btn--round" aria-label="Закрыть" onClick="{{closeOvl}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="modal__body"><p>Заявка уйдёт другому партнёру. Вернуть её нельзя.</p></div><div class="modal__foot"><button type="button" class="btn btn--danger" onClick="{{doReject}}">Отказаться</button><button type="button" class="btn btn--acc" onClick="{{closeOvl}}">Оставить</button></div></div></div></div></sc-if>
+</main>
+
+<sc-if value="{{tmOpen}}" hint-placeholder-val="{{ false }}"><div class="pv-ovl" style="{{mOvl}}" onClick="{{mClose}}"><div class="pv-modal mt-pk" role="dialog" aria-modal="true" aria-labelledby="tm-t" onClick="{{stop}}"><div class="modal__in"><div class="modal__head"><h2 id="tm-t">{{tmName}}</h2><button type="button" class="btn btn--icon btn--quiet btn--round" aria-label="Закрыть" onClick="{{mClose}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><sc-if value="{{tmV}}" hint-placeholder-val="{{ true }}"><div class="modal__body"><dl class="gd-det"><div><dt>Роль</dt><dd>{{tmRole}}</dd></div><div><dt>Заявки</dt><dd>{{tmReq}}</dd></div><div><dt>Доход</dt><dd>{{tmInc}}</dd></div><sc-if value="{{tmIsOff}}" hint-placeholder-val="{{ false }}"><div><dt>Доступ</dt><dd>Отключён</dd></div></sc-if></dl><h3 class="h4">Последние действия</h3><dl class="gd-det"><div><dt>{{tmAt}}</dt><dd>{{tmAct}}</dd></div></dl></div><div class="modal__foot"><a class="btn btn--acc" href="soobshcheniya-m.dc.html"><span>Написать</span></a><button type="button" class="btn" onClick="{{tmRoleOpen}}"><span>Изменить роль</span></button><sc-if value="{{tmCanOff}}" hint-placeholder-val="{{ true }}"><button type="button" class="btn btn--quiet" onClick="{{tmOffOpen}}"><span>Отключить</span></button></sc-if></div></sc-if><sc-if value="{{tmR}}" hint-placeholder-val="{{ false }}"><div class="modal__body"><div class="field"><span class="field__l">Роль</span><div class="fdd mt-d"><button type="button" class="fbtn" aria-expanded="{{tmDd}}" aria-haspopup="dialog" onClick="{{tmDdTg}}"><span>{{tmRSel}}</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><sc-if value="{{tmDd}}" hint-placeholder-val="{{ false }}"><div class="fdd__pop mt-pop" role="dialog" aria-label="Роль"><div class="fdd__body"><div class="choices"><sc-for list="{{tmOpts}}" as="o" hint-placeholder-count="2"><label class="check"><input type="radio" name="tm-r" checked="{{o.on}}" onChange="{{o.tg}}"><span>{{o.label}}</span></label></sc-for></div></div></div></sc-if></div></div></div><div class="modal__foot"><button type="button" class="btn btn--acc" onClick="{{tmRoleSave}}"><span>Сохранить</span></button><button type="button" class="btn btn--quiet" onClick="{{tmBack}}"><span>Отмена</span></button></div></sc-if><sc-if value="{{tmO}}" hint-placeholder-val="{{ false }}"><div class="modal__body"><p>Сотрудник потеряет доступ к кабинету.</p></div><div class="modal__foot"><button type="button" class="btn btn--danger" onClick="{{tmOffGo}}"><span>Отключить</span></button><button type="button" class="btn btn--quiet" onClick="{{tmBack}}"><span>Оставить</span></button></div></sc-if></div></div></div></sc-if><sc-if value="{{adOpen}}" hint-placeholder-val="{{ false }}"><div class="pv-ovl" style="{{mOvl}}" onClick="{{mClose}}"><div class="pv-modal mt-pk" role="dialog" aria-modal="true" aria-labelledby="ad-t" onClick="{{stop}}"><div class="modal__in"><div class="modal__head"><h2 id="ad-t">Новый сотрудник</h2><button type="button" class="btn btn--icon btn--quiet btn--round" aria-label="Закрыть" onClick="{{mClose}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="modal__body stack"><div class="field"><label class="field__l" for="ad-n">Имя</label><input class="input" type="text" id="ad-n" autocomplete="off" value="{{adN}}" onInput="{{onAdN}}"></div><div class="field"><label class="field__l" for="ad-e">Почта</label><input class="input" type="email" id="ad-e" autocomplete="off" value="{{adE}}" onInput="{{onAdE}}"></div><div class="field"><span class="field__l">Роль</span><div class="fdd mt-d"><button type="button" class="fbtn" aria-expanded="{{adDd}}" aria-haspopup="dialog" onClick="{{adTg}}"><span>{{adRole}}</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><sc-if value="{{adDd}}" hint-placeholder-val="{{ false }}"><div class="fdd__pop mt-pop" role="dialog" aria-label="Роль"><div class="fdd__body"><div class="choices"><sc-for list="{{adOpts}}" as="o" hint-placeholder-count="2"><label class="check"><input type="radio" name="ad-r" checked="{{o.on}}" onChange="{{o.tg}}"><span>{{o.label}}</span></label></sc-for></div></div></div></sc-if></div></div></div><div class="modal__foot"><button type="button" class="btn btn--acc" disabled="{{adDis}}" onClick="{{adGo}}"><span>Пригласить</span></button><button type="button" class="btn btn--quiet" onClick="{{mClose}}"><span>Отмена</span></button></div></div></div></div></sc-if><sc-if value="{{bkOpen}}" hint-placeholder-val="{{ false }}"><div class="pv-ovl" style="{{mOvl}}" onClick="{{mClose}}"><div class="pv-modal mt-pk" role="dialog" aria-modal="true" aria-labelledby="bk-t" onClick="{{stop}}"><div class="modal__in"><div class="modal__head"><h2 id="bk-t">Загрузка списка</h2><button type="button" class="btn btn--icon btn--quiet btn--round" aria-label="Закрыть" onClick="{{mClose}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="modal__body stack"><label class="drop" for="bk-f"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="m17 8-5-5-5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg><span>{{bkName}}</span><span class="sp-mute">.csv или .xlsx</span><input type="file" id="bk-f" accept=".csv,.xlsx" onChange="{{onBkFile}}"></label><p class="sp-mute">Столбцы: имя, почта, роль.</p></div><div class="modal__foot"><button type="button" class="btn btn--acc" disabled="{{bkDis}}" onClick="{{bkGo}}"><span>Загрузить</span></button><button type="button" class="btn btn--quiet" onClick="{{mClose}}"><span>Отмена</span></button></div></div></div></div></sc-if><sc-if value="{{hasToast}}" hint-placeholder-val="{{ false }}"><div class="pv-toast" role="status" style="{{toastStyle}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>{{toast}}</span></div></sc-if>
+<dc-import name="Nav" part="bar" current="komanda" suffix="-m" hint-size="100%,64px"></dc-import>
+<dc-import name="Nav" part="fab" current="komanda" suffix="-m" hint-size="1px,1px"></dc-import>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1048}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    // Esc: закрывает верхнее окно или поповер (общий обработчик)
+    try { if (!window.__hbEsc) { window.__hbEsc = 1; document.addEventListener("keydown", function (e) { try { if (e.key !== "Escape" || e.defaultPrevented) return; var v = function (x) { var r = x.getBoundingClientRect(); return r.width > 0 && r.height > 0 }, q = function (s) { return Array.prototype.filter.call(document.querySelectorAll(s), v) }; var o = q(".pv-ovl,.k3-ovl,.kl-ovl,.kl-scrim,.k3-scrim,.sa-scrim").pop() || q("[class*=away]").pop() || q('[aria-expanded="true"][aria-haspopup]').pop() || q('[aria-expanded="true"]').filter(function (x) { return !x.closest("main") }).pop(); if (o) { o.click(); e.preventDefault(); return } var d = q("details.kab__acc[open]").pop(); if (d) { d.removeAttribute("open"); e.preventDefault() } } catch (x) {} }) } } catch (x) {}
+    try { if (!window.__hbTipFit) { window.__hbTipFit = 1; const fit = (e) => { try { const t = e.target && e.target.closest && e.target.closest("[data-tip]"); if (!t) return; const vw = document.documentElement.clientWidth, r = t.getBoundingClientRect(), c = document.createElement("canvas").getContext("2d"); c.font = "400 13px " + getComputedStyle(t).fontFamily; const w = Math.min(240, vw - 48, c.measureText(t.getAttribute("data-tip")).width + 26), l = t.classList.contains("x-w") ? r.left - 6 - w : t.classList.contains("k2-ib--r") ? r.right - w : r.left; let d = 0; if (l + w > vw - 8) d = vw - 8 - l - w; if (l + d < 8) d = 8 - l; t.style.setProperty("--tdx", d + "px"); } catch (x) {} }; document.addEventListener("mouseover", fit, true); document.addEventListener("focusin", fit, true); } } catch (x) {}
+    this.state = Object.assign({ toast: "", toastY: 120, ovlTop: 96 }, { help: false, taken: false, rejected: false, showReject: false, asked: false, copied: false, tm: { open: false }, ad: { open: false }, bk: { open: false }, mTop: 96, rl: { "Екат": "Менеджер", "Дави": "Сотрудник" }, off: {} });
+  }
+  yOf(e) { try { const k = document.querySelector(".kab"); return Math.max(8, Math.round(e.currentTarget.getBoundingClientRect().top - k.getBoundingClientRect().top) + e.currentTarget.offsetHeight + 8); } catch (x) { return 120; } }
+  say(msg, e) { this.setState({ toast: msg, toastY: this.yOf(e) }); clearTimeout(this._tt); this._tt = setTimeout(() => this.setState({ toast: "" }), 3800); }
+  ovl(e) { try { const k = document.querySelector(".kab"); return Math.max(16, Math.round(e.currentTarget.getBoundingClientRect().top - k.getBoundingClientRect().top) - 80); } catch (x) { return 96; } }
+  toggleHelp() { this.setState({ help: !this.state.help }); }
+  take(e) { this.say("Заявка принята. Телефон открыт", e); this.setState({ taken: true }); }
+  askReject(e) { this.setState({ showReject: true, ovlTop: this.ovl(e) }); }
+  closeOvl() { this.setState({ showReject: false }); }
+  doReject(e) { this.setState({ showReject: false, rejected: true }); this.say("Заявка ушла другому партнёру", e); }
+  ask(e) { this.setState({ asked: true }); this.say("Запрос отправлен. Выплата в ближайшей партии", e); }
+  copy(e) { this.setState({ copied: true }); this.say("Скопировано. Можно отправлять", e); }
+  setAd(p) { this.setState({ ad: Object.assign({}, this.state.ad, p) }); }
+  renderVals() {
+    const S = this.state;
+    return Object.assign({ toast: S.toast, hasToast: !!S.toast, toastStyle: "top:" + S.toastY + "px", ovlStyle: "", }, (() => {
+    const A = {"tm_pend": "Напоминание ушло на почту: Нино Чихладзе"};
+    const TM = { "Екат": ["Екатерина Смирнова", "Менеджер", "4", "USD\u00a02\u00a0900"], "Дави": ["Давид Беридзе", "Сотрудник", "2", "USD\u00a01\u00a0300"] }, tm = TM[S.tm.k] || ["", "", "", ""], ad = S.ad, bk = S.bk, T = S.tm, K = T.k, ACT = { "Екат": ["09:40", "Закрыла заявку: Нина Фёдорова"], "Дави": ["09:12", "Взял заявку: Игорь Лапин"] }, act = ACT[K] || ["", ""], curRole = S.rl[K] || "", isOff = !!S.off[K], setTm = (p) => this.setState({ tm: Object.assign({}, T, p) });
+    const o = { help: S.help, toggleHelp: () => this.toggleHelp(),
+      isNew: !S.taken && !S.rejected, taken: S.taken && !S.rejected, hasNew: !S.rejected, nowCls: S.taken ? "is-done" : "",
+      take: (e) => this.take(e), askReject: (e) => this.askReject(e), showReject: S.showReject, closeOvl: () => this.closeOvl(),
+      stop: (e) => e.stopPropagation(), doReject: (e) => this.doReject(e), ovlStyle: "padding-top:" + S.ovlTop + "px",
+      canPay: !S.asked, asked: S.asked, ask: (e) => this.ask(e),
+      copied: S.copied, notCopied: !S.copied, copy: (e) => this.copy(e) };
+    for (const k in A) { o["a_" + k] = (e) => this.say(A[k], e); }
+    for (const k in TM) o["a_tm_" + k] = (e) => this.setState({ tm: { open: true, k, mode: "", dd: false, r: "" }, mTop: this.ovl(e) });
+    for (const k in TM) { o["rl_" + k] = S.rl[k]; o["bg_" + k] = S.off[k] ? "Отключён" : S.rl[k]; }
+    Object.assign(o, { tmV: !T.mode, tmR: T.mode === "role", tmO: T.mode === "off", tmIsOff: isOff, tmCanOff: !isOff, tmAt: act[0], tmAct: act[1],
+      tmRoleOpen: () => setTm({ mode: "role", dd: false, r: curRole }), tmOffOpen: () => setTm({ mode: "off" }), tmBack: () => setTm({ mode: "", dd: false }),
+      tmRSel: T.r || curRole, tmDd: !!T.dd, tmDdTg: () => setTm({ dd: !T.dd }),
+      tmOpts: ["Менеджер", "Сотрудник"].map((r) => ({ label: r, on: (T.r || curRole) === r, tg: () => setTm({ r, dd: false }) })),
+      tmRoleSave: (e) => { this.setState({ rl: Object.assign({}, S.rl, { [K]: T.r || curRole }), tm: Object.assign({}, T, { mode: "", dd: false }) }); this.say("Роль изменена: " + tm[0] + ", " + (T.r || curRole), e); },
+      tmOffGo: (e) => { this.setState({ off: Object.assign({}, S.off, { [K]: true }), tm: Object.assign({}, T, { mode: "" }) }); this.say("Доступ отключён: " + tm[0], e); } });
+    o.a_add = (e) => this.setState({ ad: { open: true, n: "", e: "", r: "Менеджер", dd: false }, mTop: this.ovl(e) });
+    o.a_bulk = (e) => this.setState({ bk: { open: true, f: "" }, mTop: this.ovl(e) });
+    Object.assign(o, { mOvl: "padding-top:" + S.mTop + "px", mClose: () => this.setState({ tm: { open: false }, ad: { open: false }, bk: { open: false } }),
+      tmOpen: !!S.tm.open, tmName: tm[0], tmRole: curRole || tm[1], tmReq: tm[2], tmInc: tm[3],
+      adOpen: !!ad.open, adN: ad.n || "", adE: ad.e || "", onAdN: (e) => this.setAd({ n: e.target.value }), onAdE: (e) => this.setAd({ e: e.target.value }), adRole: ad.r || "", adDd: !!ad.dd, adTg: () => this.setAd({ dd: !ad.dd }),
+      adOpts: ["Менеджер", "Сотрудник"].map((r) => ({ label: r, on: ad.r === r, tg: () => this.setAd({ r, dd: false }) })),
+      adDis: !(ad.n || "").trim() || !/^\S+@\S+\.\S+$/.test((ad.e || "").trim()),
+      adGo: (e) => { this.say("Приглашение ушло: " + ad.e.trim(), e); this.setState({ ad: { open: false } }); },
+      bkOpen: !!bk.open, onBkFile: (e) => this.setState({ bk: Object.assign({}, bk, { f: e.target.files && e.target.files[0] ? e.target.files[0].name : "" }) }), bkDis: !bk.f, bkName: bk.f || "Выберите файл",
+      bkGo: (e) => { this.say("Список загружен: " + bk.f, e); this.setState({ bk: { open: false } }); } });
+    return o;
+  })());
+  }
+}
+</script>
+</body>
+</html>
