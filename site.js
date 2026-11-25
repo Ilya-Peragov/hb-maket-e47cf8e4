@@ -1,5 +1,5 @@
 (async()=>{
-const SCREENS='glavnaya klienty klienty-kartochka soobshcheniya telegram-bot dengi materialy ssylka katalog set komanda profil rekvizity pomoshch Nav'.split(' ');
+const SCREENS='glavnaya klienty klienty-kartochka soobshcheniya kalendar telegram-bot dengi materialy kontent ssylka katalog set komanda profil rekvizity pomoshch Nav'.split(' ');
 const SINGLE={'telegram-bot':1,Nav:1};
 const Q=new URLSearchParams(location.search);let S=Q.get('s')||'glavnaya';if(!SCREENS.includes(S))S='glavnaya';
 const forced=Q.get('v');
@@ -95,10 +95,32 @@ main.inst=new main.C({}); restore(main.inst); window.__inst=main.inst;
 const mv=main.inst; mv.componentDidMount&&mv.componentDidMount();
 render();
 (function(){const b=document.createElement('div');b.id='hbm-tools';
-b.style.cssText=(innerWidth<=768?'position:fixed;left:8px;bottom:68px;':'position:fixed;right:12px;top:8px;')+'z-index:900;display:flex;align-items:center;gap:10px;font:500 12px "IBM Plex Sans",system-ui,sans-serif';
-const lk=document.createElement('a');lk.href='screens.html';lk.textContent='Все экраны';lk.style.cssText='color:#5b6b73;text-decoration:none;font-size:12px;background:rgba(246,248,250,.9);padding:3px 8px;border-radius:6px';
+const mob=innerWidth<=768;
+const FF='font-family:"IBM Plex Sans",system-ui,sans-serif;';
+const lk=document.createElement('a');lk.href='screens.html';lk.textContent='Все экраны';
 const bt=document.createElement('button');bt.type='button';bt.textContent='Сбросить';bt.id='hbm-reset';
-bt.style.cssText='font:500 13px "IBM Plex Sans",system-ui,sans-serif;height:32px;padding:0 14px;border-radius:12px;border:1px solid #9cc9b0;background:#eef6f1;color:#1c2b33;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1)';
 bt.onclick=()=>{st_clear();location.href=location.pathname.replace(/[^/]*$/,'')+(forced?'?v='+forced:'');};
-b.append(lk,bt);document.body.appendChild(b);})();
+if(!mob){
+ /* десктоп: левый нижний угол контентной области, правее бокового меню (там подпись RU) */
+ let left=8;try{const sd=document.querySelector('.kab__side');if(sd){const r=sd.getBoundingClientRect();if(r.width>0&&r.right>0)left=Math.round(r.right)+8;}}catch(e){}
+ b.style.cssText='position:fixed;left:'+left+'px;bottom:8px;z-index:900;display:flex;align-items:center;gap:6px;font:500 12px "IBM Plex Sans",system-ui,sans-serif';
+ lk.style.cssText='color:#5b6b73;text-decoration:none;font-size:11px;background:rgba(246,248,250,.9);padding:3px 8px;border-radius:6px';
+ bt.style.cssText=FF+'font-weight:500;font-size:11px;height:24px;padding:0 8px;border-radius:8px;border:1px solid #9cc9b0;background:#eef6f1;color:#1c2b33;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1)';
+ b.append(lk,bt);
+}else{
+ /* телефон: маленькая кнопка-иконка над нижним меню, по нажатию раскрывает «Сбросить / Все экраны» */
+ b.style.cssText='position:fixed;left:4px;bottom:68px;z-index:900;display:flex;flex-direction:column;align-items:flex-start;gap:6px;'+FF;
+ const tg=document.createElement('button');tg.type='button';tg.id='hbm-tools-tg';tg.setAttribute('aria-label','Служебное меню макета');tg.setAttribute('aria-expanded','false');
+ tg.style.cssText='width:26px;height:26px;padding:0;border-radius:50%;border:1px solid #9cc9b0;background:#eef6f1;color:#1c2b33;opacity:.75;cursor:pointer;display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.1)';
+ const NS='http://www.w3.org/2000/svg';const sv=document.createElementNS(NS,'svg');sv.setAttribute('viewBox','0 0 24 24');sv.setAttribute('width','14');sv.setAttribute('height','14');sv.setAttribute('fill','currentColor');
+ [5,12,19].forEach(x=>{const c=document.createElementNS(NS,'circle');c.setAttribute('cx',x);c.setAttribute('cy',12);c.setAttribute('r',2);sv.appendChild(c);});tg.appendChild(sv);
+ const pn=document.createElement('div');pn.id='hbm-tools-pn';pn.style.cssText='display:none;flex-direction:column;gap:6px;padding:8px;border-radius:12px;border:1px solid #d6dde3;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.16)';
+ lk.style.cssText='color:#1c2b33;text-decoration:none;font-size:13px;padding:6px 8px;border-radius:8px;background:#f6f8fa;text-align:center';
+ bt.style.cssText=FF+'font-weight:500;font-size:13px;height:32px;padding:0 14px;border-radius:10px;border:1px solid #9cc9b0;background:#eef6f1;color:#1c2b33;cursor:pointer';
+ pn.append(lk,bt);
+ tg.onclick=()=>{const o=pn.style.display==='none';pn.style.display=o?'flex':'none';tg.setAttribute('aria-expanded',o?'true':'false');};
+ b.append(pn,tg);
+}
+document.body.appendChild(b);
+})();
 })();

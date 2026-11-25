@@ -329,6 +329,7 @@
 /* Клиенты: вид Заявок кабинета агента, явный множественный выбор */
 .hb.kab--agent .k2-flt { gap: 8px 12px; }
 .hb.kab--agent .k2-flt .cs__btn { padding-left: 14px; padding-right: 38px; font-size: var(--hb-fs-body, 16px); text-align: left; }
+.hb.kab--agent .k2-flt .cs__done { display: flex; justify-content: flex-end; padding: 8px 10px; border-top: 1px solid var(--hb-line); }
 .hb.kab--agent .k2-flt .cs__btn::after { content: ""; right: 12px; top: 50%; width: 16px; height: 16px; margin: -8px 0 0; border: 0; transform: none; background: var(--hb-ink-2); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / 16px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / 16px no-repeat; }
 .hb.kab--agent .k2-flt .cs__btn[aria-expanded="true"]::after { transform: rotate(180deg); }
 .hb.kab--agent .k2-flt__n { margin-left: auto; font-size: var(--hb-fs-cap); color: var(--hb-ink-2); }
@@ -699,6 +700,43 @@
 .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-mn__l .is-danger, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-mn__l .is-danger .ic { color: var(--hb-err); }
 .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-mn__away { position: fixed; inset: 0; z-index: 40; background: transparent; border: 0; padding: 0; cursor: default; }
 </style>
+<style id="kl-2511">
+/* Клиенты 25.11: обрезка длинных имён, выбор столбцов, потерянные без пропусков. Только токены --hb-*. */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-ell { display: block; min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-nm, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-pr { justify-items: stretch; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .k2-nm, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-card .k2-nm { display: grid; justify-items: start; gap: 2px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-st > * { max-width: 100%; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .k2-nm .k2-lnk, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-card .k2-nm .k2-lnk { display: block; max-width: 100%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; overflow-wrap: normal; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-ag { display: flex; align-items: baseline; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-ag .k2-lab { flex: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-ag .k2-ell { flex: 1 1 auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-col, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-card, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-card > * { min-width: 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-cm { font: 600 var(--bb-small)/20px var(--font-ui); color: var(--hb-ink); white-space: nowrap; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-act { justify-content: flex-end; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .cs__opt.is-dis { opacity: .6; cursor: default; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-lostsum { margin: 0; font: 500 var(--bb-text)/24px var(--font-ui); color: var(--hb-ink-2); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-lostsum b, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-l .c-ls b { color: var(--hb-err); font-weight: 600; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-l { cursor: default; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-l .c-ls { font-size: var(--bb-small); color: var(--hb-ink-2); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-l .c-nm { display: block; color: var(--hb-ink); font-weight: 600; }
+@media (max-width: 899px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-colsel { display: none; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r { grid-template-areas: "nm nm wm" "st st st" "num num num" "cn pr pr" "ag ag cm" "cr up up" "ac ac ac"; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-st { display: flex; flex-wrap: wrap; align-items: center; justify-items: start; text-align: left; gap: 4px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-num { grid-auto-flow: row; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-cm { grid-area: cm; justify-self: end; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-l { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "id re" "nm cn" "bd bd" "as as" "ls ls"; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-l > .c-nm { grid-area: nm; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-l > .c-ls { grid-area: ls; }
+}
+</style>
+<style id="kl-fix-progon">
+/* Прогон 25.11: доска по этапам (9 колонок) с прокруткой вбок, поповер подсказки в строке. */
+@media (min-width: 768px) { .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-board { overflow-x: auto; padding-bottom: 8px; } .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-col { flex: 1 0 210px; } }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-tp { position: relative; z-index: 3; display: inline-flex; vertical-align: middle; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-tp__p { position: absolute; left: 0; top: calc(100% + 6px); z-index: 41; width: 220px; padding: 10px 12px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); box-shadow: var(--hb-e-pop); color: var(--hb-ink); font: 400 var(--bb-small)/18px var(--font-ui); white-space: normal; text-align: left; }
+.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr:has(.kl-tp__p), .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-card:has(.kl-tp__p) { z-index: 45; }
+</style>
 </helmet>
 <div class="hb kab--agent">
 <div class="kab kab--cv kab--agent" id="kab">
@@ -710,18 +748,9 @@
 <nav class="k2-tabs" role="tablist" aria-label="Разделы клиентов">
 <a role="tab" class="" aria-selected="{{tabs.req}}" href="#k2" onClick="{{tabgo.req}}">Заявки</a>
 <a role="tab" class="is-quiet" aria-selected="{{tabs.lost}}" href="#k2" onClick="{{tabgo.lost}}">Потерянные</a>
-<a role="tab" class="" aria-selected="{{tabs.people}}" href="#k2" onClick="{{tabgo.people}}">Клиенты</a>
 </nav>
 <sc-if value="{{tabs.lost}}">
-<div class="k2-meter">
-<div class="k2-meter__t">
-<span>Пропуски</span>
-<span>{{miss}} из 3</span>
-</div>
-<div class="pv-bar" role="img" aria-label="Пропусков {{miss}} из 3">
-<i style="{{mstyle}}"></i>
-</div>
-</div>
+<p class="kl-lostsum" role="status">За месяц потеряно около <b>{{lostSum}}</b> <a class="btn btn--t btn--s" href="pomoshch.dc.html"><span>Как успевать</span></a></p>
 </sc-if>
 <sc-if value="{{tabs.req}}">
 <div class="k2-view">
@@ -755,6 +784,7 @@
 <li class="cs__opt" role="option" tabindex="0" onKeyDown="{{o.key}}" aria-selected="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</li>
 </sc-for>
 </ul>
+<div class="cs__done"><button type="button" class="btn btn--s btn--acc" onClick="{{fclose}}">Готово</button></div>
 </div>
 </sc-if>
 </div>
@@ -851,6 +881,22 @@
 </div>
 </sc-if>
 </div>
+<sc-if value="{{hasCols}}" hint-placeholder-val="{{ true }}">
+<div class="cs cs--multi kl-colsel">
+<button type="button" class="select cs__btn" aria-haspopup="listbox" aria-expanded="{{fdd.col}}" aria-label="Столбцы" onClick="{{ftgdd.col}}">
+<span class="cs__val">Столбцы</span>
+</button>
+<sc-if value="{{fdd.col}}">
+<div class="cs__pop">
+<ul class="cs__list cs__list--multi" role="listbox" aria-multiselectable="true" aria-label="Столбцы">
+<sc-for list="{{colopts}}" as="o" hint-placeholder-count="10">
+<li class="{{o.cls}}" role="option" tabindex="0" onKeyDown="{{o.key}}" aria-selected="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</li>
+</sc-for>
+</ul>
+</div>
+</sc-if>
+</div>
+</sc-if>
 <span class="k2-flt__n" role="status">Найдено&nbsp;{{fn}}</span>
 </div>
 </div>
@@ -880,17 +926,18 @@
 <sc-if value="{{c.empty}}"><p class="k2-ln k2-col__e">Пусто</p></sc-if>
 <sc-for list="{{c.cards}}" as="k" hint-placeholder-count="2">
 <div class="{{k.cls}}">
-<span class="k2-nm"><a class="k2-lnk" href="{{k.kh}}">{{k.n}}</a>
+<span class="k2-nm"><a class="k2-lnk" href="{{k.kh}}" title="{{k.n}}">{{k.n}}</a>
 <sc-if value="{{k.nc}}" hint-placeholder-val="{{ false }}"><span class="badge badge--txt badge--err">Нет связи</span></sc-if></span>
-<span class="k2-ln"><sc-if value="{{k.hasAg}}" hint-placeholder-val="{{ true }}"><b>{{k.id}}</b></sc-if><sc-if value="{{k.noAg}}" hint-placeholder-val="{{ false }}"><b>Своя</b><button type="button" class="k2-ib k2-ib--s" aria-label="Подсказка" data-tip="Номер есть у заявок от агентов"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></button></sc-if>&nbsp;·&nbsp;{{k.ty}}</span>
+<span class="k2-ln"><sc-if value="{{k.hasAg}}" hint-placeholder-val="{{ true }}"><b>{{k.id}}</b></sc-if><sc-if value="{{k.noAg}}" hint-placeholder-val="{{ false }}"><b>Своя</b><span class="kl-tp"><button type="button" class="k2-ib k2-ib--s" aria-label="Подсказка" aria-haspopup="true" aria-expanded="{{k.tipOn}}" onClick="{{k.tipTog}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></button><sc-if value="{{k.tipOn}}" hint-placeholder-val="{{ false }}"><button type="button" class="kl-mn__away" aria-label="Закрыть" onClick="{{k.tipTog}}"></button><span class="kl-tp__p" role="note">Номер есть у заявок от агентов</span></sc-if></span></sc-if>&nbsp;·&nbsp;{{k.ty}}</span>
 <span class="k2-ln">{{k.cn}}&nbsp;·&nbsp;{{k.bd}}</span>
 <span class="k2-meta"><span class="{{k.wcls}}">{{k.w}}</span><span class="k2-pl">Доля {{k.cm}}%</span></span>
-<span class="k2-ln">{{k.agl}}</span>
+<span class="k2-ln k2-ell" title="{{k.agl}}">{{k.agl}}</span>
 <sc-if value="{{k.hasOc}}" hint-placeholder-val="{{ false }}"><span class="{{k.occ}}" data-tip="{{k.ocTip}}">{{k.oc}}</span></sc-if>
 <span class="{{k.pcls}}"><sc-if value="{{k.pi_timer}}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></sc-if>{{k.pt}}</span>
 <sc-if value="{{k.tg}}" hint-placeholder-val="{{ false }}"><span class="k2-tg">{{k.tg}}</span></sc-if>
-<sc-if value="{{k.aTake}}" hint-placeholder-val="{{ false }}"><a class="btn btn--acc" href="klienty-kartochka.dc.html" onClick="{{k.doact}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg><span>Взять</span></a></sc-if>
+<sc-if value="{{k.aTake}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn--acc" onClick="{{k.doTake}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg><span>Взять</span></button></sc-if>
 <sc-if value="{{k.isNew}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn" onClick="{{k.askRej}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Отклонить</span></button></sc-if>
+<sc-if value="{{k.aBack}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn--acc" onClick="{{k.doBack}}"><span>Вернуть</span></button></sc-if>
 <svg class="ic k2-go" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
 </div>
 </sc-for>
@@ -900,7 +947,7 @@
 </sc-if>
 <sc-if value="{{showTable}}">
 <div class="k2-lrs is-wide">
-<div class="k2-lh {{rcls}}">
+<div class="k2-lh {{rcls}}" style="{{rsty}}">
 <sc-for list="{{hdr}}" as="h" hint-placeholder-count="8">
 <span class="k2-hc">
 <sc-if value="{{h.sortable}}"><button type="button" class="k2-th" aria-sort="{{h.aria}}" onClick="{{h.pick}}"><span>{{h.l}}</span>
@@ -912,87 +959,55 @@
 </div>
 <sc-for list="{{items}}" as="it" hint-placeholder-count="6">
 <sc-if value="{{it.rR}}">
-<div class="{{it.cls}}">
+<div class="{{it.cls}}" style="{{rsty}}">
+<sc-if value="{{it.v.id}}" hint-placeholder-val="{{ true }}">
 <div class="c-num">
-<sc-if value="{{it.hasAg}}" hint-placeholder-val="{{ true }}"><b class="k2-id">{{it.id}}</b></sc-if><sc-if value="{{it.noAg}}" hint-placeholder-val="{{ false }}"><b class="k2-id">Своя<button type="button" class="k2-ib k2-ib--s" aria-label="Подсказка" data-tip="Номер есть у заявок от агентов"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></button></b></sc-if>
+<sc-if value="{{it.hasAg}}" hint-placeholder-val="{{ true }}"><b class="k2-id">{{it.id}}</b></sc-if><sc-if value="{{it.noAg}}" hint-placeholder-val="{{ false }}"><b class="k2-id">Своя<span class="kl-tp"><button type="button" class="k2-ib k2-ib--s" aria-label="Подсказка" aria-haspopup="true" aria-expanded="{{it.tipOn}}" onClick="{{it.tipTog}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></button><sc-if value="{{it.tipOn}}" hint-placeholder-val="{{ false }}"><button type="button" class="kl-mn__away" aria-label="Закрыть" onClick="{{it.tipTog}}"></button><span class="kl-tp__p" role="note">Номер есть у заявок от агентов</span></sc-if></span></b></sc-if>
 <span class="k2-kind">
 <sc-if value="{{it.kd_bld}}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></sc-if>
 <sc-if value="{{it.kd_pin}}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></sc-if>{{it.ty}}</span>
-<sc-if value="{{it.byl}}" hint-placeholder-val="{{ false }}"><span class="k2-kind"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" x2="16" y1="12" y2="12"/></svg>По ссылке</span></sc-if>
 </div>
+</sc-if>
 <div class="c-nm">
-<span class="k2-nm"><a class="k2-lnk" href="{{it.kh}}">{{it.n}}</a>
+<span class="k2-nm"><a class="k2-lnk" href="{{it.kh}}" title="{{it.n}}">{{it.n}}</a>
 <sc-if value="{{it.nc}}" hint-placeholder-val="{{ false }}"><span class="badge badge--txt badge--err">Нет связи</span></sc-if></span>
-<span class="{{it.phc}}">{{it.ph}}</span>
+<sc-if value="{{it.hasPh}}" hint-placeholder-val="{{ true }}"><span class="k2-ph">{{it.ph}}</span></sc-if>
 </div>
-<div class="c-cn"><b>{{it.cn}}</b><span class="k2-ln">{{it.bd}}</span></div>
-<div class="c-pr"><span>{{it.pj}}</span><span class="k2-ln">{{it.pj2}}</span></div>
-<div class="c-ag"><span class="k2-lab">Агент</span>{{it.ag}}</div>
-<div class="c-wm"><span class="{{it.wcls}}">{{it.w}}</span></div>
+<sc-if value="{{it.v.cn}}" hint-placeholder-val="{{ true }}"><div class="c-cn"><b>{{it.cn}}</b><span class="k2-ln">{{it.bd}}</span></div></sc-if>
+<sc-if value="{{it.v.pr}}" hint-placeholder-val="{{ true }}"><div class="c-pr"><span class="k2-ell" title="{{it.pj}}">{{it.pj}}</span><span class="k2-ln k2-ell">{{it.pj2}}</span></div></sc-if>
+<sc-if value="{{it.v.ag}}" hint-placeholder-val="{{ true }}"><div class="c-ag" title="{{it.ag}}"><span class="k2-lab">Агент</span><span class="k2-ell">{{it.ag}}</span></div></sc-if>
+<sc-if value="{{it.v.wm}}" hint-placeholder-val="{{ true }}"><div class="c-wm"><span class="{{it.wcls}}">{{it.w}}</span></div></sc-if>
+<sc-if value="{{it.v.st}}" hint-placeholder-val="{{ true }}">
 <div class="c-st">
-<span class="badge badge--txt badge--muted">{{it.stl}}</span>
+<span class="badge badge--txt badge--muted">{{it.stg}}</span>
 <span class="{{it.pcls}}"><sc-if value="{{it.pi_timer}}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></sc-if>{{it.pt}}</span>
 <sc-if value="{{it.tg}}" hint-placeholder-val="{{ false }}"><span class="k2-tg">{{it.tg}}</span></sc-if>
 </div>
-<div class="c-cr"><span class="k2-lab">Создана</span>{{it.cr}}</div>
-<div class="c-up"><span class="k2-lab">Обновлена</span>{{it.up}}</div>
+</sc-if>
+<sc-if value="{{it.v.cm}}" hint-placeholder-val="{{ true }}"><div class="c-cm"><span class="k2-lab">Комиссия</span>{{it.cmp}}</div></sc-if>
+<sc-if value="{{it.v.cr}}" hint-placeholder-val="{{ true }}"><div class="c-cr"><span class="k2-lab">Создана</span>{{it.cr}}</div></sc-if>
+<sc-if value="{{it.v.up}}" hint-placeholder-val="{{ true }}"><div class="c-up"><span class="k2-lab">Обновлена</span>{{it.up}}</div></sc-if>
 <div class="c-act">
-<a class="k2-ib k2-ib--s" href="{{it.hCl}}" aria-label="Написать клиенту" data-tip="Написать клиенту"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
-<sc-if value="{{it.aTake}}" hint-placeholder-val="{{ false }}"><a class="btn btn--acc" href="klienty-kartochka.dc.html" onClick="{{it.doact}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg><span>Взять</span></a></sc-if>
-<sc-if value="{{it.aLink}}" hint-placeholder-val="{{ false }}"><a class="btn" href="klienty-kartochka.dc.html"><span>{{it.al}}</span></a></sc-if>
-<sc-if value="{{it.aCall}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn" onClick="{{it.doact}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span>{{it.al}}</span></button></sc-if>
+<sc-if value="{{it.hasPh}}" hint-placeholder-val="{{ true }}"><a class="k2-ib k2-ib--s" href="{{it.hCl}}" aria-label="Написать" data-tip="Написать"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a></sc-if>
+<sc-if value="{{it.hasPh}}" hint-placeholder-val="{{ true }}"><a class="k2-ib k2-ib--s" href="{{it.tel}}" aria-label="Позвонить" data-tip="Позвонить"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg></a></sc-if>
+<sc-if value="{{it.hasBron}}" hint-placeholder-val="{{ false }}"><a class="k2-ib k2-ib--s" href="{{it.hBron}}" aria-label="Договор" data-tip="Договор"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a></sc-if>
+<sc-if value="{{it.aTake}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn--acc" onClick="{{it.doTake}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg><span>Взять</span></button></sc-if>
+<sc-if value="{{it.aBack}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn--acc" onClick="{{it.doBack}}"><span>Вернуть</span></button></sc-if>
 <sc-if value="{{it.hasMore}}" hint-placeholder-val="{{ false }}"><div class="kl-mn"><button type="button" class="k2-ib k2-ib--s" aria-label="Ещё" aria-haspopup="menu" aria-expanded="{{it.mnOn}}" data-tip="Ещё" onClick="{{it.mnTog}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button>
-<sc-if value="{{it.mnOn}}" hint-placeholder-val="{{ false }}"><button type="button" class="kl-mn__away" aria-label="Закрыть" onClick="{{it.mnTog}}"></button><ul class="kl-mn__l" role="menu"><sc-if value="{{it.hasAg}}" hint-placeholder-val="{{ false }}"><li><a role="menuitem" href="{{it.hAg}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Написать агенту</span></a></li></sc-if><sc-if value="{{it.isNew}}" hint-placeholder-val="{{ false }}"><li class="is-danger"><button type="button" role="menuitem" onClick="{{it.mnRej}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Отклонить</span></button></li></sc-if></ul></sc-if></div></sc-if>
+<sc-if value="{{it.mnOn}}" hint-placeholder-val="{{ false }}"><button type="button" class="kl-mn__away" aria-label="Закрыть" onClick="{{it.mnTog}}"></button><ul class="kl-mn__l" role="menu"><sc-if value="{{it.isNew}}" hint-placeholder-val="{{ false }}"><li class="is-danger"><button type="button" role="menuitem" onClick="{{it.mnRej}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Отклонить</span></button></li></sc-if><sc-if value="{{it.canCancel}}" hint-placeholder-val="{{ false }}"><li class="is-danger"><a role="menuitem" href="{{it.hCancel}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Отмена брони</span></a></li></sc-if></ul></sc-if></div></sc-if>
 </div>
-<svg class="ic k2-go" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-</div>
-</sc-if>
-<sc-if value="{{it.rP}}">
-<div class="{{it.cls}}">
-<div class="c-nm">
-<span class="k2-nm"><a class="k2-lnk k2-lnk--n" href="{{it.kh}}">{{it.n}}</a>
-<sc-if value="{{it.nc}}" hint-placeholder-val="{{ false }}"><span class="badge badge--txt badge--err">Нет связи</span></sc-if></span>
-<span class="{{it.phc}}">{{it.ph}}</span>
-</div>
-<div class="c-cr"><span class="k2-lab">Передан</span>{{it.cr}}</div>
-<div class="c-bud"><span class="k2-lab">Бюджет</span>{{it.bd}}</div>
-<div class="c-cnt">
-<sc-if value="{{it.c_new}}" hint-placeholder-val="{{ false }}"><span class="k2-pl is-warn">{{it.c_new}}</span></sc-if>
-<sc-if value="{{it.c_work}}" hint-placeholder-val="{{ false }}"><span class="k2-pl is-ok">{{it.c_work}}</span></sc-if>
-<sc-if value="{{it.c_done}}" hint-placeholder-val="{{ false }}"><span class="k2-pl">{{it.c_done}}</span></sc-if>
-</div>
-<div class="c-xp">
-<button type="button" class="btn btn--quiet btn--s k2-xp" aria-expanded="{{it.open}}" onClick="{{it.tog}}">
-<span>{{it.nreq}}</span>
-<sc-if value="{{it.closed}}" hint-placeholder-val="{{ true }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></sc-if>
-<sc-if value="{{it.open}}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></sc-if>
-</button>
-</div>
-</div>
-</sc-if>
-<sc-if value="{{it.rQ}}">
-<div class="k2-lr is-sub">
-<div><small>Заявка</small><a class="k2-lnk" href="klienty-kartochka.dc.html">{{it.id}}</a></div>
-<div><small>Страна</small><span>{{it.cn}}</span></div>
-<div><small>Проект</small><span>{{it.pj}}</span></div>
-<div><small>Тип</small><span>{{it.ty}}</span></div>
-<div><small>Статус</small><span class="badge badge--txt badge--muted">{{it.stl}}</span></div>
-<div><small>Теплота</small><span class="{{it.wcls}}">{{it.w}}</span></div>
-<div><small>Агент</small><span>{{it.ag}}</span></div>
-<div><small>Закрыта</small><span>{{it.cl}}</span></div>
 <svg class="ic k2-go" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
 </div>
 </sc-if>
 <sc-if value="{{it.rL}}">
-<div class="{{it.cls}}">
+<div class="{{it.cls}}" style="{{rsty}}">
 <b class="c-id">{{it.id}}</b>
-<span class="c-ty">{{it.ty}}</span>
+<span class="c-nm"><span class="k2-ell" title="{{it.n}}">{{it.n}}</span></span>
 <span class="c-cn">{{it.cn}}</span>
-<span class="c-pr">{{it.pj}}</span>
 <span class="c-bd">{{it.bd}}</span>
 <span class="c-as"><span class="k2-lab">Назначена</span>{{it.as}}</span>
-<span class="c-rs"><span class="k2-lab">Переназначена</span>{{it.re}}</span>
 <span class="c-re"><span class="k2-pl is-mute">{{it.why}}</span></span>
+<span class="c-ls">Вы потеряли около <b>{{it.loss}}</b></span>
 </div>
 </sc-if>
 </sc-for>
@@ -1002,7 +1017,7 @@
 <sc-if value="{{showReject}}" hint-placeholder-val="{{ false }}"><div class="pv-ovl" style="{{ovlStyle}}" onClick="{{closeOvl}}"><div class="pv-modal" role="dialog" aria-modal="true" aria-labelledby="rj-t" onClick="{{stop}}"><div class="modal__in"><div class="modal__head"><h2 id="rj-t">Отклонить?</h2><button type="button" class="btn btn--icon btn--quiet btn--round" aria-label="Закрыть" onClick="{{closeOvl}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="modal__body"><p>Заявка уйдёт другому партнёру и появится в Потерянных. Вернуть её нельзя.</p></div><div class="modal__foot"><button type="button" class="btn btn--danger" onClick="{{doReject}}">Отклонить</button><button type="button" class="btn btn--acc" onClick="{{closeOvl}}">Оставить</button></div></div></div></div></sc-if>
 </main>
 
-<sc-if value="{{hasToast}}" hint-placeholder-val="{{ false }}"><div class="pv-toast" role="status" style="{{toastStyle}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>{{toast}}</span></div></sc-if>
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{ false }}"><div class="pv-toast" role="status" style="{{toastStyle}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>{{toast}}</span><sc-if value="{{toastHref}}" hint-placeholder-val="{{ false }}"><a class="btn btn--s btn--quiet" href="{{toastHref}}"><span>Открыть</span></a></sc-if></div></sc-if>
 <dc-import name="Nav" part="bar" current="klienty" suffix="" hint-size="100%,64px"></dc-import>
 <dc-import name="Nav" part="fab" current="klienty" suffix="" hint-size="1px,1px"></dc-import>
 </div>
@@ -1014,10 +1029,10 @@ class Component extends DCLogic {
     super(props);
     try { if (!window.__hbEsc) { window.__hbEsc = 1; document.addEventListener("keydown", function (e) { try { if (e.key !== "Escape" || e.defaultPrevented) return; var v = function (x) { var r = x.getBoundingClientRect(); return r.width > 0 && r.height > 0 }, q = function (s) { return Array.prototype.filter.call(document.querySelectorAll(s), v) }; var o = q(".pv-ovl,.k3-ovl,.kl-ovl,.kl-scrim,.k3-scrim,.sa-scrim").pop() || q("[class*=away]").pop() || q('[aria-expanded="true"][aria-haspopup]').pop() || q('[aria-expanded="true"]').filter(function (x) { return !x.closest("main") }).pop(); if (o) { o.click(); e.preventDefault(); return } var d = q("details.kab__acc[open]").pop(); if (d) { d.removeAttribute("open"); e.preventDefault() } } catch (x) {} }) } } catch (x) {}
     try { if (!window.__hbTipFit) { window.__hbTipFit = 1; const fit = (e) => { try { const t = e.target && e.target.closest && e.target.closest("[data-tip]"); if (!t) return; const vw = document.documentElement.clientWidth, r = t.getBoundingClientRect(), c = document.createElement("canvas").getContext("2d"); c.font = "400 13px " + getComputedStyle(t).fontFamily; const w = Math.min(240, vw - 48, c.measureText(t.getAttribute("data-tip")).width + 26), l = t.classList.contains("x-w") ? r.left - 6 - w : t.classList.contains("k2-ib--r") ? r.right - w : r.left; let d = 0; if (l + w > vw - 8) d = vw - 8 - l - w; if (l + d < 8) d = 8 - l; t.style.setProperty("--tdx", d + "px"); } catch (x) {} }; document.addEventListener("mouseover", fit, true); document.addEventListener("focusin", fit, true); } } catch (x) {}
-    this.state = { toast: "", toastY: 120, ovlTop: 96, tab: (function () { try { return location.hash === "#lost" ? "lost" : "req"; } catch (x) { return "req"; } })(), view: "list", f: {}, dd: "", fo: false, t: { "HB-10436": 185, "HB-10431": 702 }, gone: {}, took: {}, open: {}, rej: "" };
+    this.state = { toast: "", toastY: 120, ovlTop: 96, tab: (function () { try { return location.hash === "#lost" ? "lost" : "req"; } catch (x) { return "req"; } })(), view: (function () { try { return location.hash === "#board" ? "board" : "list"; } catch (x) { return "list"; } })(), hc: { cr: true }, f: {}, dd: "", fo: false, t: { "HB-10436": 185, "HB-10431": 702 }, gone: {}, took: {}, back: {}, open: {}, rej: "" };
   }
-  componentDidMount() { this._iv = setInterval(() => this.tick(), 1000); }
-  componentWillUnmount() { clearInterval(this._iv); clearTimeout(this._tt); }
+  componentDidMount() { this._iv = setInterval(() => this.tick(), 1000); this._hc = () => { try { const h = location.hash; if (h === "#lost") this.setState({ tab: "lost", f: {}, dd: "", fo: false }); else if (h === "#board") this.setState({ tab: "req", view: "board", f: {}, dd: "", fo: false }); } catch (x) {} }; window.addEventListener("hashchange", this._hc); }
+  componentWillUnmount() { clearInterval(this._iv); clearTimeout(this._tt); window.removeEventListener("hashchange", this._hc); }
   tick() {
     const S = this.state, t = Object.assign({}, S.t), gone = Object.assign({}, S.gone), out = [];
     let ch = false;
@@ -1027,59 +1042,56 @@ class Component extends DCLogic {
     if (out.length) this.say("Время вышло. " + out.join(", ") + " ушла в Потерянные");
   }
   yOf(e) { try { const k = document.querySelector(".kab"); return Math.max(8, Math.round(e.currentTarget.getBoundingClientRect().top - k.getBoundingClientRect().top) + e.currentTarget.offsetHeight + 8); } catch (x) { return 120; } }
-  say(msg, e) { this.setState({ toast: msg, toastY: this.yOf(e) }); clearTimeout(this._tt); this._tt = setTimeout(() => this.setState({ toast: "" }), 3800); }
+  say(msg, e, href) { this.setState({ toast: msg, toastHref: href || "", toastY: this.yOf(e) }); clearTimeout(this._tt); this._tt = setTimeout(() => this.setState({ toast: "" }), 3800); }
   ovl(e) { try { const k = document.querySelector(".kab"); return Math.max(16, Math.round(e.currentTarget.getBoundingClientRect().top - k.getBoundingClientRect().top) - 80); } catch (x) { return 96; } }
   fset(p) { this.setState({ f: Object.assign({}, this.state.f, p) }); }
   renderVals() {
-    const S = this.state, F = S.f, tab = S.tab, lost = tab === "lost", ppl = tab === "people", NOW = 17;
+    const S = this.state, F = S.f, tab = S.tab, lost = tab === "lost", NOW = 17, HC = S.hc || {};
     const pad = (n) => (n < 10 ? "0" : "") + n, fmt = (s) => pad(Math.floor(s / 60)) + ":" + pad(s % 60);
     const dOf = (n) => { const d = NOW - n; return d > 0 ? d + " ноя" : 31 + d + " окт"; };
-    const money = (n) => "USD " + String(n).replace(/\B(?=(\d{3})+$)/g, " ");
+    const grp = (n) => String(n).replace(/\B(?=(\d{3})+$)/g, " ");
+    const money = (n) => "USD " + grp(n), usd = (n) => "$" + grp(n);
     const WARM = { "Горячий": 0, "Тёплый": 1, "Холодный": 2 }, WCLS = { "Горячий": "k2-pl is-err", "Тёплый": "k2-pl is-warn", "Холодный": "k2-pl" };
     const D = [
-      { id: "HB-10436", n: "Ольга Громова", pj: "Апартаменты в Батуми", b: 220000, ty: "Проект", w: "Горячий", cm: 35, ag: "Алия Нурпеисова", cn: "Грузия", sk: "new", ph: "+995 5•• ••• 207", mask: 1, p: "9955207", cr: 0, up: 0, pc: "err", pi: 1, a: ["Взять", "take"], urg: "late", nc: 0, tg: "", rj: 1, oc: 2, og: 1, as: "17 ноя, 09:28", re: "17 ноя, 09:43" },
-      { id: "HB-10431", n: "Дмитрий Орлов", pj: "Квартира у моря", b: 150000, ty: "Страна", w: "Тёплый", cm: 45, ag: "Марат Сулейманов", cn: "Грузия", sk: "new", ph: "+995 5•• ••• 118", mask: 1, p: "9955118", cr: 0, up: 0, pc: "warn", pi: 1, a: ["Взять", "take"], urg: "soon", nc: 0, tg: "", as: "17 ноя, 09:36", re: "17 ноя, 09:51" },
-      { id: "HB-10398", n: "Нина Фёдорова", pj: "Квартира в Батуми", b: 120000, ty: "Страна", byl: 1, w: "Тёплый", cm: 45, ag: "", cn: "Грузия", sk: "work", ph: "+995 599 41 22 18", mask: 0, p: "995599412218", cr: 5, up: 1, pc: "err", pt: "Просрочено 2 дн", a: ["Позвонить", "call"], urg: "late", nc: 0, tg: "Ждём клиента" },
-      { id: "HB-10402", n: "Тимур Касымов", pj: "Вилла в Алании", b: 120000, ty: "Страна", byl: 1, w: "Холодный", cm: 50, ag: "", cn: "Турция", sk: "work", ph: "+90 532 118 40 77", mask: 0, p: "905321184077", cr: 3, up: 2, pc: "err", pt: "Просрочено 5 ч", a: ["Позвонить", "call"], urg: "late", nc: 0, tg: "Подбор готовится" },
-      { id: "HB-10377", n: "Анна Белова", pj: "Студия в Тбилиси", b: 70000, ty: "Страна", w: "Тёплый", cm: 45, ag: "Ольга Рябова", cn: "Грузия", sk: "work", ph: "+995 577 30 12 05", mask: 0, p: "995577301205", cr: 7, up: 1, pc: "warn", pt: "Сегодня 15:00", a: ["Показ", "link"], urg: "soon", nc: 0, tg: "Показы" },
-      { id: "HB-10344", n: "Георгий Мелия", pj: "Пентхаус в Батуми", b: 260000, ty: "Проект", w: "Горячий", cm: 35, ag: "Марат Сулейманов", cn: "Грузия", sk: "book", ph: "+995 591 02 77 64", mask: 0, p: "995591027764", cr: 14, up: 1, pc: "ok", pt: "Бронь до 20 ноя", a: ["Депозит", "link"], urg: "", nc: 0, tg: "", oc: 1, og: 0 },
-      { id: "HB-10399", n: "Ирина Соколова", pj: "2 комнаты, Гонио", b: 140000, ty: "Проект", w: "Тёплый", cm: 40, ag: "Марат Сулейманов", cn: "Грузия", sk: "contract", ph: "+995 555 64 90 31", mask: 0, p: "995555649031", cr: 12, up: 1, pc: "ok", pt: "Депозит 16 ноя", a: ["Договор", "link"], urg: "", nc: 0, tg: "" },
-      { id: "HB-10360", n: "Рустам Алиев", pj: "Квартира в Анталье", b: 180000, ty: "Страна", w: "Холодный", cm: 50, ag: "Алия Нурпеисова", cn: "Турция", sk: "pause", ph: "+90 533 400 21 19", mask: 0, p: "905334002119", cr: 10, up: 7, pc: "mute", pt: "До 17 ноя", a: ["Напомнить", "link"], urg: "", nc: 1, tg: "", oc: 2, og: 1 },
-      { id: "HB-10312", n: "Павел Седов", pj: "Дом в Кобулети", b: 200000, ty: "Страна", w: "Горячий", cm: 40, ag: "Алия Нурпеисова", cn: "Грузия", sk: "deal", ph: "+995 568 11 23 90", mask: 0, p: "995568112390", cr: 25, up: 1, pc: "mute", pt: "Договор 16 ноя", a: null, urg: "", nc: 0, tg: "" },
-      { id: "HB-10305", n: "Ирина Кравец", pj: "Студия у моря", b: 60000, ty: "Страна", w: "Холодный", cm: 50, ag: "Марат Сулейманов", cn: "Грузия", sk: "refused", ph: "+995 577 88 10 42", mask: 0, p: "995577881042", cr: 27, up: 8, pc: "mute", pt: "Другая страна", a: null, urg: "", nc: 0, tg: "" }
+      { k: "olga", id: "HB-10436", n: "Ольга Громова", pj: "Апартаменты в Батуми", b: 220000, ty: "Проект", w: "Горячий", cm: 35, ag: "Алия Нурпеисова", cn: "Грузия", sk: "new", stg: "Новые", ph: "+995 571 43 22 07", hid: 1, p: "995571432207", cr: 0, up: 0, pc: "err", pi: 1, a: ["Взять", "take"], urg: "late", nc: 0, tg: "", rj: 1, oc: 2, og: 1, as: "17 ноя, 09:28", re: "17 ноя, 09:43" },
+      { k: "dmitry", id: "HB-10431", n: "Дмитрий Орлов", pj: "Квартира у моря", b: 150000, ty: "Страна", byl: 1, w: "Тёплый", cm: 45, ag: "", cn: "Грузия", sk: "new", stg: "Новые", ph: "+995 598 44 21 18", hid: 1, p: "995598442118", cr: 0, up: 0, pc: "warn", pi: 1, a: ["Взять", "take"], urg: "soon", nc: 0, tg: "", as: "17 ноя, 09:36", re: "17 ноя, 09:51" },
+      { k: "timur", id: "HB-10412", n: "Тимур Касымов", pj: "Вилла в Алании", b: 120000, ty: "Страна", byl: 1, w: "Холодный", cm: 50, ag: "", cn: "Турция", sk: "work", stg: "Первый контакт", ph: "+90 532 118 40 77", p: "905321184077", cr: 3, up: 2, pc: "err", pt: "Просрочено 5 ч", a: null, urg: "late", nc: 0, tg: "" },
+      { k: "nina", id: "HB-10398", n: "Нина Фёдорова", pj: "Квартира в Батуми", b: 120000, ty: "Страна", w: "Тёплый", cm: 45, ag: "Марат Сулейманов", cn: "Грузия", sk: "work", stg: "Подбор", ph: "+995 599 41 22 18", p: "995599412218", cr: 5, up: 1, pc: "err", pt: "Просрочено 2 дн", a: null, urg: "late", nc: 0, tg: "Подборка отправлена" },
+      { k: "anna", id: "HB-10405", n: "Анна Белова", pj: "Студия в Тбилиси", b: 70000, ty: "Страна", w: "Тёплый", cm: 45, ag: "Александра-Виктория Константинопольская", cn: "Грузия", sk: "work", stg: "Показ", ph: "+995 577 30 12 05", p: "995577301205", cr: 7, up: 1, pc: "warn", pt: "Сегодня 15:00", a: null, urg: "soon", nc: 0, tg: "Показ назначен" },
+      { k: "geo", id: "HB-10344", n: "Георгий Мелия", pj: "Batumi Hills, PH-2104", b: 260000, ty: "Проект", w: "Горячий", cm: 35, ag: "Марат Сулейманов", cn: "Грузия", sk: "book", stg: "Бронь", ph: "+995 591 02 77 64", p: "995591027764", cr: 14, up: 1, pc: "ok", pt: "Бронь 15 ноя", a: null, urg: "", nc: 0, tg: "", oc: 1, og: 0 },
+      { k: "irina", id: "HB-10331", n: "Ирина Соколова", pj: "2 комнаты, Гонио", b: 140000, ty: "Проект", w: "Тёплый", cm: 40, ag: "Марат Сулейманов", cn: "Грузия", sk: "contract", stg: "Договор", ph: "+995 555 64 90 31", p: "995555649031", cr: 12, up: 1, pc: "warn", pt: "На подписи", a: null, urg: "", nc: 0, tg: "" },
+      { k: "pavel", id: "HB-10302", n: "Павел Седов", pj: "Дом в Кобулети", b: 200000, ty: "Страна", byl: 1, w: "Горячий", cm: 40, ag: "", cn: "Грузия", sk: "deal", stg: "Сделка", ph: "+995 568 11 23 90", p: "995568112390", cr: 25, up: 1, pc: "mute", pt: "Договор подписан", a: null, urg: "", nc: 0, tg: "" },
+      { k: "rus", id: "HB-10360", n: "Рустам Алиев", pj: "Квартира в Анталье", b: 180000, ty: "Страна", w: "Холодный", cm: 50, ag: "Алия Нурпеисова", cn: "Турция", sk: "pause", stg: "Пауза", ph: "+90 533 400 21 19", p: "905334002119", cr: 10, up: 7, pc: "mute", pt: "Ждём отдел", a: null, urg: "", nc: 1, tg: "", oc: 2, og: 1 },
+      { k: "kravets", id: "HB-10377", n: "Ирина Кравец", pj: "Студия у моря", b: 60000, ty: "Страна", w: "Холодный", cm: 50, ag: "Марат Сулейманов", cn: "Грузия", sk: "refused", stg: "Отказ", ph: "+995 577 88 10 42", p: "995577881042", cr: 27, up: 8, pc: "err", pt: "Вернуть за 24 ч", a: null, urg: "", nc: 0, tg: "" }
     ];
-    const H = {
-      "HB-10398": [{ id: "HB-10095", cn: "Турция", pj: "-", ty: "Страна", w: "Холодный", sl: "Отказ", ag: "-", cl: "3 окт" }],
-      "HB-10344": [{ id: "HB-10108", cn: "Грузия", pj: "Студия в Батуми", ty: "Проект", w: "Горячий", sl: "Сделка", ag: "Марат Сулейманов", cl: "12 сен" }],
-      "HB-10402": [{ id: "HB-10099", cn: "Грузия", pj: "-", ty: "Страна", w: "Холодный", sl: "Отказ", ag: "Алия Нурпеисова", cl: "2 окт" }]
-    };
+    const AVGC = { "Грузия": 0.05, "Турция": 0.04 }, SHARE = 0.4, lossOf = (b, cn) => Math.round(b * AVGC[cn] * SHARE / 100) * 100;
     const L0 = [
-      { id: "HB-10355", cn: "Грузия", b: 90000, ty: "Страна", pj: "-", as: "15 ноя, 14:20", re: "15 ноя, 14:35", sk: "late", ln: 2, ord: 4 },
-      { id: "HB-10351", cn: "Турция", b: 130000, ty: "Проект", pj: "Вилла в Алании", as: "12 ноя, 10:05", re: "12 ноя, 10:20", sk: "late", ln: 5, ord: 3 },
-      { id: "HB-10342", cn: "Грузия", b: 75000, ty: "Страна", pj: "-", as: "9 ноя, 11:40", re: "10 ноя, 11:40", sk: "noans", ln: 8, ord: 2 },
-      { id: "HB-10327", cn: "Турция", b: 210000, ty: "Проект", pj: "Квартира в Анталье", as: "3 ноя, 16:10", re: "3 ноя, 17:02", sk: "refused", ln: 14, ord: 1 }
+      { id: "HB-10355", n: "Сергей Волков", cn: "Грузия", b: 90000, ty: "Страна", as: "15 ноя, 14:20", re: "15 ноя, 14:35", sk: "late", ln: 2, ord: 4 },
+      { id: "HB-10351", n: "Елена Яковлева", cn: "Турция", b: 130000, ty: "Проект", as: "12 ноя, 10:05", re: "12 ноя, 10:20", sk: "late", ln: 5, ord: 3 },
+      { id: "HB-10342", n: "Андрей Лебедев", cn: "Грузия", b: 75000, ty: "Страна", as: "9 ноя, 11:40", re: "10 ноя, 11:40", sk: "noans", ln: 8, ord: 2 },
+      { id: "HB-10327", n: "Марина Орехова", cn: "Турция", b: 210000, ty: "Проект", as: "3 ноя, 16:10", re: "3 ноя, 17:02", sk: "refused", ln: 14, ord: 1 }
     ];
-    const ST = { new: "Новые", work: "В работе", pause: "Отложил покупку", pot: "Потенциальная сделка", deal: "Сделка", refused: "Отказ" }, STG = { book: "pot", contract: "pot" }, SUB = { book: "Бронь", contract: "Договор" }, sg = (k) => STG[k] || k;
-    const SL = { new: "Новые", work: "В работе", book: "Потенциальная сделка", contract: "Потенциальная сделка", pause: "Отложил покупку", deal: "Сделка", refused: "Отказ" };
+    const ST = { "Новые": "Новые", "Первый контакт": "Первый контакт", "Подбор": "Подбор", "Показ": "Показ", "Бронь": "Бронь", "Договор": "Договор", "Сделка": "Сделка", "Пауза": "Пауза", "Отказ": "Отказ" };
     const RS = { late: "Не принята за 15 мин", noans: "Нет ответа", refused: "Отказ партнёра" };
     const KEYS = lost ? RS : ST, ORDER = Object.keys(ST);
     const sel = F.st || [], per = F.per || "30";
     const q = (F.q || "").toLowerCase().trim(), qd = q.replace(/\D/g, "");
     const eff = (d, i) => {
       const o = Object.assign({ i }, d), took = !!S.took[d.id] && d.sk === "new";
-      if (took) { o.sk = "work"; o.pt = "Взята"; o.pc = "ok"; o.pi = 0; o.a = ["Позвонить", "call"]; }
+      if (took) { o.sk = "work"; o.stg = "Первый контакт"; o.pt = "Взята"; o.pc = "ok"; o.pi = 0; o.a = null; o.hid = 0; }
       else if (d.sk === "new") o.pt = "Ответ " + fmt(S.t[d.id]);
-      o.sl = SL[o.sk]; o.s = [d.id, d.n, d.pj, d.cn, d.ag, d.ph, SL[o.sk], SUB[o.sk] || ""].join(" ").toLowerCase();
+      if (S.back && S.back[d.id]) o.stg = "Подбор";
+      o.s = [d.id, d.n, d.pj, d.cn, d.ag, o.hid ? "" : d.ph, o.stg].join(" ").toLowerCase(); o.pq = o.hid ? "" : d.p;
       return o;
     };
     const live = D.map(eff).filter((d) => !S.gone[d.id]);
-    const gl = D.filter((d) => S.gone[d.id]).map((d) => ({ id: d.id, cn: d.cn, b: d.b, ty: d.ty, pj: d.ty === "Проект" ? d.pj : "-", as: d.as, re: S.gone[d.id] === "late" ? d.re : "17 ноя, 09:40", sk: S.gone[d.id], ln: 0, ord: 9 }));
-    const Lall = gl.concat(L0).map((d) => Object.assign({ s: [d.id, d.cn, d.pj, d.ty, RS[d.sk]].join(" ").toLowerCase(), p: d.id.replace(/\D/g, "") }, d));
-    const miss = 1 + Lall.filter((d) => d.sk === "late" && S.gone[d.id]).length;
+    const gl = D.filter((d) => S.gone[d.id]).map((d) => ({ id: d.id, n: d.n, cn: d.cn, b: d.b, ty: d.ty, as: d.as, re: S.gone[d.id] === "late" ? d.re : "17 ноя, 09:40", sk: S.gone[d.id], ln: 0, ord: 9 }));
+    const Lall = gl.concat(L0).map((d) => Object.assign({ s: [d.id, d.n, d.cn, d.ty, RS[d.sk]].join(" ").toLowerCase(), pq: "", p: "", loss: lossOf(d.b, d.cn) }, d));
+    const lostSum = usd(Lall.reduce((a, d) => a + d.loss, 0));
     const tyL = F.ty, wmL = F.wm, coL = F.co;
     const okF = (d, days) => {
-      if (q && d.s.indexOf(q) < 0 && !(qd && d.p.indexOf(qd) >= 0)) return false;
-      if (sel.length && sel.indexOf(lost ? d.sk : sg(d.sk)) < 0) return false;
+      if (q && d.s.indexOf(q) < 0 && !(qd && (d.pq || "").indexOf(qd) >= 0)) return false;
+      if (sel.length && sel.indexOf(lost ? d.sk : d.stg) < 0) return false;
       if (tyL && d.ty !== tyL) return false;
       if (wmL && !lost && d.w !== wmL) return false;
       if (coL && d.cn !== coL) return false;
@@ -1089,72 +1101,69 @@ class Component extends DCLogic {
       if (per === "range" && F.from && (day < F.from || day > (F.to || F.from))) return false;
       return true;
     };
-    const DEFDIR = { cr: -1, up: -1, bud: -1, as: -1, re: -1 };
+    const DEFDIR = { cr: -1, up: -1, bud: -1, as: -1, re: -1, loss: -1, cm: -1 };
     const sort = F.sort || (lost ? "as" : "urg"), dir = F.dir || DEFDIR[sort] || 1;
     const vals = {
       id: (d) => d.id, name: (d) => d.n, cn: (d) => d.cn, pj: (d) => d.pj, ag: (d) => d.ag || "", ty: (d) => d.ty, rs: (d) => d.sk,
-      warm: (d) => WARM[d.w], st: (d) => ORDER.indexOf(sg(d.sk)), cr: (d) => -d.cr, up: (d) => -d.up, bud: (d) => d.b, urg: (d) => d.i,
+      warm: (d) => WARM[d.w], st: (d) => ORDER.indexOf(d.stg), cr: (d) => -d.cr, up: (d) => -d.up, bud: (d) => d.b, urg: (d) => d.i, cm: (d) => d.cm, loss: (d) => d.loss,
       as: (d) => d.ord, re: (d) => d.ord
     };
     const vf = vals[sort] || vals.urg;
     const srt = (a, b) => { const x = vf(a), y = vf(b); const c = typeof x === "string" ? x.localeCompare(y, "ru") : x - y; return (c * dir) || (a.i || 0) - (b.i || 0); };
     const reqs = live.filter((d) => okF(d, d.up)).sort(srt);
     const lostL = Lall.filter((d) => okF(d, d.ln)).map((d, i) => Object.assign({ i }, d)).sort(srt);
-    const pplL = reqs;
-    const pf = (d) => (H[d.id] || []);
-    const KH = { "HB-10436": "olga", "HB-10344": "geo", "HB-10360": "rus", "HB-10398": "nina" }, kh = (id) => "klienty-kartochka.dc.html" + (KH[id] ? "#" + KH[id] : "");
+    const kh = (d) => "klienty-kartochka.dc.html#" + d.k;
+    const CD = [["id", "Заявка", "76px", "id"], ["nm", "Клиент", "minmax(0, 1.4fr)", "name"], ["cn", "Страна", "96px", "cn"], ["pr", "Проект", "minmax(0, 1.2fr)", "pj"], ["ag", "Агент", "minmax(0, 1fr)", "ag"], ["wm", "Теплота", "84px", "warm"], ["st", "Этап", "128px", "st"], ["cm", "Комиссия", "76px", "cm"], ["cr", "Создана", "56px", "cr"], ["up", "Обновлена", "68px", "up"]];
+    const vis = CD.filter((c) => c[0] === "nm" || !HC[c[0]]);
+    const vmap = {}; CD.forEach((c) => { vmap[c[0]] = c[0] === "nm" || !HC[c[0]]; });
+    const rsty = lost ? "--k2-cols: 100px minmax(0, 1.4fr) 84px 112px 120px 150px minmax(0, 1.2fr)" : "--k2-cols: " + vis.map((c) => c[2]).concat(["132px"]).join(" ");
     const mkRow = (d) => {
-      const it = { cls: "k2-lr is-r" + (d.urg === "late" ? " is-late" : d.urg === "soon" ? " is-soon" : ""), id: d.id, n: d.n, pj: d.ty === "Проект" ? d.pj : "-", pj2: d.ty === "Проект" ? "" : d.pj, bd: money(d.b), cn: d.cn, ty: d.ty, ag: d.ag || "Своя ссылка", hasAg: !!d.ag, w: d.w, wcls: WCLS[d.w], pt: d.pt, ph: d.ph, phc: "k2-ph" + (d.mask ? " is-mask" : ""), stl: d.sl, nc: !!d.nc, tg: d.tg, cr: dOf(d.cr), up: dOf(d.up), pcls: "k2-pl is-" + d.pc, cm: d.cm, agl: d.ag ? "Агент: " + d.ag : "Своя ссылка" };
+      const it = { cls: "k2-lr is-r" + (d.urg === "late" ? " is-late" : d.urg === "soon" ? " is-soon" : ""), id: d.id, n: d.n, pj: d.ty === "Проект" ? d.pj : "-", pj2: d.ty === "Проект" ? "" : d.pj, bd: money(d.b), cn: d.cn, ty: d.ty, ag: d.ag || "Своя ссылка", hasAg: !!d.ag, w: d.w, wcls: WCLS[d.w], pt: d.pt, ph: d.ph, hasPh: !d.hid, stg: d.stg, nc: !!d.nc, tg: d.tg, cr: dOf(d.cr), up: dOf(d.up), pcls: "k2-pl is-" + d.pc, cm: d.cm, cmp: d.cm + "%", agl: d.ag ? "Агент: " + d.ag : "Своя ссылка", v: vmap };
       it.kd_bld = d.ty === "Проект"; it.kd_pin = d.ty !== "Проект"; it.byl = !!d.byl; it.pi_timer = !!d.pi;
-      it.noAg = !d.ag; it.hCl = "soobshcheniya.dc.html#cl:" + d.id + ":wa"; it.hAg = "soobshcheniya.dc.html#ag:" + d.id; it.kh = kh(d.id); it.hasOc = !!d.oc; it.oc = "Ещё страны: " + d.oc; it.occ = "k2-pl kk-tip " + (d.og ? "is-ok" : "is-err"); it.ocTip = d.og ? "Клиент рассматривает ещё страны, заявки других партнёров вам не видны" : "Остальные страны клиента закрыты, заявки других партнёров вам не видны";
-      it.isNew = d.sk === "new" && !!d.rj; it.askRej = (e) => this.setState({ rej: d.id, ovlTop: this.ovl(e) }); it.hasMore = it.hasAg || it.isNew; it.mnOn = S.mn === d.id; it.mnTog = () => this.setState({ mn: S.mn === d.id ? "" : d.id }); it.mnRej = (e) => { this.setState({ mn: "" }); it.askRej(e); };
-      const a = d.a; it.aTake = !!a && a[1] === "take"; it.aLink = !!a && a[1] === "link"; it.aCall = !!a && a[1] === "call"; it.al = a ? a[0] : "";
-      it.doact = (e) => { if (a[1] === "take") this.setState({ took: Object.assign({}, S.took, { [d.id]: 1 }) }), this.say("Заявка взята. Открывается карточка", e); else this.say("Звонок: " + d.ph, e); };
+      it.noAg = !d.ag; it.hCl = "soobshcheniya.dc.html#cl:" + d.id + ":wa"; it.tel = "tel:+" + d.p; it.kh = kh(d); it.hBron = kh(d) + ":bron"; it.hasBron = ["book", "contract", "deal"].indexOf(d.sk) >= 0; it.hasOc = !!d.oc; it.oc = "Ещё страны: " + d.oc; it.occ = "k2-pl kk-tip " + (d.og ? "is-ok" : "is-err"); it.ocTip = d.og ? "Клиент рассматривает ещё страны, заявки других партнёров вам не видны" : "Остальные страны клиента закрыты, заявки других партнёров вам не видны";
+      it.tipOn = S.tip === d.id; it.tipTog = (e) => { try { e.stopPropagation(); e.preventDefault(); } catch (x) {} this.setState({ tip: S.tip === d.id ? "" : d.id }); };
+      it.isNew = d.sk === "new" && !!d.rj; it.canCancel = (d.sk === "book" || d.sk === "contract" || d.sk === "deal") && !(S.gone && S.gone[d.id]); it.hCancel = kh(d) + ":cancel"; it.askRej = (e) => this.setState({ rej: d.id, ovlTop: this.ovl(e) }); it.hasMore = it.isNew || it.canCancel; it.mnOn = S.mn === d.id; it.mnTog = () => this.setState({ mn: S.mn === d.id ? "" : d.id }); it.mnRej = (e) => { this.setState({ mn: "" }); it.askRej(e); };
+      it.aTake = !!d.a && d.a[1] === "take";
+      it.aBack = (d.sk === "pause" || d.sk === "refused") && !(S.back && S.back[d.id]);
+      it.doBack = (e) => { this.setState({ back: Object.assign({}, S.back, { [d.id]: 1 }) }); this.say(d.n + " снова в работе", e, "klienty-kartochka.dc.html#" + d.k); };
+      if (S.back && S.back[d.id]) { it.pt = "Вернули в работу"; it.pcls = "k2-pl is-ok"; }
+      it.doTake = (e) => { this.setState({ took: Object.assign({}, S.took, { [d.id]: 1 }) }); this.say("Заявка ваша", e); };
       return it;
     };
     const items = [];
-    if (lost) lostL.forEach((d) => items.push({ rL: true, cls: "k2-lr is-plain is-l", id: d.id, ty: d.ty, cn: d.cn, pj: d.pj, bd: money(d.b), as: d.as, re: d.re, why: RS[d.sk] }));
-    else if (ppl) {
-      pplL.forEach((d) => {
-        const hs = pf(d), all = [d].concat(hs), isOpen = !!S.open[d.id];
-        const cnt = { n: 0, w: 0, c: 0 };
-        all.forEach((r) => { const k = r.sk || (r.sl === "Сделка" ? "deal" : "refused"); if (k === "new") cnt.n++; else if (k === "deal" || k === "refused") cnt.c++; else cnt.w++; });
-        const plur = (n, a, b, c) => n % 10 === 1 && n % 100 !== 11 ? a : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? b : c;
-        items.push({ rP: true, cls: "k2-lr is-p", kh: kh(d.id), n: d.n, nc: !!d.nc, ph: d.ph, phc: "k2-ph" + (d.mask ? " is-mask" : ""), cr: dOf(d.cr), bd: money(d.b), c_new: cnt.n ? cnt.n + " " + plur(cnt.n, "новая", "новые", "новых") : "", c_work: cnt.w ? cnt.w + " в работе" : "", c_done: cnt.c ? cnt.c + " " + plur(cnt.c, "закрыта", "закрыты", "закрыто") : "", nreq: all.length + " " + plur(all.length, "заявка", "заявки", "заявок"), open: isOpen, closed: !isOpen, tog: () => this.setState({ open: Object.assign({}, S.open, { [d.id]: !isOpen }) }) });
-        if (isOpen) all.forEach((r) => items.push({ rQ: true, id: r.ag && r.ag !== "-" ? r.id : "Своя", w: r.w || "-", wcls: WCLS[r.w] || "k2-pl", cn: r.cn, pj: r.ty === "Проект" ? r.pj : "-", ty: r.ty, stl: r.sl, ag: r.ag || "Своя ссылка", cl: r.cl || (r.sk === "deal" || r.sk === "refused" ? dOf(r.up) : "-") }));
-      });
-    } else reqs.forEach((d) => items.push(Object.assign(mkRow(d), { rR: true })));
-    const COLS = [["Новые", ["new"]], ["В работе", ["work"]], ["Отложил покупку", ["pause"]], ["Потенциальная сделка", ["book", "contract"]], ["Сделка", ["deal"]], ["Отказ", ["refused"]]];
-    const cols = COLS.map((c) => { const g = reqs.filter((d) => c[1].indexOf(d.sk) >= 0); return { t: c[0], cnt: g.length, empty: !g.length, cards: g.map((d) => { const r = mkRow(d); return Object.assign(r, { cls: "k2-card" + (d.urg === "late" ? " is-late" : d.urg === "soon" ? " is-soon" : ""), tg: d.tg || SUB[d.sk] || "" }); }) }; });
+    if (lost) lostL.forEach((d) => items.push({ rL: true, cls: "k2-lr is-plain is-l", id: d.id, n: d.n, cn: d.cn, bd: money(d.b), as: d.as, why: RS[d.sk], loss: usd(d.loss) }));
+    else reqs.forEach((d) => items.push(Object.assign(mkRow(d), { rR: true })));
+    const COLS = Object.keys(ST).map((x) => [x]);
+    const cols = COLS.map((c) => { const g = reqs.filter((d) => d.stg === c[0]); return { t: c[0], cnt: g.length, empty: !g.length, cards: g.map((d) => { const r = mkRow(d); return Object.assign(r, { cls: "k2-card" + (d.urg === "late" ? " is-late" : d.urg === "soon" ? " is-soon" : ""), tg: d.tg || "" }); }) }; });
     const dd = S.dd, n = lost ? lostL.length : reqs.length;
     const keys = Object.keys(KEYS);
     const stl = !sel.length ? (lost ? "Все причины" : "Все статусы") : sel.length < 3 ? sel.map((x) => KEYS[x]).join(", ") : (lost ? "Причины" : "Статусы") + ": " + sel.length;
     const PER = { "30": "30 дней", today: "Сегодня", "7": "7 дней", range: "Свои даты" };
-    const SORT = lost ? { as: "Назначена", bud: "Бюджет" } : ppl ? { urg: "Без ответа", cr: "Передан", bud: "Бюджет", name: "Клиент" } : { urg: "Без ответа", cr: "Создана", up: "Обновлена", bud: "Бюджет", warm: "Теплота" };
+    const SORT = lost ? { as: "Назначена", bud: "Бюджет", loss: "Потеря" } : { urg: "Без ответа", cr: "Создана", up: "Обновлена", bud: "Бюджет", warm: "Теплота", cm: "Комиссия" };
     const key = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); (e.currentTarget || e.target).click(); } };
     const stopts = [{ label: lost ? "Все причины" : "Все статусы", on: !sel.length, key, pick: () => this.fset({ st: [] }) }].concat(keys.map((k) => ({ label: KEYS[k], on: sel.indexOf(k) >= 0, key, pick: () => { const a = sel.slice(), i = a.indexOf(k); if (i >= 0) a.splice(i, 1); else a.push(k); this.fset({ st: a }); } })));
     const peropts = Object.keys(PER).map((k) => ({ label: PER[k], on: per === k, key, pick: () => this.fset(k === "range" ? { per: k } : { per: k, from: 0, to: 0 }) || this.setState({ dd: k === "range" ? "cal" : "" }) }));
     const sortopts = Object.keys(SORT).map((k) => ({ label: SORT[k], on: sort === k, key, pick: () => { this.fset({ sort: k, dir: 0 }); this.setState({ dd: "" }); } }));
     const mk1 = (fld, all, vs) => [{ label: all, on: !F[fld], key, pick: () => { this.fset({ [fld]: "" }); this.setState({ dd: "" }); } }].concat(vs.map((v) => ({ label: v, on: F[fld] === v, key, pick: () => { this.fset({ [fld]: v }); this.setState({ dd: "" }); } })));
     const tyopts = mk1("ty", "Все типы", ["Страна", "Проект"]), wmopts = mk1("wm", "Любая", ["Горячий", "Тёплый", "Холодный"]), coopts = mk1("co", "Все страны", ["Грузия", "Турция"]);
+    const colopts = CD.map((c) => c[0] === "nm" ? { label: c[1], cls: "cs__opt is-dis", on: true, key, pick: () => this.say("Клиент виден всегда") } : { label: c[1], cls: "cs__opt", on: !HC[c[0]], key, pick: () => this.setState({ hc: Object.assign({}, HC, { [c[0]]: !HC[c[0]] }) }) });
     const days = []; for (let d = 1; d <= 30; d++) days.push({ n: d, off: d > NOW, on: !!F.from && d >= F.from && d <= (F.to || F.from), pick: () => { const a = F.from, b = F.to; if (!a || b) this.fset({ per: "range", from: d, to: 0 }); else this.fset({ per: "range", from: Math.min(a, d), to: Math.max(a, d) }); this.setState({ dd: "cal" }); } });
     let perl = per === "range" && !F.from ? "Период" : PER[per]; if (per === "range" && F.from) perl = F.from + (F.to && F.to !== F.from ? "-" + F.to : "") + " ноя";
     const prOn = per === "range" && !!F.from, prL = prOn ? "с " + F.from + (F.to && F.to !== F.from ? " по " + F.to : "") + " ноя" : "", calLine = prOn ? (F.to && F.to !== F.from ? "С " + F.from + " по " + F.to + " ноя" : "С " + F.from + " ноя, выберите конец") : "С … по …";
     const tabs = {}, tabgo = {};
-    ["req", "lost", "people"].forEach((k) => { tabs[k] = tab === k; tabgo[k] = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: k, f: {}, dd: "", fo: false }); }; });
+    ["req", "lost"].forEach((k) => { tabs[k] = tab === k; tabgo[k] = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: k, f: {}, dd: "", fo: false }); }; });
     const vw = { list: S.view === "list", board: S.view === "board" }, vwgo = { list: () => this.setState({ view: "list" }), board: () => this.setState({ view: "board" }) };
-    const HD = lost ? [["id", "Заявка"], ["ty", "Тип"], ["cn", "Страна"], ["pj", "Проект"], ["bud", "Бюджет"], ["as", "Назначена"], ["re", "Переназначена"], ["rs", "Причина"]]
-      : ppl ? [["name", "Клиент"], ["cr", "Передан"], ["bud", "Бюджет"], ["", "Заявки"], ["", ""]]
-      : [["id", "Заявка"], ["name", "Клиент"], ["cn", "Страна"], ["pj", "Проект"], ["ag", "Агент"], ["warm", "Теплота"], ["st", "Статус"], ["cr", "Создана"], ["up", "Обновлена"], ["", ""]];
+    const HD = lost ? [["id", "Заявка"], ["name", "Клиент"], ["cn", "Страна"], ["bud", "Бюджет"], ["as", "Назначена"], ["rs", "Причина"], ["loss", "Потеря"]]
+      : vis.map((c) => [c[3], c[1]]).concat([["", ""]]);
     const hdr = HD.map((h) => ({ l: h[1], sortable: !!h[0], plain: !h[0], up: sort === h[0] && dir > 0, dn: sort === h[0] && dir < 0, aria: sort === h[0] ? (dir > 0 ? "ascending" : "descending") : "none", pick: () => this.fset({ sort: h[0], dir: sort === h[0] ? -dir : (DEFDIR[h[0]] || 1) }) }));
     const nNew = live.filter((d) => d.sk === "new").length;
-    const lead = lost ? Lall.length + " за 30 дн" : ppl ? pplL.length + " человек" : (nNew ? nNew + (nNew === 1 ? " новая" : " новые") + " · " : "") + "2 просрочено · 1 сегодня";
-    return { toast: S.toast, hasToast: !!S.toast, toastStyle: "top:" + S.toastY + "px", tabs, tabgo, vw, vwgo, lead, items, cols, hdr, rcls: lost ? "is-l" : ppl ? "is-p" : "is-r",
-      showBoard: tab === "req" && S.view === "board", showTable: !(tab === "req" && S.view === "board"), hasTy: true, hasWm: !lost, miss, mstyle: "width:" + Math.min(100, Math.round(miss / 3 * 100)) + "%",
-      ph: lost ? "Номер, страна, проект" : "Имя, телефон, номер, агент", stname: lost ? "Причина" : "Статус",
+    const lead = lost ? Lall.length + " за 30 дн" : (nNew ? nNew + (nNew === 1 ? " новая" : " новые") + " · " : "") + "2 просрочено · 1 сегодня";
+    return { toast: S.toast, toastHref: S.toastHref || "", hasToast: !!S.toast, toastStyle: "top:" + S.toastY + "px", tabs, tabgo, vw, vwgo, lead, items, cols, hdr, rcls: lost ? "is-l" : "is-r", rsty, lostSum,
+      showBoard: tab === "req" && S.view === "board", showTable: !(tab === "req" && S.view === "board"), hasTy: !lost, hasWm: !lost, hasCols: !lost && S.view === "list", colopts,
+      ph: lost ? "Номер, имя, страна" : "Имя, телефон, номер, агент", stname: lost ? "Причина" : "Статус",
       fq: F.q || "", onq: (e) => this.fset({ q: e.target.value }), fany: !!dd, fclose: () => this.setState({ dd: "" }), fox: !!S.fo, ftg: () => this.setState({ fo: !S.fo }),
-      fdd: { st: dd === "st", per: dd === "per" || dd === "cal", sort: dd === "sort", cal: dd === "cal", ty: dd === "ty", wm: dd === "wm", co: dd === "co" },
-      ftgdd: { st: () => this.setState({ dd: dd === "st" ? "" : "st" }), per: () => this.setState({ dd: dd === "per" ? "" : "per" }), sort: () => this.setState({ dd: dd === "sort" ? "" : "sort" }), ty: () => this.setState({ dd: dd === "ty" ? "" : "ty" }), wm: () => this.setState({ dd: dd === "wm" ? "" : "wm" }), co: () => this.setState({ dd: dd === "co" ? "" : "co" }) },
+      fdd: { st: dd === "st", per: dd === "per" || dd === "cal", sort: dd === "sort", cal: dd === "cal", ty: dd === "ty", wm: dd === "wm", co: dd === "co", col: dd === "col" },
+      ftgdd: { st: () => this.setState({ dd: dd === "st" ? "" : "st" }), per: () => this.setState({ dd: dd === "per" ? "" : "per" }), sort: () => this.setState({ dd: dd === "sort" ? "" : "sort" }), ty: () => this.setState({ dd: dd === "ty" ? "" : "ty" }), wm: () => this.setState({ dd: dd === "wm" ? "" : "wm" }), co: () => this.setState({ dd: dd === "co" ? "" : "co" }), col: () => this.setState({ dd: dd === "col" ? "" : "col" }) },
       flc: { ty: F.ty ? "" : "is-ph", wm: F.wm ? "" : "is-ph", co: F.co ? "" : "is-ph" }, fl: { st: stl, per: perl, sort: SORT[sort] || "Порядок", ty: F.ty || "Тип", wm: F.wm || "Теплота", co: F.co || "Страна" },
       stopts, peropts, sortopts, tyopts, wmopts, coopts, days, fcalclr: () => { this.fset({ per: "30", from: 0, to: 0 }); this.setState({ dd: "" }); }, fn: n,
       prOn, prL, calLine, fsh: !!sel.length, fshl: sel.map((x) => KEYS[x]).join(", "), fsx: () => this.fset({ st: [] }), fempty: n === 0, freset: () => this.setState({ f: {} }),

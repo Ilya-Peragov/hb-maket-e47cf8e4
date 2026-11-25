@@ -195,7 +195,7 @@ html, body { margin: 0; background: #E6EDF0; }
 </helmet>
 <div class="tb">
 <div class="tb-st"><span>{{clock}}</span><svg viewBox="0 0 60 12" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1" fill="#1A1E20"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#1A1E20"/><rect x="10" y="2" width="3" height="10" rx="1" fill="#1A1E20"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1A1E20"/><rect x="30" y="1" width="26" height="11" rx="3" fill="none" stroke="#1A1E20"/><rect x="32" y="3" width="17" height="7" rx="1.5" fill="#1A1E20"/><rect x="57" y="4" width="2" height="5" rx="1" fill="#1A1E20"/></svg></div>
-<div class="tb-hd"><button type="button" class="tb-bk" aria-label="Назад"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button><span class="tb-av" aria-hidden="true">H</span><div><b>Housebook Партнёр</b><span class="s">бот</span></div></div>
+<div class="tb-hd"><a class="tb-bk" href="profil.dc.html#uved" aria-label="Назад"><svg class="tb-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a><span class="tb-av" aria-hidden="true">H</span><div><b>Housebook Партнёр</b><span class="s">бот</span></div></div>
 <div class="tb-feed" id="tb-feed" role="log" aria-live="polite">
 <sc-for list="{{feed}}" as="r" hint-placeholder-count="6">
 <sc-if value="{{r.isDay}}" hint-placeholder-val="{{ false }}"><div class="tb-day">{{r.day}}</div></sc-if>
@@ -225,9 +225,9 @@ class Component extends DCLogic {
       btns: [{ id: "take", l: "Взять" }, { id: "decl", l: "Отклонить" }, { id: "cab", l: "Открыть в кабинете", href: "klienty-kartochka.dc.html#olga", full: true }] };
     this.state = { sec: 900, req: "pending", aw: "", ctx: {}, draft: "", clk: 48, n: 10, msgs: [
       { id: "d0", day: "Сегодня" },
-      { id: "s1", side: "b", time: "09:12", k: "Агент дополнил", h: "HB-10312 Павел Седов", t: "Добавлены данные: 3 комнаты, цель покупки: ВНЖ, комментарий агента.", btns: [{ id: "cab", l: "Открыть в кабинете", href: "klienty-kartochka.dc.html", full: true }] },
-      { id: "a1", side: "b", time: "10:03", k: "Сообщение агента", h: "Марат Сулейманов, HB-10431", t: "Клиент ждёт звонка. Примите заявку в течение 15 минут.", btns: [{ id: "rag", l: "Ответить" }, { id: "cab", l: "Открыть в кабинете", href: "soobshcheniya.dc.html", full: true }] },
-      { id: "c1", side: "b", time: "11:40", k: "Ответ клиента, WhatsApp", h: "HB-10344 Георгий Мелия", t: "Добрый день, можно ли взять рассрочку на пентхаус?", btns: [{ id: "rcl", l: "Ответить" }, { id: "cab", l: "Открыть в кабинете", href: "soobshcheniya.dc.html", full: true }] },
+      { id: "s1", side: "b", time: "09:12", k: "Агент дополнил", h: "HB-10302 Павел Седов", t: "Добавлены данные: 3 комнаты, цель покупки: ВНЖ, комментарий агента.", btns: [{ id: "cab", l: "Открыть в кабинете", href: "klienty-kartochka.dc.html#pavel", full: true }] },
+      { id: "a1", side: "b", time: "10:03", k: "Сообщение агента", h: "Марат Сулейманов, HB-10398", t: "Нина Фёдорова ждёт звонка. Свяжитесь с ней сегодня.", btns: [{ id: "rag", l: "Ответить" }, { id: "cab", l: "Открыть в кабинете", href: "soobshcheniya.dc.html#ag:HB-10398", full: true }] },
+      { id: "c1", side: "b", time: "11:40", k: "Ответ клиента, WhatsApp", h: "HB-10344 Георгий Мелия", t: "Добрый день, можно ли взять рассрочку на пентхаус?", btns: [{ id: "rcl", l: "Ответить" }, { id: "cab", l: "Открыть в кабинете", href: "soobshcheniya.dc.html#cl:HB-10344:wa", full: true }] },
       { id: "rm", side: "b", time: "14:30", k: "Напоминание", h: "Звонок через час", t: "HB-10344 Георгий Мелия, 15:30.", btns: [{ id: "done", l: "Сделано" }, { id: "mv", l: "Перенести" }], lock: true },
       R ] };
     [80, 400, 1200].forEach(d => setTimeout(() => { try { const e = document.getElementById("tb-feed"); if (e) e.scrollTop = e.scrollHeight; } catch (x) {} }, d));
@@ -254,7 +254,7 @@ class Component extends DCLogic {
     const ctx = (o) => Object.assign({}, S.ctx, o);
     if (bid === "take") return go([this.me("Взять"), this.bot({ h: "HB-10436 Ваша", t: "Ольга Громова, Грузия, проект, горячий.\nПозвоните клиенту в течение часа.", btns: [{ id: "act", l: "Записать действие" }, { id: "stg", l: "Сменить этап" }] })], { req: "taken", ctx: ctx({ cur: "HB-10436 Ольга Громова" }) });
     if (bid === "decl") return go([this.me("Отклонить"), this.bot({ h: "HB-10436 отклонена", t: "Заявка уйдёт следующему партнёру." })], { req: "declined" });
-    if (bid === "stg") return go([this.bot({ h: this.cur(), t: "Выберите этап.", lock: true, btns: [["work", "В работе"], ["later", "Отложил покупку"], ["potential", "Потенциальная сделка"], ["deal", "Сделка"], ["refused", "Отказ"]].map((x, i) => ({ id: "st:" + x[1], l: x[1], full: i === 2 })) })]);
+    if (bid === "stg") return go([this.bot({ h: this.cur(), t: "Выберите этап.", lock: true, btns: [["contact", "Первый контакт"], ["pick", "Подбор"], ["show", "Показ"], ["book", "Бронь"], ["contract", "Договор"], ["deal", "Сделка"], ["later", "Пауза"], ["refused", "Отказ"]].map((x) => ({ id: "st:" + x[1], l: x[1], full: false })) })]);
     if (bid.indexOf("st:") === 0) { const st = bid.slice(3); return go([this.me(st), this.bot({ t: "Этап: " + st + ".\nНапишите комментарий, он обязателен." })], { aw: "stcom", ctx: ctx({ stage: st }) }); }
     if (bid === "act") return go([this.bot({ h: this.cur(), t: "Что сделали? «Не дозвонился» - и когда нет ответа.", lock: true, btns: [{ id: "ac:Звонок", l: "Звонок" }, { id: "ac:Не дозвонился", l: "Не дозвонился" }, { id: "ac:Zoom", l: "Zoom" }] })]);
     if (bid.indexOf("ac:") === 0) { const a = bid.slice(3); return go([this.me(a), this.bot({ t: "Коротко, что было? Отчёт обязателен." })], { aw: "rep", ctx: ctx({ act: a }) }); }
