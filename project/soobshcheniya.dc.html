@@ -882,6 +882,12 @@ html .hb.kab--agent .sa .tabs__list::after { display: none; }
 @media (min-width: 768px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .agm .agm__f .btn { height: 32px; min-height: 32px; } .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .agm .agm__f .btn svg { width: 16px; height: 16px; } }
 @media (min-width: 900px) and (max-width: 1180px) { .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .agm { grid-template-columns: 288px minmax(0, 1fr); } .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .agm .agm__ct { padding: 0 12px; } .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .agm .agm__ct .tabs__list button { padding-inline: 3px; } }
 .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .dh__who svg { width: 20px; height: 20px; }
+/* ost3: вкладки каналов и разделов не обрезаются (п.45) */
+@media (max-width: 1279px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .agm :is(.agm__ct, .agm__lt, .agm__tabs) .tabs__list::after { display: none; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .agm .agm__ct .tabs__list button { padding-inline: 12px; gap: 6px; font-size: 14px; white-space: nowrap; flex: 1 1 auto; justify-content: center; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .agm .agm__tabs .tabs__list button { white-space: nowrap; }
+}
 </style>
 </helmet>
 <div class="hb kab--agent">
@@ -894,7 +900,7 @@ html .hb.kab--agent .sa .tabs__list::after { display: none; }
 <div class="agm__l">
 <div class="pt-ds"><div class="sa-qr"><div class="field"><label class="sr-only" for="m-q">Поиск</label><div class="search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg><input class="input" type="search" id="m-q" placeholder="Поиск: клиент, агент, заявка" autocomplete="off" value="{{q}}" onInput="{{onQ}}"></div></div>
 <div class="sa-rel"><button type="button" class="btn btn--icon" aria-label="Фильтр канала" data-tip="Канал" aria-haspopup="true" aria-expanded="{{popF}}" onClick="{{togF}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4h-7"/><path d="M10 4H3"/><path d="M21 12h-9"/><path d="M8 12H3"/><path d="M21 20h-5"/><path d="M12 20H3"/><path d="M14 2v4"/><path d="M8 10v4"/><path d="M16 18v4"/></svg><sc-if value="{{fltOn}}" hint-placeholder-val="{{ false }}"><span class="sa-dot" aria-hidden="true"></span></sc-if></button>
-<sc-if value="{{popF}}" hint-placeholder-val="{{ false }}"><div class="sa-pop sa-pop--dn sa-pop--r" role="listbox" aria-label="Канал"><sc-for list="{{chOpts}}" as="o" hint-placeholder-count="3"><button type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">{{o.l}}</button></sc-for></div></sc-if></div></div></div>
+<sc-if value="{{popF}}" hint-placeholder-val="{{ false }}"><div class="sa-pop sa-pop--dn sa-pop--r" role="listbox" aria-label="Канал"><sc-for list="{{chOpts}}" as="o" hint-placeholder-count="3"><button type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">{{o.l}}</button></sc-for></div></sc-if></div><div class="sa-rel"><button type="button" class="btn btn--icon" aria-label="Сортировка" data-tip="Порядок" aria-haspopup="true" aria-expanded="{{popS}}" onClick="{{togS}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg><sc-if value="{{srtOn}}" hint-placeholder-val="{{ false }}"><span class="sa-dot" aria-hidden="true"></span></sc-if></button><sc-if value="{{popS}}" hint-placeholder-val="{{ false }}"><div class="sa-pop sa-pop--dn sa-pop--r" role="listbox" aria-label="Порядок"><sc-for list="{{srtOpts}}" as="o" hint-placeholder-count="3"><button type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">{{o.l}}</button></sc-for></div></sc-if></div></div></div>
 <sc-if value="{{tabMsg}}" hint-placeholder-val="{{ true }}"><div class="agm__lt"><div class="tabs__list" role="tablist" aria-label="Диалоги">
 <button type="button" role="tab" aria-selected="{{lt_unread}}" onClick="{{goUnread}}"><span>Непрочитанные</span><sc-if value="{{hasUnN}}" hint-placeholder-val="{{ true }}"><span class="badge badge--n">{{unN}}</span></sc-if></button>
 <button type="button" role="tab" aria-selected="{{lt_all}}" onClick="{{goAll}}"><span>Все</span></button></div></div></sc-if>
@@ -1118,7 +1124,7 @@ class Component extends DCLogic {
     try { if (!window.__hbEsc) { window.__hbEsc = 1; document.addEventListener("keydown", function (e) { try { if (e.key !== "Escape" || e.defaultPrevented) return; var v = function (x) { var r = x.getBoundingClientRect(); return r.width > 0 && r.height > 0 }, q = function (s) { return Array.prototype.filter.call(document.querySelectorAll(s), v) }; var o = q(".pv-ovl,.k3-ovl,.kl-ovl,.kl-scrim,.k3-scrim,.sa-scrim").pop() || q("[class*=away]").pop() || q('[aria-expanded="true"][aria-haspopup]').pop() || q('[aria-expanded="true"]').filter(function (x) { return !x.closest("main") }).pop(); if (o) { o.click(); e.preventDefault(); return } var d = q("details.kab__acc[open]").pop(); if (d) { d.removeAttribute("open"); e.preventDefault() } } catch (x) {} }) } } catch (x) {}
     try { if (!window.__hbTipFit) { window.__hbTipFit = 1; const fit = (e) => { try { const t = e.target && e.target.closest && e.target.closest("[data-tip]"); if (!t) return; const vw = document.documentElement.clientWidth, r = t.getBoundingClientRect(), c = document.createElement("canvas").getContext("2d"); c.font = "400 13px " + getComputedStyle(t).fontFamily; const w = Math.min(240, vw - 48, c.measureText(t.getAttribute("data-tip")).width + 26), l = t.classList.contains("x-w") ? r.left - 6 - w : t.classList.contains("k2-ib--r") ? r.right - w : r.left; let d = 0; if (l + w > vw - 8) d = vw - 8 - l - w; if (l + d < 8) d = 8 - l; t.style.setProperty("--tdx", d + "px"); } catch (x) {} }; document.addEventListener("mouseover", fit, true); document.addEventListener("focusin", fit, true); } } catch (x) {}
     const hs = () => { let h0 = {}; try { const q = (location.hash || "").slice(1).split(":"), f = (kd) => Object.keys(SD).find((k) => SD[k].kind === kd && SD[k].hb === q[1]); const id = q[0] === "sup" ? "sup" : q[0] === "cl" ? f("client") : q[0] === "ag" ? f("agent") : ""; if (id) h0 = { cur: id, view: "chat", ctab: q[0] === "cl" && ["wa", "tg"].indexOf(q[2]) >= 0 ? q[2] : "all", read: { [id]: true } }; } catch (x) {} return h0; }; const h0 = hs(); try { this._hc = () => this.setState(Object.assign({ modal: false, draft: "" }, hs())); window.addEventListener("hashchange", this._hc); } catch (x) {}
-    this.state = Object.assign({ toast: "" }, { help: false, cur: "d2", view: "list", tab: "msg", lt: "all", chf: "all", q: "", ctab: "all", draft: "", read: {}, sent: {}, popF: false, popM: false, popT: false, popA: false, modal: false, rec: false, recSec: 0, pl: null, dlx: {}, ost: {} }, h0);
+    this.state = Object.assign({ toast: "" }, { help: false, cur: "d2", view: "list", tab: "msg", lt: "all", chf: "all", srt: "new", q: "", ctab: "all", draft: "", read: {}, sent: {}, popF: false, popS: false, popM: false, popT: false, popA: false, modal: false, rec: false, recSec: 0, pl: null, dlx: {}, ost: {} }, h0);
     this._n = 0;
   }
   componentWillUnmount() { try { window.removeEventListener("hashchange", this._hc); } catch (x) {} clearInterval(this._rt); clearInterval(this._pt); clearTimeout(this._tt); }
@@ -1126,7 +1132,7 @@ class Component extends DCLogic {
   toggleHelp() { this.setState({ help: !this.state.help }); }
   stopRec() { clearInterval(this._rt); }
   stopPl() { clearInterval(this._pt); }
-  closeAll() { return { popF: false, popM: false, popT: false, popA: false }; }
+  closeAll() { return { popF: false, popS: false, popM: false, popT: false, popA: false }; }
   open(id) { this.stopRec(); this.stopPl(); this.setState(Object.assign({ cur: id, view: "chat", ctab: "all", draft: "", rec: false, pl: null, modal: false, read: Object.assign({}, this.state.read, { [id]: true }) }, this.closeAll())); }
   toList() { this.setState(Object.assign({ view: "list" }, this.closeAll())); }
   pop(k) { const v = !this.state[k]; this.setState(Object.assign(this.closeAll(), { [k]: v })); }
@@ -1169,7 +1175,8 @@ class Component extends DCLogic {
       return true;
     };
     const txtOf = (id) => { const d = SD[id]; return d.kind === "client" ? d.hb + " · " + prevOf(id) : d.kind === "agent" ? d.hb + " · " + d.cl : d.kind === "sup" ? prevOf(id) : prevOf(id); };
-    const rows = ORDER.filter(show).map(id => { const d = SD[id]; return { id, ini: d.ini, ico: d.kind === "sup", noIco: d.kind !== "sup", name: d.name, time: timeOf(id), type: d.kind === "client" ? "Клиент" : d.type, txt: txtOf(id), un: un(id) > 0, unN: un(id), cls: "dlg" + (un(id) > 0 ? " is-new" : ""), cur: S.cur === id, open: () => this.open(id) }; });
+    const srtIds = (ids) => { if (S.srt === "name") return ids.slice().sort((a, b) => (a === "sup" ? -1 : b === "sup" ? 1 : SD[a].name.localeCompare(SD[b].name, "ru"))); if (S.srt === "unread") return ids.filter(id => un(id) > 0).concat(ids.filter(id => un(id) === 0)); return ids; };
+    const rows = srtIds(ORDER.filter(show)).map(id => { const d = SD[id]; return { id, ini: d.ini, ico: d.kind === "sup", noIco: d.kind !== "sup", name: d.name, time: timeOf(id), type: d.kind === "client" ? "Клиент" : d.type, txt: txtOf(id), un: un(id) > 0, unN: un(id), cls: "dlg" + (un(id) > 0 ? " is-new" : ""), cur: S.cur === id, open: () => this.open(id) }; });
     const ctRow = (id) => { const d = SD[id]; const masked = d.ph.indexOf("•") >= 0; return { ini: d.ini, name: d.name, s: masked || !d.ph ? d.hb + " · " + d.country : d.ph, call: !!d.ph && !masked, tel: "tel:" + d.ph.replace(/[^+0-9]/g, ""), lock: !!d.lock, open: () => this.open(id) }; };
     const ms = this.msgs(S.cur).map((m, i) => Object.assign({}, m, { _u: this.uid(S.cur, m, i) })).filter(m => !isCl || S.ctab === "all" || m.ch === S.ctab);
     let lastD = "";
@@ -1203,6 +1210,8 @@ class Component extends DCLogic {
       like: (e) => this.say("Спасибо за оценку", e), stop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
       lt_unread: S.lt === "unread", lt_all: S.lt === "all", goUnread: () => this.setState({ lt: "unread" }), goAll: () => this.setState({ lt: "all" }), unN, hasUnN: unN > 0,
       popF: S.popF, togF: () => this.pop("popF"), fltOn: S.chf !== "all",
+      popS: S.popS, togS: () => this.pop("popS"), srtOn: S.srt !== "new",
+      srtOpts: [["new", "Сначала новые"], ["unread", "Сначала непрочитанные"], ["name", "По имени"]].map(([k, l]) => ({ l, on: S.srt === k, pick: () => this.setState({ srt: k, popS: false }) })),
       chOpts: [["all", "Все каналы"], ["wa", "WhatsApp"], ["tg", "Telegram"],].map(([k, l]) => ({ l, on: S.chf === k, pick: () => this.setState({ chf: k, popF: false }) })),
       rows, noRows: rows.length === 0,
       ctTop: [{ open: () => this.open("sup") }], ctCl: CONTACTS.map(ctRow), ctAg: ["d1", "d7", "d12"].map(id => ({ ini: SD[id].ini, name: SD[id].name, s: "Агент · " + SD[id].hb, open: () => this.open(id) })), ctMg: [{ ini: SD.m1.ini, name: SD.m1.name, s: "Ваш менеджер", open: () => this.open("m1") }],
@@ -1215,7 +1224,7 @@ class Component extends DCLogic {
       recT: mmss(S.recSec), recStart: () => this.recStart(), recCancel: () => this.recCancel(), recSend: () => this.recSend(),
       send: (e) => this.send(e), onDraft: (e) => this.setState({ draft: e.target.value }), draft: S.draft, hasDraft, noDraft: !hasDraft,
       ph: !isCl ? "Сообщение..." : "Ответ в " + CHL[eff],
-      anyPop: S.popF || S.popM || S.popT || S.popA, closePops: () => this.setState(this.closeAll()),
+      anyPop: S.popF || S.popS || S.popM || S.popT || S.popA, closePops: () => this.setState(this.closeAll()),
       toast: S.toast, hasToast: !!S.toast, };
     ["all", "tg", "wa"].forEach(k => { o["ct_" + k + "_sel"] = S.ctab === k; o["ct_" + k + "_go"] = () => this.setState({ ctab: k, draft: "", rec: false }); o["ct_" + k + "_n"] = tabN(k); o["ct_" + k + "_has"] = tabN(k) > 0; });
     return o;

@@ -737,6 +737,32 @@
 .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-tp__p { position: absolute; left: 0; top: calc(100% + 6px); z-index: 41; width: 220px; padding: 10px 12px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); box-shadow: var(--hb-e-pop); color: var(--hb-ink); font: 400 var(--bb-small)/18px var(--font-ui); white-space: normal; text-align: left; }
 .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr:has(.kl-tp__p), .hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-card:has(.kl-tp__p) { z-index: 45; }
 </style>
+<style id="kl-2611">
+/* 26.11: Поля (карточки на узких экранах), Тип лота, Своя ссылка с номером, постраничность */
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-fldsel { display: none; position: relative; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-fldbtn { gap: 6px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-fldsel .cs__pop { left: auto; right: 0; min-width: 220px; z-index: 60; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-fldsel .cs__done { display: flex; justify-content: flex-end; padding: 8px 10px; border-top: 1px solid var(--hb-line); }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-fldsel .cs__opt { position: relative; padding-left: 42px; white-space: nowrap; text-align: left; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-fldsel .cs__opt::before, .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-fldsel .cs__opt::after { transform: none; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-lt { white-space: nowrap; font: 400 var(--bb-small)/20px var(--font-ui); color: var(--hb-ink); align-self: center; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-id.k2-id--own { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; white-space: normal; max-width: 100%; overflow-wrap: anywhere; text-overflow: ellipsis; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-pg { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 12px 2px 0; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-pg__n { font: 400 var(--bb-small)/20px var(--font-ui); color: var(--hb-ink-2); margin-right: auto; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-pg .cs { position: relative; width: 112px; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-pg .cs__btn { padding-left: 14px; padding-right: 38px; text-align: left; }
+.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-pg .cs__pop { top: auto; bottom: calc(100% + 4px); right: 0; left: auto; min-width: 112px; z-index: 60; }
+@media (max-width: 899px) {
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-fldsel { display: block; flex: none; width: auto; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-fldbtn { padding-inline: 12px; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r { grid-template-areas: "nm nm wm" "st st st" "num num num" "cn pr pr" "lt lt lt" "ag ag cm" "cr up up" "ac ac ac"; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .k2-lr.is-r .c-lt { grid-area: lt; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-pg { flex-direction: column; align-items: stretch; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-pg__n { margin-right: 0; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-pg .btn { width: 100%; }
+  .hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.hb.kab--agent .kl-pg .cs { width: 100%; }
+}
+</style>
 </helmet>
 <div class="hb kab--agent">
 <div class="kab kab--cv kab--agent" id="kab">
@@ -772,6 +798,24 @@
 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4h-7"/><path d="M10 4H3"/><path d="M21 12h-9"/><path d="M8 12H3"/><path d="M21 20h-5"/><path d="M12 20H3"/><path d="M14 2v4"/><path d="M8 10v4"/><path d="M16 18v4"/></svg>
 <span>Фильтры</span>
 </button>
+<sc-if value="{{hasCols}}" hint-placeholder-val="{{ true }}">
+<div class="cs cs--multi kl-fldsel">
+<button type="button" class="btn btn--quiet kl-fldbtn" aria-haspopup="listbox" aria-expanded="{{fdd.fld}}" aria-label="Поля" onClick="{{ftgdd.fld}}">
+<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+<span>Поля</span>
+</button>
+<sc-if value="{{fdd.fld}}">
+<div class="cs__pop">
+<ul class="cs__list cs__list--multi" role="listbox" aria-multiselectable="true" aria-label="Поля">
+<sc-for list="{{fldopts}}" as="o" hint-placeholder-count="8">
+<li class="cs__opt" role="option" tabindex="0" onKeyDown="{{o.key}}" aria-selected="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</li>
+</sc-for>
+</ul>
+<div class="cs__done"><button type="button" class="btn btn--s btn--acc" onClick="{{fclose}}">Готово</button></div>
+</div>
+</sc-if>
+</div>
+</sc-if>
 <div class="k2-flt__row">
 <div class="cs cs--multi">
 <button type="button" class="select cs__btn" aria-haspopup="listbox" aria-expanded="{{fdd.st}}" aria-label="{{stname}}" onClick="{{ftgdd.st}}">
@@ -788,20 +832,21 @@
 </div>
 </sc-if>
 </div>
-<span class="k2-ib k2-ib--s" tabindex="0" role="note" aria-label="Подсказка" data-tip="Можно выбрать несколько: покажутся заявки с любым из выбранных">
+<span class="k2-ib k2-ib--s" tabindex="0" role="note" aria-label="Подсказка" data-tip="Статус и период: можно выбрать несколько">
 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
 </span>
-<div class="cs">
+<div class="cs cs--multi">
 <button type="button" class="select cs__btn" aria-haspopup="listbox" aria-expanded="{{fdd.per}}" aria-label="Период" onClick="{{ftgdd.per}}">
-<span class="cs__val">{{fl.per}}</span>
+<span class="cs__val {{flc.per}}">{{fl.per}}</span>
 </button>
 <sc-if value="{{fdd.per}}">
 <div class="cs__pop">
-<ul class="cs__list" role="listbox" aria-label="Период">
-<sc-for list="{{peropts}}" as="o" hint-placeholder-count="3">
+<ul class="cs__list cs__list--multi" role="listbox" aria-multiselectable="true" aria-label="Период">
+<sc-for list="{{peropts}}" as="o" hint-placeholder-count="4">
 <li class="cs__opt" role="option" tabindex="0" onKeyDown="{{o.key}}" aria-selected="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</li>
 </sc-for>
 </ul>
+<div class="cs__done"><button type="button" class="btn btn--s btn--acc" onClick="{{fclose}}">Готово</button></div>
 </div>
 </sc-if>
 <sc-if value="{{fdd.cal}}">
@@ -897,7 +942,7 @@
 </sc-if>
 </div>
 </sc-if>
-<span class="k2-flt__n" role="status">Найдено&nbsp;{{fn}}</span>
+<sc-if value="{{hasFn}}" hint-placeholder-val="{{ true }}"><span class="k2-flt__n" role="status">Найдено&nbsp;{{fn}}</span></sc-if>
 </div>
 </div>
 <sc-if value="{{prOn}}" hint-placeholder-val="{{ false }}">
@@ -928,7 +973,7 @@
 <div class="{{k.cls}}">
 <span class="k2-nm"><a class="k2-lnk" href="{{k.kh}}" title="{{k.n}}">{{k.n}}</a>
 <sc-if value="{{k.nc}}" hint-placeholder-val="{{ false }}"><span class="badge badge--txt badge--err">Нет связи</span></sc-if></span>
-<span class="k2-ln"><sc-if value="{{k.hasAg}}" hint-placeholder-val="{{ true }}"><b>{{k.id}}</b></sc-if><sc-if value="{{k.noAg}}" hint-placeholder-val="{{ false }}"><b>Своя</b><span class="kl-tp"><button type="button" class="k2-ib k2-ib--s" aria-label="Подсказка" aria-haspopup="true" aria-expanded="{{k.tipOn}}" onClick="{{k.tipTog}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></button><sc-if value="{{k.tipOn}}" hint-placeholder-val="{{ false }}"><button type="button" class="kl-mn__away" aria-label="Закрыть" onClick="{{k.tipTog}}"></button><span class="kl-tp__p" role="note">Номер есть у заявок от агентов</span></sc-if></span></sc-if>&nbsp;·&nbsp;{{k.ty}}</span>
+<span class="k2-ln"><sc-if value="{{k.hasAg}}" hint-placeholder-val="{{ true }}"><b>{{k.id}}</b></sc-if><sc-if value="{{k.noAg}}" hint-placeholder-val="{{ false }}"><b>{{k.ownId}}</b></sc-if>&nbsp;·&nbsp;{{k.ty}}</span>
 <span class="k2-ln">{{k.cn}}&nbsp;·&nbsp;{{k.bd}}</span>
 <span class="k2-meta"><span class="{{k.wcls}}">{{k.w}}</span><span class="k2-pl">Доля {{k.cm}}%</span></span>
 <span class="k2-ln k2-ell" title="{{k.agl}}">{{k.agl}}</span>
@@ -962,10 +1007,10 @@
 <div class="{{it.cls}}" style="{{rsty}}">
 <sc-if value="{{it.v.id}}" hint-placeholder-val="{{ true }}">
 <div class="c-num">
-<sc-if value="{{it.hasAg}}" hint-placeholder-val="{{ true }}"><b class="k2-id">{{it.id}}</b></sc-if><sc-if value="{{it.noAg}}" hint-placeholder-val="{{ false }}"><b class="k2-id">Своя<span class="kl-tp"><button type="button" class="k2-ib k2-ib--s" aria-label="Подсказка" aria-haspopup="true" aria-expanded="{{it.tipOn}}" onClick="{{it.tipTog}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></button><sc-if value="{{it.tipOn}}" hint-placeholder-val="{{ false }}"><button type="button" class="kl-mn__away" aria-label="Закрыть" onClick="{{it.tipTog}}"></button><span class="kl-tp__p" role="note">Номер есть у заявок от агентов</span></sc-if></span></b></sc-if>
+<sc-if value="{{it.hasAg}}" hint-placeholder-val="{{ true }}"><b class="k2-id">{{it.id}}</b></sc-if><sc-if value="{{it.noAg}}" hint-placeholder-val="{{ false }}"><b class="k2-id k2-id--own" title="{{it.ownId}}">{{it.ownId}}</b></sc-if>
 <span class="k2-kind">
 <sc-if value="{{it.kd_bld}}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></sc-if>
-<sc-if value="{{it.kd_pin}}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></sc-if>{{it.ty}}</span>
+<sc-if value="{{it.kd_pin}}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></sc-if><sc-if value="{{it.tyShow}}" hint-placeholder-val="{{ true }}">{{it.ty}}</sc-if></span>
 </div>
 </sc-if>
 <div class="c-nm">
@@ -975,6 +1020,7 @@
 </div>
 <sc-if value="{{it.v.cn}}" hint-placeholder-val="{{ true }}"><div class="c-cn"><b>{{it.cn}}</b><span class="k2-ln">{{it.bd}}</span></div></sc-if>
 <sc-if value="{{it.v.pr}}" hint-placeholder-val="{{ true }}"><div class="c-pr"><span class="k2-ell" title="{{it.pj}}">{{it.pj}}</span><span class="k2-ln k2-ell">{{it.pj2}}</span></div></sc-if>
+<sc-if value="{{it.v.lt}}" hint-placeholder-val="{{ true }}"><div class="c-lt" title="{{it.lt}}"><span class="k2-lab">Тип лота</span>{{it.lt}}</div></sc-if>
 <sc-if value="{{it.v.ag}}" hint-placeholder-val="{{ true }}"><div class="c-ag" title="{{it.ag}}"><span class="k2-lab">Агент</span><span class="k2-ell">{{it.ag}}</span></div></sc-if>
 <sc-if value="{{it.v.wm}}" hint-placeholder-val="{{ true }}"><div class="c-wm"><span class="{{it.wcls}}">{{it.w}}</span></div></sc-if>
 <sc-if value="{{it.v.st}}" hint-placeholder-val="{{ true }}">
@@ -1012,6 +1058,26 @@
 </sc-if>
 </sc-for>
 </div>
+<sc-if value="{{pg.on}}" hint-placeholder-val="{{ true }}">
+<div class="kl-pg" role="navigation" aria-label="Страницы">
+<span class="kl-pg__n" role="status">Показано&nbsp;{{pg.shown}}&nbsp;из&nbsp;{{pg.total}}</span>
+<sc-if value="{{pg.more}}" hint-placeholder-val="{{ true }}"><button type="button" class="btn" onClick="{{pg.doMore}}"><span>Показать ещё</span></button></sc-if>
+<div class="cs">
+<button type="button" class="select cs__btn" aria-haspopup="listbox" aria-expanded="{{fdd.pp}}" aria-label="На странице" onClick="{{ftgdd.pp}}">
+<span class="cs__val">{{pg.ppl}}</span>
+</button>
+<sc-if value="{{fdd.pp}}">
+<div class="cs__pop">
+<ul class="cs__list" role="listbox" aria-label="На странице">
+<sc-for list="{{ppopts}}" as="o" hint-placeholder-count="3">
+<li class="cs__opt" role="option" tabindex="0" onKeyDown="{{o.key}}" aria-selected="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</li>
+</sc-for>
+</ul>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
 </sc-if>
 </section>
 <sc-if value="{{showReject}}" hint-placeholder-val="{{ false }}"><div class="pv-ovl" style="{{ovlStyle}}" onClick="{{closeOvl}}"><div class="pv-modal" role="dialog" aria-modal="true" aria-labelledby="rj-t" onClick="{{stop}}"><div class="modal__in"><div class="modal__head"><h2 id="rj-t">Отклонить?</h2><button type="button" class="btn btn--icon btn--quiet btn--round" aria-label="Закрыть" onClick="{{closeOvl}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="modal__body"><p>Заявка уйдёт другому партнёру и появится в Потерянных. Вернуть её нельзя.</p></div><div class="modal__foot"><button type="button" class="btn btn--danger" onClick="{{doReject}}">Отклонить</button><button type="button" class="btn btn--acc" onClick="{{closeOvl}}">Оставить</button></div></div></div></div></sc-if>
@@ -1029,7 +1095,7 @@ class Component extends DCLogic {
     super(props);
     try { if (!window.__hbEsc) { window.__hbEsc = 1; document.addEventListener("keydown", function (e) { try { if (e.key !== "Escape" || e.defaultPrevented) return; var v = function (x) { var r = x.getBoundingClientRect(); return r.width > 0 && r.height > 0 }, q = function (s) { return Array.prototype.filter.call(document.querySelectorAll(s), v) }; var o = q(".pv-ovl,.k3-ovl,.kl-ovl,.kl-scrim,.k3-scrim,.sa-scrim").pop() || q("[class*=away]").pop() || q('[aria-expanded="true"][aria-haspopup]').pop() || q('[aria-expanded="true"]').filter(function (x) { return !x.closest("main") }).pop(); if (o) { o.click(); e.preventDefault(); return } var d = q("details.kab__acc[open]").pop(); if (d) { d.removeAttribute("open"); e.preventDefault() } } catch (x) {} }) } } catch (x) {}
     try { if (!window.__hbTipFit) { window.__hbTipFit = 1; const fit = (e) => { try { const t = e.target && e.target.closest && e.target.closest("[data-tip]"); if (!t) return; const vw = document.documentElement.clientWidth, r = t.getBoundingClientRect(), c = document.createElement("canvas").getContext("2d"); c.font = "400 13px " + getComputedStyle(t).fontFamily; const w = Math.min(240, vw - 48, c.measureText(t.getAttribute("data-tip")).width + 26), l = t.classList.contains("x-w") ? r.left - 6 - w : t.classList.contains("k2-ib--r") ? r.right - w : r.left; let d = 0; if (l + w > vw - 8) d = vw - 8 - l - w; if (l + d < 8) d = 8 - l; t.style.setProperty("--tdx", d + "px"); } catch (x) {} }; document.addEventListener("mouseover", fit, true); document.addEventListener("focusin", fit, true); } } catch (x) {}
-    this.state = { toast: "", toastY: 120, ovlTop: 96, tab: (function () { try { return location.hash === "#lost" ? "lost" : "req"; } catch (x) { return "req"; } })(), view: (function () { try { return location.hash === "#board" ? "board" : "list"; } catch (x) { return "list"; } })(), hc: { cr: true }, f: {}, dd: "", fo: false, t: { "HB-10436": 185, "HB-10431": 702 }, gone: {}, took: {}, back: {}, open: {}, rej: "" };
+    this.state = { toast: "", toastY: 120, ovlTop: 96, tab: (function () { try { return location.hash === "#lost" ? "lost" : "req"; } catch (x) { return "req"; } })(), view: (function () { try { return location.hash === "#board" ? "board" : "list"; } catch (x) { return "list"; } })(), hc: { cr: true, lt: true }, shown: 10, pp: 25, f: {}, dd: "", fo: false, t: { "HB-10436": 185, "HB-10431": 702 }, gone: {}, took: {}, back: {}, open: {}, rej: "" };
   }
   componentDidMount() { this._iv = setInterval(() => this.tick(), 1000); this._hc = () => { try { const h = location.hash; if (h === "#lost") this.setState({ tab: "lost", f: {}, dd: "", fo: false }); else if (h === "#board") this.setState({ tab: "req", view: "board", f: {}, dd: "", fo: false }); } catch (x) {} }; window.addEventListener("hashchange", this._hc); }
   componentWillUnmount() { clearInterval(this._iv); clearTimeout(this._tt); window.removeEventListener("hashchange", this._hc); }
@@ -1074,7 +1140,7 @@ class Component extends DCLogic {
     const ST = { "Новые": "Новые", "Первый контакт": "Первый контакт", "Подбор": "Подбор", "Показ": "Показ", "Бронь": "Бронь", "Договор": "Договор", "Сделка": "Сделка", "Пауза": "Пауза", "Отказ": "Отказ" };
     const RS = { late: "Не принята за 15 мин", noans: "Нет ответа", refused: "Отказ партнёра" };
     const KEYS = lost ? RS : ST, ORDER = Object.keys(ST);
-    const sel = F.st || [], per = F.per || "30";
+    const sel = F.st || [], pers = F.pers || [];
     const q = (F.q || "").toLowerCase().trim(), qd = q.replace(/\D/g, "");
     const eff = (d, i) => {
       const o = Object.assign({ i }, d), took = !!S.took[d.id] && d.sk === "new";
@@ -1096,9 +1162,7 @@ class Component extends DCLogic {
       if (wmL && !lost && d.w !== wmL) return false;
       if (coL && d.cn !== coL) return false;
       const day = NOW - days;
-      if (per === "today" && days > 0) return false;
-      if (per === "7" && days > 7) return false;
-      if (per === "range" && F.from && (day < F.from || day > (F.to || F.from))) return false;
+      if (pers.length && !pers.some((p) => p === "today" ? days <= 0 : p === "7" ? days <= 7 : p === "range" ? (!F.from || (day >= F.from && day <= (F.to || F.from))) : true)) return false;
       return true;
     };
     const DEFDIR = { cr: -1, up: -1, bud: -1, as: -1, re: -1, loss: -1, cm: -1 };
@@ -1113,13 +1177,13 @@ class Component extends DCLogic {
     const reqs = live.filter((d) => okF(d, d.up)).sort(srt);
     const lostL = Lall.filter((d) => okF(d, d.ln)).map((d, i) => Object.assign({ i }, d)).sort(srt);
     const kh = (d) => "klienty-kartochka.dc.html#" + d.k;
-    const CD = [["id", "Заявка", "76px", "id"], ["nm", "Клиент", "minmax(0, 1.4fr)", "name"], ["cn", "Страна", "96px", "cn"], ["pr", "Проект", "minmax(0, 1.2fr)", "pj"], ["ag", "Агент", "minmax(0, 1fr)", "ag"], ["wm", "Теплота", "84px", "warm"], ["st", "Этап", "128px", "st"], ["cm", "Комиссия", "76px", "cm"], ["cr", "Создана", "56px", "cr"], ["up", "Обновлена", "68px", "up"]];
+    const CD = [["id", "Заявка", "112px", "id"], ["nm", "Клиент", "minmax(0, 1.4fr)", "name"], ["cn", "Страна", "96px", "cn"], ["pr", "Проект", "minmax(0, 1.2fr)", "pj"], ["lt", "Тип лота", "112px", "ty"], ["ag", "Агент", "minmax(0, 1fr)", "ag"], ["wm", "Теплота", "84px", "warm"], ["st", "Этап", "128px", "st"], ["cm", "Комиссия", "76px", "cm"], ["cr", "Создана", "56px", "cr"], ["up", "Обновлена", "68px", "up"]];
     const vis = CD.filter((c) => c[0] === "nm" || !HC[c[0]]);
     const vmap = {}; CD.forEach((c) => { vmap[c[0]] = c[0] === "nm" || !HC[c[0]]; });
     const rsty = lost ? "--k2-cols: 100px minmax(0, 1.4fr) 84px 112px 120px 150px minmax(0, 1.2fr)" : "--k2-cols: " + vis.map((c) => c[2]).concat(["132px"]).join(" ");
     const mkRow = (d) => {
       const it = { cls: "k2-lr is-r" + (d.urg === "late" ? " is-late" : d.urg === "soon" ? " is-soon" : ""), id: d.id, n: d.n, pj: d.ty === "Проект" ? d.pj : "-", pj2: d.ty === "Проект" ? "" : d.pj, bd: money(d.b), cn: d.cn, ty: d.ty, ag: d.ag || "Своя ссылка", hasAg: !!d.ag, w: d.w, wcls: WCLS[d.w], pt: d.pt, ph: d.ph, hasPh: !d.hid, stg: d.stg, nc: !!d.nc, tg: d.tg, cr: dOf(d.cr), up: dOf(d.up), pcls: "k2-pl is-" + d.pc, cm: d.cm, cmp: d.cm + "%", agl: d.ag ? "Агент: " + d.ag : "Своя ссылка", v: vmap };
-      it.kd_bld = d.ty === "Проект"; it.kd_pin = d.ty !== "Проект"; it.byl = !!d.byl; it.pi_timer = !!d.pi;
+      it.lt = d.ty === "Проект" ? "Выбрал проект" : "Выбрал страну"; it.ownId = "Своя ссылка, " + d.id; it.tyShow = !vmap.lt; it.kd_bld = d.ty === "Проект"; it.kd_pin = d.ty !== "Проект"; it.byl = !!d.byl; it.pi_timer = !!d.pi;
       it.noAg = !d.ag; it.hCl = "soobshcheniya.dc.html#cl:" + d.id + ":wa"; it.tel = "tel:+" + d.p; it.kh = kh(d); it.hBron = kh(d) + ":bron"; it.hasBron = ["book", "contract", "deal"].indexOf(d.sk) >= 0; it.hasOc = !!d.oc; it.oc = "Ещё страны: " + d.oc; it.occ = "k2-pl kk-tip " + (d.og ? "is-ok" : "is-err"); it.ocTip = d.og ? "Клиент рассматривает ещё страны, заявки других партнёров вам не видны" : "Остальные страны клиента закрыты, заявки других партнёров вам не видны";
       it.tipOn = S.tip === d.id; it.tipTog = (e) => { try { e.stopPropagation(); e.preventDefault(); } catch (x) {} this.setState({ tip: S.tip === d.id ? "" : d.id }); };
       it.isNew = d.sk === "new" && !!d.rj; it.canCancel = (d.sk === "book" || d.sk === "contract" || d.sk === "deal") && !(S.gone && S.gone[d.id]); it.hCancel = kh(d) + ":cancel"; it.askRej = (e) => this.setState({ rej: d.id, ovlTop: this.ovl(e) }); it.hasMore = it.isNew || it.canCancel; it.mnOn = S.mn === d.id; it.mnTog = () => this.setState({ mn: S.mn === d.id ? "" : d.id }); it.mnRej = (e) => { this.setState({ mn: "" }); it.askRej(e); };
@@ -1138,18 +1202,25 @@ class Component extends DCLogic {
     const dd = S.dd, n = lost ? lostL.length : reqs.length;
     const keys = Object.keys(KEYS);
     const stl = !sel.length ? (lost ? "Все причины" : "Все статусы") : sel.length < 3 ? sel.map((x) => KEYS[x]).join(", ") : (lost ? "Причины" : "Статусы") + ": " + sel.length;
-    const PER = { "30": "30 дней", today: "Сегодня", "7": "7 дней", range: "Свои даты" };
+    const PER = { today: "Сегодня", "7": "7 дней", "30": "30 дней", range: "Свои даты" };
     const SORT = lost ? { as: "Назначена", bud: "Бюджет", loss: "Потеря" } : { urg: "Без ответа", cr: "Создана", up: "Обновлена", bud: "Бюджет", warm: "Теплота", cm: "Комиссия" };
     const key = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); (e.currentTarget || e.target).click(); } };
     const stopts = [{ label: lost ? "Все причины" : "Все статусы", on: !sel.length, key, pick: () => this.fset({ st: [] }) }].concat(keys.map((k) => ({ label: KEYS[k], on: sel.indexOf(k) >= 0, key, pick: () => { const a = sel.slice(), i = a.indexOf(k); if (i >= 0) a.splice(i, 1); else a.push(k); this.fset({ st: a }); } })));
-    const peropts = Object.keys(PER).map((k) => ({ label: PER[k], on: per === k, key, pick: () => this.fset(k === "range" ? { per: k } : { per: k, from: 0, to: 0 }) || this.setState({ dd: k === "range" ? "cal" : "" }) }));
+    const peropts = [{ label: "Любой период", on: !pers.length, key, pick: () => this.fset({ pers: [], from: 0, to: 0 }) }].concat(Object.keys(PER).map((k) => ({ label: PER[k], on: pers.indexOf(k) >= 0, key, pick: () => { const a = pers.slice(), i = a.indexOf(k); if (i >= 0) a.splice(i, 1); else a.push(k); if (k === "range") { this.fset(i >= 0 ? { pers: a, from: 0, to: 0 } : { pers: a }); this.setState({ dd: i >= 0 ? "per" : "cal" }); } else this.fset({ pers: a }); } })));
     const sortopts = Object.keys(SORT).map((k) => ({ label: SORT[k], on: sort === k, key, pick: () => { this.fset({ sort: k, dir: 0 }); this.setState({ dd: "" }); } }));
     const mk1 = (fld, all, vs) => [{ label: all, on: !F[fld], key, pick: () => { this.fset({ [fld]: "" }); this.setState({ dd: "" }); } }].concat(vs.map((v) => ({ label: v, on: F[fld] === v, key, pick: () => { this.fset({ [fld]: v }); this.setState({ dd: "" }); } })));
     const tyopts = mk1("ty", "Все типы", ["Страна", "Проект"]), wmopts = mk1("wm", "Любая", ["Горячий", "Тёплый", "Холодный"]), coopts = mk1("co", "Все страны", ["Грузия", "Турция"]);
     const colopts = CD.map((c) => c[0] === "nm" ? { label: c[1], cls: "cs__opt is-dis", on: true, key, pick: () => this.say("Клиент виден всегда") } : { label: c[1], cls: "cs__opt", on: !HC[c[0]], key, pick: () => this.setState({ hc: Object.assign({}, HC, { [c[0]]: !HC[c[0]] }) }) });
-    const days = []; for (let d = 1; d <= 30; d++) days.push({ n: d, off: d > NOW, on: !!F.from && d >= F.from && d <= (F.to || F.from), pick: () => { const a = F.from, b = F.to; if (!a || b) this.fset({ per: "range", from: d, to: 0 }); else this.fset({ per: "range", from: Math.min(a, d), to: Math.max(a, d) }); this.setState({ dd: "cal" }); } });
-    let perl = per === "range" && !F.from ? "Период" : PER[per]; if (per === "range" && F.from) perl = F.from + (F.to && F.to !== F.from ? "-" + F.to : "") + " ноя";
-    const prOn = per === "range" && !!F.from, prL = prOn ? "с " + F.from + (F.to && F.to !== F.from ? " по " + F.to : "") + " ноя" : "", calLine = prOn ? (F.to && F.to !== F.from ? "С " + F.from + " по " + F.to + " ноя" : "С " + F.from + " ноя, выберите конец") : "С … по …";
+    const fldopts = CD.filter((c) => c[0] !== "id" && c[0] !== "nm").map((c) => ({ label: c[1], on: !HC[c[0]], key, pick: () => this.setState({ hc: Object.assign({}, HC, { [c[0]]: !HC[c[0]] }) }) }));
+    const r0 = reqs.length, filt = !!(q || sel.length || tyL || wmL || coL || pers.length);
+    const total = filt || !r0 ? r0 : Math.round(r0 * 124.8), shownN = Math.min(S.shown || 10, total);
+    for (let i = r0; i < shownN; i++) { const b = reqs[i % r0], cy = Math.floor(i / r0), it = mkRow(b), nid = "HB-" + (parseInt(b.id.slice(3), 10) - 137 * cy); it.id = nid; it.ownId = "Своя ссылка, " + nid; items.push(Object.assign(it, { rR: true })); }
+    const ppopts = [25, 50, 100].map((v) => ({ label: "По " + v, on: S.pp === v, key, pick: () => this.setState({ pp: v, shown: v, dd: "" }) }));
+    const pg = { on: !lost && tab === "req" && S.view === "list" && total > 0, shown: grp(shownN), total: grp(total), more: shownN < total, ppl: "По " + S.pp, doMore: (e) => { const add = Math.min(S.pp, total - shownN); this.setState({ shown: shownN + add }); this.say("Загружено ещё " + add, e); } };
+    const days = []; for (let d = 1; d <= 30; d++) days.push({ n: d, off: d > NOW, on: !!F.from && d >= F.from && d <= (F.to || F.from), pick: () => { const a = F.from, b = F.to, addR = pers.indexOf("range") < 0 ? pers.concat("range") : pers; if (!a || b) this.fset({ pers: addR, from: d, to: 0 }); else this.fset({ pers: addR, from: Math.min(a, d), to: Math.max(a, d) }); this.setState({ dd: "cal" }); } });
+    const pname = (k) => k === "range" ? (F.from ? F.from + (F.to && F.to !== F.from ? "-" + F.to : "") + " ноя" : "Свои даты") : PER[k];
+    const perl = !pers.length ? "Период" : pers.length === 1 ? pname(pers[0]) : "Периоды: " + pers.length;
+    const prOn = pers.indexOf("range") >= 0 && !!F.from, prL = prOn ? "с " + F.from + (F.to && F.to !== F.from ? " по " + F.to : "") + " ноя" : "", calLine = prOn ? (F.to && F.to !== F.from ? "С " + F.from + " по " + F.to + " ноя" : "С " + F.from + " ноя, выберите конец") : "С … по …";
     const tabs = {}, tabgo = {};
     ["req", "lost"].forEach((k) => { tabs[k] = tab === k; tabgo[k] = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: k, f: {}, dd: "", fo: false }); }; });
     const vw = { list: S.view === "list", board: S.view === "board" }, vwgo = { list: () => this.setState({ view: "list" }), board: () => this.setState({ view: "board" }) };
@@ -1162,10 +1233,10 @@ class Component extends DCLogic {
       showBoard: tab === "req" && S.view === "board", showTable: !(tab === "req" && S.view === "board"), hasTy: !lost, hasWm: !lost, hasCols: !lost && S.view === "list", colopts,
       ph: lost ? "Номер, имя, страна" : "Имя, телефон, номер, агент", stname: lost ? "Причина" : "Статус",
       fq: F.q || "", onq: (e) => this.fset({ q: e.target.value }), fany: !!dd, fclose: () => this.setState({ dd: "" }), fox: !!S.fo, ftg: () => this.setState({ fo: !S.fo }),
-      fdd: { st: dd === "st", per: dd === "per" || dd === "cal", sort: dd === "sort", cal: dd === "cal", ty: dd === "ty", wm: dd === "wm", co: dd === "co", col: dd === "col" },
-      ftgdd: { st: () => this.setState({ dd: dd === "st" ? "" : "st" }), per: () => this.setState({ dd: dd === "per" ? "" : "per" }), sort: () => this.setState({ dd: dd === "sort" ? "" : "sort" }), ty: () => this.setState({ dd: dd === "ty" ? "" : "ty" }), wm: () => this.setState({ dd: dd === "wm" ? "" : "wm" }), co: () => this.setState({ dd: dd === "co" ? "" : "co" }), col: () => this.setState({ dd: dd === "col" ? "" : "col" }) },
-      flc: { ty: F.ty ? "" : "is-ph", wm: F.wm ? "" : "is-ph", co: F.co ? "" : "is-ph" }, fl: { st: stl, per: perl, sort: SORT[sort] || "Порядок", ty: F.ty || "Тип", wm: F.wm || "Теплота", co: F.co || "Страна" },
-      stopts, peropts, sortopts, tyopts, wmopts, coopts, days, fcalclr: () => { this.fset({ per: "30", from: 0, to: 0 }); this.setState({ dd: "" }); }, fn: n,
+      fdd: { st: dd === "st", per: dd === "per" || dd === "cal", sort: dd === "sort", cal: dd === "cal", ty: dd === "ty", wm: dd === "wm", co: dd === "co", col: dd === "col", fld: dd === "fld", pp: dd === "pp" },
+      ftgdd: { st: () => this.setState({ dd: dd === "st" ? "" : "st" }), per: () => this.setState({ dd: dd === "per" ? "" : "per" }), sort: () => this.setState({ dd: dd === "sort" ? "" : "sort" }), ty: () => this.setState({ dd: dd === "ty" ? "" : "ty" }), wm: () => this.setState({ dd: dd === "wm" ? "" : "wm" }), co: () => this.setState({ dd: dd === "co" ? "" : "co" }), col: () => this.setState({ dd: dd === "col" ? "" : "col" }), fld: () => this.setState({ dd: dd === "fld" ? "" : "fld" }), pp: () => this.setState({ dd: dd === "pp" ? "" : "pp" }) },
+      flc: { per: pers.length ? "" : "is-ph", ty: F.ty ? "" : "is-ph", wm: F.wm ? "" : "is-ph", co: F.co ? "" : "is-ph" }, fl: { st: stl, per: perl, sort: SORT[sort] || "Порядок", ty: F.ty || "Тип", wm: F.wm || "Теплота", co: F.co || "Страна" },
+      stopts, peropts, sortopts, tyopts, wmopts, coopts, days, fcalclr: () => { this.fset({ pers: pers.filter((x) => x !== "range"), from: 0, to: 0 }); this.setState({ dd: "" }); }, fn: n, hasFn: !(tab === "req" && S.view === "list"), fldopts, ppopts, pg,
       prOn, prL, calLine, fsh: !!sel.length, fshl: sel.map((x) => KEYS[x]).join(", "), fsx: () => this.fset({ st: [] }), fempty: n === 0, freset: () => this.setState({ f: {} }),
       showReject: !!S.rej, ovlStyle: "padding-top:" + S.ovlTop + "px", closeOvl: () => this.setState({ rej: "" }), stop: (e) => e.stopPropagation(),
       doReject: (e) => { const id = S.rej; this.setState({ rej: "", gone: Object.assign({}, S.gone, { [id]: "refused" }) }); this.say("Заявка " + id + " в Потерянных. Причина: отказ", e); } };

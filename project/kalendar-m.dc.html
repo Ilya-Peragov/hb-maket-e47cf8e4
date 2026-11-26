@@ -1030,7 +1030,7 @@
 .hb.kab--agent .kc__ad { display: grid; gap: 16px; }
 
 .hb.kab--agent .kc { grid-template-columns: minmax(0, 1fr); gap: 16px; }
-.hb.kab--agent .kc__side { position: static; }
+.hb.kab--agent .kc__side { position: static; scroll-margin-top: 68px; }
 
 .hb.kab--agent .kc { --kc-h: 62px; --kc-top: 28px; --kc-lane: 10px; --kc-bh: 6px; }
 .hb.kab--agent .kc__dow span { padding: 4px 2px; text-align: center; }
@@ -1092,7 +1092,8 @@ class Component extends DCLogic {
     
     this.state = { y: 2026, m: 10, sel: "2026-11-17", done: {}, extra: [], add: null, toast: "", seq: 0 };
   }
-  componentWillUnmount() { clearTimeout(this._tm); }
+  componentWillUnmount() { clearTimeout(this._tm); clearTimeout(this._jt); }
+  jump() { clearTimeout(this._jt); this._jt = setTimeout(() => { try { if (window.innerWidth >= 900) return; const e = document.querySelector(".kc__side"); if (e) e.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (x) {} }, 80); }
   say(t) { this.setState({ toast: t }); clearTimeout(this._tm); this._tm = setTimeout(() => this.setState({ toast: "" }), 4200); }
   renderVals() {
     const S = this.state, set = (o) => this.setState(o);
@@ -1158,7 +1159,7 @@ class Component extends DCLogic {
         n: String(t.getUTCDate()), cls: (out ? "is-out " : "") + (s === TODAY ? "is-today" : ""), on: S.sel === s,
         aria: t.getUTCDate() + " " + MG[t.getUTCMonth()] + (n ? ", дел: " + n : ", дел нет") + (b ? ", есть занятость" : ""),
         hasCnt: n > 0, cnt: String(n), cntT: word(n, "дело", "дела", "дел"), busy: b,
-        go: () => out ? set({ y: t.getUTCFullYear(), m: t.getUTCMonth(), sel: s }) : set({ sel: s })
+        go: () => { out ? set({ y: t.getUTCFullYear(), m: t.getUTCMonth(), sel: s }) : set({ sel: s }); this.jump(); }
       });
     }
     /* полосы многодневных дел */
@@ -1170,7 +1171,7 @@ class Component extends DCLogic {
         let l = 0; while (lanes[l] !== undefined && lanes[l] >= c1) l++;
         lanes[l] = c2;
         const segStart = dayIso[r * 7 + c1];
-        bars.push({ t: e.t, aria: e.t + ", " + dmy(e.a) + " - " + dmy(e.b), cls: e.k, st: "grid-row:" + (r + 1) + ";grid-column:" + (c1 + 1) + " / span " + (c2 - c1 + 1) + ";--l:" + l, go: () => set({ sel: segStart }) });
+        bars.push({ t: e.t, aria: e.t + ", " + dmy(e.a) + " - " + dmy(e.b), cls: e.k, st: "grid-row:" + (r + 1) + ";grid-column:" + (c1 + 1) + " / span " + (c2 - c1 + 1) + ";--l:" + l, go: () => { set({ sel: segStart }); this.jump(); } });
       });
     }
     /* дела выбранного дня */
