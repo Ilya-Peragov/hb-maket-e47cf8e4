@@ -95,7 +95,7 @@ main.inst=new main.C({}); restore(main.inst); window.__inst=main.inst;
 const mv=main.inst; mv.componentDidMount&&mv.componentDidMount();
 render();
 (function(){const b=document.createElement('div');b.id='hbm-tools';
-const mob=innerWidth<=768;
+const mob=innerWidth<=768||forced==='m';
 const FF='font-family:"IBM Plex Sans",system-ui,sans-serif;';
 const lk=document.createElement('a');lk.href='screens.html';lk.textContent='Все экраны';
 const bt=document.createElement('button');bt.type='button';bt.textContent='Сбросить';bt.id='hbm-reset';
